@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- INLUCDE THE HEADER IN THE PAGE.-->
+    <head>
+      <link rel="stylesheet" href="/styling/main/custom-style.css">
+    </head>
+    <%- include(headerPath, {
+      bot, user, path,
+      description: 'The Discord Bot with a little bit of Attitude!',
+      description2: 'The Discord Bot with a little bit of Attitude!',
+      title: 'Tox Mod | Home',
+      main_title: 'Tox Mod | Home',
+      image: 'none',
+      }) 
+    %>
+    <!-- START THE ACTUAL PAGE BODY.. YEET. -->
+    <body>
+    <!-- INCLUDE THE NAVBAR IN THE PAGE. -->
+    <div class="bigthingy row">
+      <div class="seeme col-md-8 offset-md-2 row">
+        <div class="seeme col-sm-2 sinfo">
+          <p id="bigytxt" class="bigyimg"><img src="images/ToxModLogo.gif" style="width:88px; border-radius:50%;"/></p>
+        </div>
+        <div class="seeme col-sm-10 sinfo">
+          <p id="bigytxt"><span style="font-size:25px; font-weight:bold;">Tox Mod</span><br /><span class="typed"></span></p>
+        </div>
+      </div>
+      </div>
+      <br />
+
+    <%- include(navbarPath, { bot, user, path }) %>
+    
+   <!-- START LIST OF BOT FEATURES --> 
+    <div class="container">
+      <br><br>
+      <div class="column">
+        <p class="has-text-white title is-large"><i class="fas fa-exclamation-circle"></i>&nbsp;Features</p>
+        </div>
+        <div class="columns is-multiline is-desktop is-variable is-7 pt-5">
+          <div class="col-md-6 col-lg-4 pb-3">
+            <div class="card card-custom bg-tox border-white border-0">
+              <div class="card-custom-img" style="background-image: url('https://camo.githubusercontent.com/3f70c65738de04edd2497bb13bea32f170354f1b1e32fdb28f14d8388fcfed02/68747470733a2f2f692e696d6775722e636f6d2f6c30736e7442752e706e67');"></div>
+              <div class="card-body">
+                <h1 translate="no" class="card-title">Auto-Moderation</h1>
+                <p translate="no" class="card-text toxbotDesc">Anti-Spam, Anti-Raid and Anti-Links/Invites and more. All the Auto-Mod features you need to help keep your Server Toxicity Free and your Members Happy!</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 pb-3">
+            <div class="card card-custom bg-tox border-white border-0">
+              <div class="card-custom-img" style="background-image: url('https://cdn.discordapp.com/attachments/634456090909605908/857525964669059082/ToxicModBanner.png');"></div>
+              <div class="card-body">
+                <h1 translate="no" class="card-title">Custom Dashboard</h1>
+                <p translate="no" class="card-text toxbotDesc">Update your Server Settings, Manage the Bots Settings, View Server and Global Infractions and more. All from the comfort of your Phone or PC.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 pb-3">
+            <div class="card card-custom bg-tox border-white border-0">
+              <div class="card-custom-img" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTffKmfLJcTfzrSC8OXHEqstFN-Chqn4gR6rA&usqp=CAU');"></div>
+              <div class="card-body">
+                <h1 translate="no" class="card-title">Custom Warn System</h1>
+                <p translate="no" class="card-text toxbotDesc">Let your Members know when they do something wrong, Keep track of who has been warned for what. Saved globally to be viewed/user as a Reputation System</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 pb-3">
+            <div class="card card-custom bg-tox border-white border-0">
+              <div class="card-custom-img" style="background-image: url('data:image/jpeg;base64,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');"></div>
+              <div class="card-body">
+                <h1 translate="no" class="card-title">Channel Lockdowns</h1>
+                <p translate="no" class="card-text toxbotDesc">Lock and Unlock your Server Channels to keep out those pesky Spammers, Raiders, Losers and Keyboard Warriors!</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 pb-3">
+            <div class="card card-custom bg-tox border-white border-0">
+              <div class="card-custom-img" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_a6imMPWHK7eoUXY5PvnMvHiDNQ5_n4k-FQ&usqp=CAU');"></div>
+              <div class="card-body">
+                <h1 translate="no" class="card-title">Welcome/Leave System</h1>
+                <p translate="no" class="card-text toxbotDesc">Enable and Customize Tox Mods Welcome and Leave Messages in your server. Let users know where to find the Rules, Useful Info and more!</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 pb-3">
+            <div class="card card-custom bg-tox border-white border-0">
+              <div class="card-custom-img" style="background-image: url('https://ps.w.org/lh-javascript-error-log/assets/banner-772x250.jpg?rev=2512540');"></div>
+              <div class="card-body">
+                <h1 translate="no" class="card-title">Advanced Loggin</h1>
+                <p translate="no" class="card-text toxbotDesc">Tox Mod logs Any and All Server/Moderator related actions. To help keep you and your staff in the know!</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 pb-3">
+            <div class="card card-custom bg-tox border-white border-0">
+              <div class="card-custom-img" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNyot-Q72OVToXzionlTfVHpkOF37IAH3P8Q&usqp=CAU');"></div>
+              <div class="card-body">
+                <h1 translate="no" class="card-title">Case Management</h1>
+                <p translate="no" class="card-text toxbotDesc">View a users Global Warns, Bans, Kicks Mutes and more. Keep track of who is up to what and should or shouldn't be trusted!</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 pb-3">
+            <div class="card card-custom bg-tox border-white border-0">
+              <div class="card-custom-img" style="background-image: url('data:image/jpeg;base64,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');"></div>
+              <div class="card-body">
+                <h1 translate="no" class="card-title">Audit Logs</h1>
+                <p translate="no" class="card-text toxbotDesc">Stay Up-To Date with when a User updates your Server Settings, Channels, Bans etc.!</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 pb-3">
+            <div class="card card-custom bg-tox border-white border-0">
+              <div class="card-custom-img" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUfDzJ6_4Nl2eb58oqLwc2umcOW39wL75i8w&usqp=CAU');"></div>
+              <div class="card-body">
+                <h1 translate="no" class="card-title">Auto Roles</h1>
+                <p translate="no" class="card-text toxbotDesc">Automatically assign roles to Users and Bots when they join the server!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- START LIST OF OUR STAFF MEMBERS -->
+      <div class="container">
+        <br><br>
+        <div class="column">
+          <p class="has-text-white title is-large"><i class="fa fa-users"></i>&nbsp;Staff</p>
+          </div>
+          <div class="columns is-multiline is-desktop is-variable is-7 pt-5">
+            <div class="col-md-6 col-lg-4 pb-3">
+              <div class="card card-custom bg-tox border-white border-0">
+                <div class="card-custom-img" style="background-image: url('https://camo.githubusercontent.com/3f70c65738de04edd2497bb13bea32f170354f1b1e32fdb28f14d8388fcfed02/68747470733a2f2f692e696d6775722e636f6d2f6c30736e7442752e706e67');"></div>
+                <div class="card-body">
+                  <h1 translate="no" class="card-title">Auto-Moderation</h1>
+                  <p translate="no" class="card-text toxbotDesc">Anti-Spam, Anti-Raid and Anti-Links/Invites and more. All the Auto-Mod features you need to help keep your Server Toxicity Free and your Members Happy!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    <br><br><br><br><br><br>
+
+    </body>
+
+ <br><br><br><br><br><br>
+
+    <!-- RANDOM SCRIPT FOR THE NAVBAR STUFF -->
+<script>
+  var typed = new Typed('.typed', {
+    strings: [
+              "The Discord Bot with a little bit of Attitude!",
+              "Making it Easier to Moderate your Server since 2020"
+            ],
+    typeSpeed: 80,
+    backSpeed: 70,
+    loop: true,
+    backDelay: 3000,
+    contentType: 'html'
+  });
+  </script>
+
+    <!-- INCLUDE THE WEBSITE FOOTER -->
+    <%- include(footerPath, { bot, user, path }) %>
+</html>

@@ -1,0 +1,55 @@
+{
+    "name": "toxic-mod",
+    "version": "2.0.0",
+    "description": "The Discord Moderation Bot with a little bot of Attitude.",
+    "author": "TheRealToxicDev <toxic.dev09@gmail.com>",
+    "main": "client/index.js",
+    "scripts": {
+        "website": "node ./website/server.js",
+        "manager": "node ./client/index.js"
+    },
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "connect-mongo": "^3.2.0",
+        "discord.js": "^12.3.1",
+        "ejs": "^3.1.5",
+        "express": "^4.17.1",
+        "express-session": "^1.17.1",
+        "fs": "0.0.1-security",
+        "infinityapi.js": "^1.0.5",
+        "install": "^0.13.0",
+        "marked": "^2.1.2",
+        "memorystore": "^1.6.2",
+        "module-alias": "^2.2.2",
+        "moment": "^2.27.0",
+        "mongoose": "^5.10.5",
+        "ms": "^2.1.2",
+        "node-fetch": "^2.6.1",
+        "parse-ms": "^2.1.0",
+        "passport": "^0.4.1",
+        "passport-discord": "^0.1.4",
+        "path": "^0.12.7",
+        "unirest": "^0.6.0"
+    },
+    "engines": {
+        "node": "12.x"
+    },
+    "_moduleAliases": {
+        "@root": ".",
+        "@Client": "./client",
+        "@Utils": "./client/utils",
+        "@Embeds": "./client/utils/embeds",
+        "@Images": "./client/utils/images",
+        "@Colors": "./client/utils/colors",
+        "@Structure": "./client/struct",
+        "@Templates": "./utilitys/temp",
+        "@DiscordAPI": "./utilitys/discord",
+        "@Authorization": "./utilitys/auth",
+        "@LegalInfo": "./website/public/legal/md",
+        "@Storage": "./utilitys/storage",
+        "@Routes": "./website/routes",
+        "@Settings": "./settings",
+        "@Database": "./models",
+        "@modules": "./modules"
+    }
+}

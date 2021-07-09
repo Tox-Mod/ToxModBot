@@ -1,0 +1,36 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="refresh" content="0;URL=https://discord.com/api/oauth2/authorize?client_id=631558023109804032&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Fcallback&response_type=code&scope=guilds%20identify%20messages.read" />
+  <%- include(headerPath, {
+    bot, user, path,
+    description: 'Join the Toxic FX Server for Updates, Support, Bug Reports and Ban Appeals regarding Tox Mod.',
+    description2: 'Join the Toxic FX Server for Updates, Support, Bug Reports and Ban Appeals regarding Tox Mod.',
+    title: 'Tox Mod | Discord Server',
+    main_title: 'Tox Mod | Discord Server',
+    image: 'none',
+    }) 
+  %>
+</head>
+<body>
+    <%- include('../parts/navbar', { bot, user }) %>
+    <div class="bigthingy row">
+    <div class="seeme col-md-8 offset-md-2 row">
+      <div class="seeme col-sm-2 sinfo">
+        <p id="bigytxt" class="bigyimg" style="font-size:88px;"><i class="fas fa-exclamation-circle"></i></p>
+      </div>
+      <div class="seeme col-sm-10 sinfo">
+          <p id="bigytxt"><span style="font-size:25px; font-weight:bold;">307 - Redirect in Progress!!</span>
+      </div>
+    </div>
+    </div>
+    <br /><br /><br /><br /><br /><br />
+  
+    <center>
+       <h2 style="color: white;">You're being redirected to our Discord Server.</h2>
+       <br />
+       <p style="color: white;">This process is automatic. If nothing happens or the redirect hangs please follow <a href="https://discord.com/api/oauth2/authorize?client_id=631558023109804032&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Fcallback&response_type=code&scope=guilds%20identify%20messages.read">This Link</a></p>
+    </center>
+  
+  </body>
+</html>

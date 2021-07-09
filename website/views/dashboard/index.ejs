@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- INLUCDE THE HEADER IN THE PAGE.-->
+    <head>
+      <link rel="stylesheet" href="/styling/main/custom-style.css">
+    </head>
+    <%- include(headerPath, {
+      bot, path,
+      description: 'Manage your Guild, Update the Bots Settings and more with the Tox Mod Dashboard',
+      description2: 'Manage your Guild, Update the Bots Settings and more with the Tox Mod Dashboard',
+      title: `Tox Mod | Dashboard`,
+      main_title: `Tox Mod | Dashboard`,
+      image: 'none',
+      }) 
+    %>
+    <!-- START THE ACTUAL PAGE BODY.. YEET. -->
+    <body>
+
+    <!-- INCLUDE THE NAVBAR IN THE PAGE. -->
+    <div class="bigthingy row">
+      <div class="seeme col-md-8 offset-md-2 row">
+        <div class="seeme col-sm-2 sinfo">
+          <p id="bigytxt" class="bigyimg"><img src="https://toxmod.xyz/images/5D72D446-8F49-43B2-8924-A2E1CA45AC01.gif" style="width:88px; border-radius:50%;"/></p>
+        </div>
+        <div class="seeme col-sm-10 sinfo">
+          <p id="bigytxt"><span style="font-size:25px; font-weight:bold;">Tox Mod</span><br /><span class="typed"></span></p>
+        </div>
+      </div>
+      </div>
+      <br />
+
+    <%- include(navbarPath, { bot, user, path }) %>
+
+    <div class="container px-3 px-3 mt-5 pt-5">
+
+        <% bot.guilds.forEach(guild => { %>
+            <% const permsForGuild = new perms(guild.permissions); %>
+            <% if (!permsForGuild.has('MANAGE_GUILD')) return; %>
+
+            <% iconURL = ''; %>
+            <% if (!guild.iconURL) { %>
+                <% iconURL = 'https://maxcdn.icons8.com/Share/icon/Logos/discord_logo1600.png' %>
+            <% } else { %>
+                <% iconURL = `https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.png?size=256`; %>
+            <% } %>
+
+            <% let name = "..." %>
+            <% if(guild.name.length > 25) { %>
+              <% name = `${guild.name.slice(0,20)}...` %> 
+            <% }else{ %>
+                <% name = guild.name %>
+            <% } %>
+
+        <div class="columns container px-3 is-multiline">
+            <div class="column is-2">
+                <img draggable="false" src="<%= iconURL %>" alt="GuildICON" style="border-radius: 50%;">
+            </div>
+            <div class="column is-6">
+                <div class="card card-custom bg-tox border-white border-0">
+                    <div class="card-body">
+                      <center><h1 translate="no" class="card-title"><%= name %></h1></center>
+                      <hr style="background-color: white;">
+                      <span data-tooltip="Total Members" data-tooltip-location="left" class="badge badge-stats mb-vcodes mt-1 w-100"><i class="fad fa-chevron-up"></i>&nbsp;<%= guild.users.cache.size %></span>
+                      <span data-tooltip="Total Channels" data-tooltip-location="left" class="badge badge-stats mt-1 w-100"><i class="fad fa-server"></i>&nbsp;<%= guild.channels.cache.size %></span>
+                    </div>
+                    <div class="card-footer">
+                        <% if (bot.guilds.cache.get(guild.id)) { %>
+                            <a class="btn btn-success btn-sm btn-block" href="/dashboard/<%= guild.id %>" role="button"><i class="fa fa-tachometer"></i> Manage Guild</a>
+                        <% } else { %>
+                            <a class="btn btn-secondary btn-sm btn-block" href="https://discord.com/oauth2/authorize?client_id=<%= bot.user.id %>&disable_guild_select=true&permissions=268438576&scope=bot&guild_id=<%= guild.id %>" href=<%= `https://discordapp.com/oauth2/authorize?client_id=${bot.user.id}&scope=bot&guild_id=${guild.id}&response_type=code&redirect_uri=${encodeURIComponent(`${bot.config.domain}}${bot.config.port == 80 ? "" : `:${bot.config.port}`}/callback`)}` %> role="button"><i class="fa fa-plus"></i> Invite Tox Mod</a>
+                        <% } %>
+                    </div>
+                  </div>
+               </div>     
+             </div>
+           </div>
+
+    <% }); %>
+
+   </body>
+
+ <br><br><br><br><br><br>
+
+    <!-- INCLUDE THE WEBSITE FOOTER -->
+    <%- include(footerPath, { bot, path }) %>
+</html>

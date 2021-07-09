@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- INLUCDE THE HEADER IN THE PAGE.-->
+    <head>
+      <link rel="stylesheet" href="/styling/main/custom-style.css">
+    </head>
+    <%- include(headerPath, {
+      bot, user, path,
+      description: 'The Discord Bot with a little bit of Attitude!',
+      description2: 'The Discord Bot with a little bit of Attitude!',
+      title: 'Tox Mod | Home',
+      main_title: 'Tox Mod | Home',
+      image: 'none',
+      }) 
+    %>
+    <!-- START THE ACTUAL PAGE BODY.. YEET. -->
+    <body>
+    <!-- INCLUDE THE NAVBAR IN THE PAGE. -->
+    <div class="bigthingy row">
+      <div class="seeme col-md-8 offset-md-2 row">
+        <div class="seeme col-sm-2 sinfo">
+          <p id="bigytxt" class="bigyimg"><img src="https://toxmod.xyz/images/5D72D446-8F49-43B2-8924-A2E1CA45AC01.gif" style="width:88px; border-radius:50%;"/></p>
+        </div>
+        <div class="seeme col-sm-10 sinfo">
+          <p id="bigytxt"><span style="font-size:25px; font-weight:bold;">Tox Mod<sup> COMMANDS</sup></span><br /><span class="typed"></span></p>
+        </div>
+      </div>
+      </div>
+      <br />
+
+    <%- include(navbarPath, { bot, user, path }) %>
+
+  <!-- START THE INFORMATION COMMANDS -->
+    <div class="container">
+      <br><br>
+      <div class="column">
+        <p class="has-text-white title is-large"><i class="fas fa-exclamation-circle"></i>&nbsp;Information Commands</p>
+        <div class="columns is-multiline is-desktop is-variable is-7 pt-5">
+          <% bot.commands.filter(cmd => cmd.help.category == 'info').map(cmd => { %>
+            <div class="col-md-6 col-lg-4 pb-3">
+              <div class="card ibl-card-custom bg-ibl border-white border-0">
+                <div class="card-body">
+                  <h4 translate="no" class="card-title"><strong>Name: </strong><%= cmd.help.name %></h4>
+                  <hr style="background-color: white;">
+                  <p translate="no" class="card-text iblbotDesc">
+                    <strong>Description:</strong> <code><%= cmd.help.description %></code>
+                    <hr style="background-color: white;">
+                    <strong>User Permissions:</strong> <code><%= cmd.requirements.userPerms %></code>
+                    <br /><br />
+                    <strong>Bot Permissions:</strong> <code><%= cmd.requirements.clientPerms %></code>
+                    <br /><br />
+                    <strong>Aliases:</strong> <code><%= cmd.help.aliases %></code>
+                    <br /><br />
+                    <strong>Cooldown:</strong> <code><%= cmd.limits.cooldown %></code>
+                    <br /><br />
+                    <strong>Ratelimit:</strong> <code><%= cmd.limits.rateLimit %></code>
+                  </p>
+                </div>
+              </div>
+            </div>
+          <% }) %>
+        </div>
+      </div>
+    </div>
+
+        <!-- START THE MODERATION COMMANDS -->
+          <div class="container">
+            <br><br>
+            <div class="column">
+              <p class="has-text-white title is-large"><i class="fa fa-gavel"></i>&nbsp;Moderation</p>
+              </div>
+              <div class="columns is-multiline is-desktop is-variable is-7 pt-5">
+
+                <div class="col-md-6 col-lg-4 pb-3">
+                  <div class="card card-custom bg-tox border-white border-0">
+                    <div class="card-body">
+                      <center><h1 translate="no" class="card-title">Ban</h1></center>
+                      <hr style="background-color: white;">
+                      <p translate="no" class="card-text cardiblbotDesc">
+                        Ban a User from the Discord Server!
+                        <hr style="background-color: white;">
+                        <strong>User Permissions:</strong> BAN_MEMBERS
+                        <br /><br />
+                        <strong>Bot Permissions:</strong> BAN_MEMBERS
+                        <br /><br />
+                        <strong>Aliases:</strong> banem, yeet, bean
+                        <br /><br />
+                        <strong>Cooldown:</strong> 10 Seconds
+                        <br /><br />
+                        <strong>Ratelimit:</strong> 2 Times/10 Seconds
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+          </div>
+
+    <br><br><br><br><br><br>
+
+    </body>
+
+ <br><br><br><br><br><br>
+
+    <!-- RANDOM SCRIPT FOR THE NAVBAR STUFF -->
+<script>
+  var typed = new Typed('.typed', {
+    strings: [
+              "The Discord Bot with a little bit of Attitude!",
+              "Making it Easier to Moderate your Server since 2020"
+            ],
+    typeSpeed: 80,
+    backSpeed: 70,
+    loop: true,
+    backDelay: 3000,
+    contentType: 'html'
+  });
+  </script>
+
+    <!-- INCLUDE THE WEBSITE FOOTER -->
+    <%- include(footerPath, { bot, user, path }) %>
+</html>

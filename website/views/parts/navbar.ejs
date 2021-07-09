@@ -1,0 +1,110 @@
+<nav class="navbar navbar-expand-lg navbar-dark" style="webkit-user-select: none; -ms-user-select: none; user-select: none;">
+    <a href="javascript:pageScroll()"><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button></a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/commands">Commands</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/invite">Invite</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/discord">Support</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/status">Status</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/bugs">Bug Report</a>
+      </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+        <% if(user) { %>
+            <li class="nav-item dropdown" style="margin-left:10px;">
+                <a class="btn btn-dark dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img height="30" style="border-radius:50%;" src="<%= user.displayAvatarURL({dynamic: true}) %>"/> <%= user.username %></a>
+                <div class="dropdown-menu dropdown-menu-dark dropdown-menu-right" aria-labelledby="navbarDropdown" style="z-index: 100;">
+                    <h6 class="dropdown-header">
+                        <%= user.username %>
+                    </h6>
+                    <a style="text-color: black;" class="dropdown-item" href="/me/servers"><i class="fas fa-server"></i> Profile</a>
+                    <a style="color: black;" class="dropdown-item" href="/me/settings"><i class="fas fa-user-cog"></i> Dashboard</a>
+                    <% if(config.staff.includes(user.id)) { %>
+                        <div class="dropdown-divider"></div>
+                        <h6 class="dropdown-header">Admin Menu</h6>
+                        <a style="color: black;" class="dropdown-item" href="/me/servers"><i class="fas fa-tasks"></i> Panel</a>
+                        <% } %>
+                            <div class="dropdown-divider"></div>
+                            <a style="color: black;" class="dropdown-item logoutt" href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+            <% } else { %>
+                <li class="nav-item" style="margin-left:10px;">
+                    <a class="btn btn-light loginn" href="/login" role="button" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-sign-in-alt sii"></i><i class="fab fa-discord dii"></i> Login
+                    </a>
+                    <% } %>
+                </li>
+                </ul>
+</nav>
+<script>
+    /*  Make navbar dark on scroll  */
+    $(document).ready(function(){
+      $(window).scroll(function(){
+      	var scroll = $(window).scrollTop();
+    	  if (scroll > 1) {
+    	    $(".navbar").css("background" , "#202225");
+    	  }
+    	  else{
+    		  $(".navbar").css("background" , "transparent");
+    	  }
+      })
+    })
+      /*  Copyright (c) AshMW_SucksAtJS  */
+</script>
+<script>
+    /*  Anti-Transparent For Mobile navbar on dropdown  */
+      function pageScroll() {
+        	window.scrollBy(0,3);
+        	scrolldelay = setTimeout('pageScroll()',0.1);
+          clearTimeout(scrolldelay);
+    }
+      /*  Copyright (c) AshMW_SucksAtJS  */
+</script>
+<style>
+    .navbar {
+        transition:0.3s;
+      }
+      .loginn:hover .sii {
+        display:none;
+      }
+      .loginn:hover .dii {
+        display:inline-block;
+        padding-right:2px;
+      }
+      .loginn .dii {
+        display:none;
+      }
+      .loginn:hover {
+        background:black;
+        border-color: black;
+        color:#fff;
+        transition:0.1s;
+      }
+      .navbar .dropdown-item:hover {
+        background:#EFEFEF;
+      }
+      .logoutt {
+        color:#A4202B;
+      }
+      .logoutt:hover {
+        background:#A4202B !important;
+        color:#fff;
+      }
+</style>

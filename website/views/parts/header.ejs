@@ -1,0 +1,65 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- META TAGS-->
+    <meta name="og:description" content="<%= description && description !== 'none' ? description : 'The Discord Bot with a little bit of Attitude!' %>" />
+    <meta property="og:description" content="<%= description2 && description2 !== 'none' ? description2 : 'The Discord Bot with a little bit of Attitude!' %>" />
+    <meta name="og:title" content="<%= title && title !== 'none' ? title : 'Tox Mod | Discord Bot' %>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="og:url" content="https://toxmod.xyz" />
+    <meta name="theme-color" content="#7289DA">
+    <meta name="og:image" content="<%= image && image !== 'none' ? image : 'images/ToxModLogo.gif' %>" />
+
+    <!-- PAGE TITLES-->
+    <title><%= main_title && main_title !== 'none' ? main_title : 'Tox Mod | Discord Bot' %></title>
+
+    <!-- IMPORT SCRIPTS -->
+    <script async src="https://arc.io/widget.min.js#kqGtx3tp"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.9"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script>
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js'></script>
+    <script src='https://code.jquery.com/jquery-3.3.1.slim.min.js'></script>
+    <script src='/scripts/main/custom-socket.js'></script>
+    <script src='/scripts/main/custom-style.js'></script>
+
+    <!-- IMPORT LINKS -->
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css'>
+    <link href="https://pro.fontawesome.com/releases/v5.13.1/css/all.css" rel="stylesheet">
+    <link rel="shortcut icon" href="images/ToxModLogo.gif" />
+    <link rel="stylesheet" href="/styling/main/custom-header.css">
+    <link rel="stylesheet" href="/styling/main/custom-bulma.css">
+</head> 
+
+<body>
+  <div id="loader-wrapper">
+    <center>
+    <div class="preloader">
+    <div id="loader" class="loader loader-1">
+        <div class="loader-outter"></div>
+        <div class="loader-inner"></div>
+    </div>
+    </div>
+    </center>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+</div>
+</body>
+
+<script type="text/javascript">
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
+    $("footer").append('<br /> Copyright (c) 2021 Toxic Development</a>')
+</script>
+
+<script>
+  $(document).ready(function(){
+    $('#nobr a').attr('target', '_blank');
+    $('#nobr a').attr('data-toggle', 'tooltip');
+    $('#nobr a').attr('data-html', 'true');
+    $('#nobr a').attr('class', 'outlink');
+    $('#nobr a').attr('title', '<span class="text-danger"><b>Warning:</b></span><br />This links to a Third-Party Website!');
+  });
+  </script>
