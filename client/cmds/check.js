@@ -86,7 +86,7 @@ module.exports.run = async (client, message, args, params) => {
                                                                                                     
                                                                                                     let NoCasesFound = new MessageEmbed()
                                                                                                       .setTitle('Error | No Cases Found')
-                                                                                                      .setColor(Color.Error)
+                                                                                                      .setColor(Colors.Error)
                                                                                                       .setDescription('That user has no open Infractions/Cases in this Server.')
                                                                                                       .setTimestamp()
                                                                                                       .setFooter(Embeds.Footer, Images.Animated)

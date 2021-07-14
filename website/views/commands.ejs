@@ -34,15 +34,15 @@
     <div class="container">
       <br><br>
       <div class="column">
-        <p class="has-text-white title is-large"><i class="fas fa-exclamation-circle"></i>&nbsp;Information Commands</p>
+        <p id="infocmds" class="has-text-white title is-large"><i class="fas fa-exclamation-circle"></i>&nbsp;Information Commands</p>
         <div class="columns is-multiline is-desktop is-variable is-7 pt-5">
           <% bot.commands.filter(cmd => cmd.help.category == 'info').map(cmd => { %>
             <div class="col-md-6 col-lg-4 pb-3">
               <div class="card ibl-card-custom bg-ibl border-white border-0">
                 <div class="card-body">
-                  <h4 translate="no" class="card-title"><strong>Name: </strong><%= cmd.help.name %></h4>
+                  <h4 class="card-title"><strong>Name: </strong><%= cmd.help.name %></h4>
                   <hr style="background-color: white;">
-                  <p translate="no" class="card-text iblbotDesc">
+                  <p class="card-text iblbotDesc">
                     <strong>Description:</strong> <code><%= cmd.help.description %></code>
                     <hr style="background-color: white;">
                     <strong>User Permissions:</strong> <code><%= cmd.requirements.userPerms %></code>
@@ -64,37 +64,37 @@
     </div>
 
         <!-- START THE MODERATION COMMANDS -->
-          <div class="container">
-            <br><br>
-            <div class="column">
-              <p class="has-text-white title is-large"><i class="fa fa-gavel"></i>&nbsp;Moderation</p>
-              </div>
-              <div class="columns is-multiline is-desktop is-variable is-7 pt-5">
-
+        <div class="container">
+          <br><br>
+          <div class="column">
+            <p id="modcmds" class="has-text-white title is-large"><i class="fa fa-gavel"></i>&nbsp;Moderation Commands</p>
+            <div class="columns is-multiline is-desktop is-variable is-7 pt-5">
+              <% bot.commands.filter(cmd => cmd.help.category == 'mod').map(cmd => { %>
                 <div class="col-md-6 col-lg-4 pb-3">
-                  <div class="card card-custom bg-tox border-white border-0">
+                  <div class="card ibl-card-custom bg-ibl border-white border-0">
                     <div class="card-body">
-                      <center><h1 translate="no" class="card-title">Ban</h1></center>
+                      <h4 class="card-title"><strong>Name: </strong><%= cmd.help.name %></h4>
                       <hr style="background-color: white;">
-                      <p translate="no" class="card-text cardiblbotDesc">
-                        Ban a User from the Discord Server!
+                      <p class="card-text iblbotDesc">
+                        <strong>Description:</strong> <code><%= cmd.help.description %></code>
                         <hr style="background-color: white;">
-                        <strong>User Permissions:</strong> BAN_MEMBERS
+                        <strong>User Permissions:</strong> <code><%= cmd.requirements.userPerms %></code>
                         <br /><br />
-                        <strong>Bot Permissions:</strong> BAN_MEMBERS
+                        <strong>Bot Permissions:</strong> <code><%= cmd.requirements.clientPerms %></code>
                         <br /><br />
-                        <strong>Aliases:</strong> banem, yeet, bean
+                        <strong>Aliases:</strong> <code><%= cmd.help.aliases %></code>
                         <br /><br />
-                        <strong>Cooldown:</strong> 10 Seconds
+                        <strong>Cooldown:</strong> <code><%= cmd.limits.cooldown %></code>
                         <br /><br />
-                        <strong>Ratelimit:</strong> 2 Times/10 Seconds
+                        <strong>Ratelimit:</strong> <code><%= cmd.limits.rateLimit %></code>
                       </p>
                     </div>
                   </div>
                 </div>
-
-              </div>
+              <% }) %>
+            </div>
           </div>
+        </div>
 
     <br><br><br><br><br><br>
 
@@ -103,19 +103,19 @@
  <br><br><br><br><br><br>
 
     <!-- RANDOM SCRIPT FOR THE NAVBAR STUFF -->
-<script>
-  var typed = new Typed('.typed', {
-    strings: [
-              "The Discord Bot with a little bit of Attitude!",
-              "Making it Easier to Moderate your Server since 2020"
-            ],
-    typeSpeed: 80,
-    backSpeed: 70,
-    loop: true,
-    backDelay: 3000,
-    contentType: 'html'
-  });
-  </script>
+    <script>
+      var typed = new Typed('.typed', {
+        strings: [
+                  "The Discord Bot with a little bit of Attitude!",
+                  "Making it Easier to Moderate your Server since 2020"
+                ],
+        typeSpeed: 80,
+        backSpeed: 70,
+        loop: true,
+        backDelay: 3000,
+        contentType: 'html'
+      });
+    </script>
 
     <!-- INCLUDE THE WEBSITE FOOTER -->
     <%- include(footerPath, { bot, user, path }) %>

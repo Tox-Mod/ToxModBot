@@ -2,7 +2,9 @@ require("module-alias/register");
 
 const express = require("express");
 const session = require("express-session");
+const cookieParser = require("cookie-parser");
 const passport = require("passport");
+const Strategy = require("passport-discord").Strategy;
 const MongoStore = require("connect-mongo")(session);
 const path = require('path');
 const app = express();
@@ -32,7 +34,7 @@ client.login(settings.token);
 
 // Discord Client Ready
 client.on("ready", async () => {
-  console.log(`[Tox Mod | Web] Successfully connected to the Discord API!`);
+  console.log(`[Tox Mod | Web] Successfully connected to the Discord API! as ${client.user.username}`);
 });
 
 app.disable("server");
@@ -50,13 +52,29 @@ app.use('/images', express.static(__dirname + "/images"));
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(cookieParser());
+
+passport.serializeUser((user, done) => done(null, user));
+passport.deserializeUser((obj, done) => done(null, obj));
+
+passport.use(new Strategy({
+      clientID: settings.clientID,
+      clientSecret: settings.clientSecret,
+      callbackURL: settings.localCallback,
+      scope: ["identify", "guilds",],
+    },
+    (accessToken, refreshToken, profile, done) => {
+      // eslint-disable-line no-unused-vars
+      // On login we pass in profile with no logic.
+      process.nextTick(() => done(null, profile));
+}));
 
 /**
  * MEMORY STORE
  */
  app.use(
   session({
-    cookie: { maxAge: require("ms")("10 years") },
+    cookie: { secure: true, maxAge: require("ms")("10 years") },
     store: new MongoStore({ mongooseConnection: mongoose.connection }),
     secret: "CIv+ZgFBk0MSYvDGV8Xge4fZB6xsodqs0BhYs8CxP5g=",
     resave: false,

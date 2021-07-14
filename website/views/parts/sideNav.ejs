@@ -1,0 +1,52 @@
+<div id="customSideNav" class="sidenav">
+<% if(user != null) { %>
+    <a class="btn btn-dark" href="/profile">
+    <img height="30" style="border-radius:50%;" src="<%= user.displayAvatarURL({dynamic: true}) %>"/> <%= user.username %></a>
+<% } %>
+<ul class="navbar-nav mr-auto">
+        <h6 class="dropdown-header">
+            Available Categories
+        </h6>
+        <li class="nav-item active">
+            <a href="#infocmds">Information</a>
+        </li>
+        <li class="nav-item">
+            <a href="#modcmds">Moderation</a>
+        </li>
+        <li class="nav-item">
+            <a href="/invite">Invite</a>
+        </li>
+        <li class="nav-item">
+          <a href="/discord">Support</a>
+      </li>
+      <li class="nav-item">
+        <a href="/status">Status</a>
+    </li>
+    <li class="nav-item">
+      <a href="/bugs">Bug Report</a>
+  </li>
+</ul>
+<ul class="navbar-nav mr-auto">
+        <h6 class="dropdown-header">
+            Website Menu
+        </h6>
+        <li class="nav-item active">
+            <a href="/">Go Home</a>
+        </li>
+        <li class="nav-item">
+            <a href="/commands">Commands</a>
+        </li>
+        <li class="nav-item">
+            <a href="/invite">Invite</a>
+        </li>
+        <li class="nav-item">
+          <a href="/discord">Support</a>
+      </li>
+      <li class="nav-item">
+        <a href="/status">Status</a>
+    </li>
+    <li class="nav-item">
+      <a href="/bugs">Bug Report</a>
+  </li>
+</ul>
+</div>

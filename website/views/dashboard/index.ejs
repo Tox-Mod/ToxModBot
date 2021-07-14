@@ -31,53 +31,53 @@
 
     <%- include(navbarPath, { bot, user, path }) %>
 
-    <div class="container px-3 px-3 mt-5 pt-5">
-
-        <% bot.guilds.forEach(guild => { %>
-            <% const permsForGuild = new perms(guild.permissions); %>
-            <% if (!permsForGuild.has('MANAGE_GUILD')) return; %>
-
-            <% iconURL = ''; %>
-            <% if (!guild.iconURL) { %>
-                <% iconURL = 'https://maxcdn.icons8.com/Share/icon/Logos/discord_logo1600.png' %>
-            <% } else { %>
-                <% iconURL = `https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.png?size=256`; %>
-            <% } %>
-
-            <% let name = "..." %>
-            <% if(guild.name.length > 25) { %>
-              <% name = `${guild.name.slice(0,20)}...` %> 
-            <% }else{ %>
-                <% name = guild.name %>
-            <% } %>
-
-        <div class="columns container px-3 is-multiline">
-            <div class="column is-2">
-                <img draggable="false" src="<%= iconURL %>" alt="GuildICON" style="border-radius: 50%;">
+    <div class="container">
+      <br><br>
+    <div class="column">
+        <div class="columns is-multiline is-desktop is-variable is-7 pt-5">
+          <% for(i of guilds){%>
+          <div class="col-md-6 col-lg-4 pb-3">
+            <div class="card ibl-card-custom bg-ibl border-white border-0">
+              <div class="ibl-card-custom-img" style="background-image: url(<%= i.guild.banner || "https://i.hizliresim.com/2sdunq.png" %>);"></div>
+              <div class="ibl-card-custom-avatar">
+                <img class="img-fluid" onerror="imgError(this);" src="https://cdn.discordapp.com/icons/<%= i.guild.id %>/<%= i.guild.icon %>.png?size=256" alt="Avatar" />
+              </div>
+              <div class="card-body">
+                <h4 translate="no" class="card-title"><%= i.guild.name %></h4>
+                <p translate="no" class="card-text iblbotDesc">You can Edit, Change or Update most of this Guilds Settings here.</p>
+              </div>
+              <div class="card-footer">
+                <% if (bot.guilds.cache.get(i.guild.id)) { %>
+                <center>
+                  <a ic style="width:165px;" class="btn btn-secondary" href="/dashboard/guilds/<%= i.guild.id %>"><i class="fa fa-tachometer"></i>  Manage Server</a>
+                </center>
+                <% } else { %>
+                <center>
+                  <a style="width:150px;" class="btn btn-secondary"  target="_blank" href="https://discord.com/oauth2/authorize?client_id=<%= bot.user.id %>&disable_guild_select=true&permissions=268438576&scope=bot&guild_id=<%= i.guild.id %>"><i class="fa fa-plus"></i> Add Bot</a>
+                </center>
+                  <% } %>
+              </div>
             </div>
-            <div class="column is-6">
-                <div class="card card-custom bg-tox border-white border-0">
-                    <div class="card-body">
-                      <center><h1 translate="no" class="card-title"><%= name %></h1></center>
-                      <hr style="background-color: white;">
-                      <span data-tooltip="Total Members" data-tooltip-location="left" class="badge badge-stats mb-vcodes mt-1 w-100"><i class="fad fa-chevron-up"></i>&nbsp;<%= guild.users.cache.size %></span>
-                      <span data-tooltip="Total Channels" data-tooltip-location="left" class="badge badge-stats mt-1 w-100"><i class="fad fa-server"></i>&nbsp;<%= guild.channels.cache.size %></span>
-                    </div>
-                    <div class="card-footer">
-                        <% if (bot.guilds.cache.get(guild.id)) { %>
-                            <a class="btn btn-success btn-sm btn-block" href="/dashboard/<%= guild.id %>" role="button"><i class="fa fa-tachometer"></i> Manage Guild</a>
-                        <% } else { %>
-                            <a class="btn btn-secondary btn-sm btn-block" href="https://discord.com/oauth2/authorize?client_id=<%= bot.user.id %>&disable_guild_select=true&permissions=268438576&scope=bot&guild_id=<%= guild.id %>" href=<%= `https://discordapp.com/oauth2/authorize?client_id=${bot.user.id}&scope=bot&guild_id=${guild.id}&response_type=code&redirect_uri=${encodeURIComponent(`${bot.config.domain}}${bot.config.port == 80 ? "" : `:${bot.config.port}`}/callback`)}` %> role="button"><i class="fa fa-plus"></i> Invite Tox Mod</a>
-                        <% } %>
-                    </div>
-                  </div>
-               </div>     
-             </div>
-           </div>
+          </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</body>
 
-    <% }); %>
-
-   </body>
+<script>
+  var typed = new Typed('.typed', {
+    strings: [
+              "The Discord Bot with a little bit of Attitude!",
+              "Making it Easier to Moderate your Server since 2020"
+            ],
+    typeSpeed: 80,
+    backSpeed: 70,
+    loop: true,
+    backDelay: 3000,
+    contentType: 'html'
+  });
+  </script>
 
  <br><br><br><br><br><br>
 

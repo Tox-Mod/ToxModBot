@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- INLUCDE THE HEADER IN THE PAGE.-->
+    <head>
+      <link rel="stylesheet" href="/styling/main/custom-style.css">
+    </head>
+    <%- include(headerPath, {
+      bot, path,
+      description: 'Manage your Guild, Update the Bots Settings and more with the Tox Mod Dashboard',
+      description2: 'Manage your Guild, Update the Bots Settings and more with the Tox Mod Dashboard',
+      title: `Tox Mod | Dashboard`,
+      main_title: `Tox Mod | Dashboard`,
+      image: 'none',
+      }) 
+    %>
+    <!-- START THE ACTUAL PAGE BODY.. YEET. -->
+    <body>
+
+    <!-- INCLUDE THE NAVBAR IN THE PAGE. -->
+    <div class="bigthingy row">
+      <div class="seeme col-md-8 offset-md-2 row">
+        <div class="seeme col-sm-2 sinfo">
+          <p id="bigytxt" class="bigyimg"><img src="https://toxmod.xyz/images/5D72D446-8F49-43B2-8924-A2E1CA45AC01.gif" style="width:88px; border-radius:50%;"/></p>
+        </div>
+        <div class="seeme col-sm-10 sinfo">
+          <p id="bigytxt"><span style="font-size:25px; font-weight:bold;">Tox Mod</span><br /><span class="typed"></span></p>
+        </div>
+      </div>
+      </div>
+      <br />
+
+      <% if (alert) { %>
+        <%- include(notifyAlerts, {alert}) %>
+      <% } else if (error) { %>
+        <%- include(notifyAlerts, {error}) %>
+      <% } %>
+
+    <%- include(navbarPath, { bot, user, path }) %>
+
+    <div class="container">
+      <br><br>
+    <div class="column">
+        <div class="columns is-multiline is-desktop is-variable is-7 pt-5">
+          <div class="col-md-6 col-lg-4 pb-3">
+            <div class="card ibl-card-custom bg-ibl border-white border-0" style="width: 70rem;">
+              <div class="card-body">
+                <center><h1><i class="fa fa-bug"></i>Report a bug</h1></center>
+                <center><p>Type a Brief Bug report in more then 25 Characters | Ex: Dashboard button is not redirecting me to the Dashboard</p></center>
+                <hr style="background-color: white;">
+                <form method="POST">
+                  <div class="form-group">
+                    <center><textarea class="input" maxlength="500" type="text" name="reportbug" style="width: 100%; height: 150px; border-radius: 2px; text-decoration-color: black;" placeholder="i.e i found that dashboard button not redirecting"></textarea><br><br></center>
+                    <center><button style="width:170px" class="button" type="submit">Report Bug</button></center>
+                  </div>
+                </form>
+              </div>
+              <div class="card-footer">
+
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script>
+  var typed = new Typed('.typed', {
+    strings: [
+              "The Discord Bot with a little bit of Attitude!",
+              "Making it Easier to Moderate your Server since 2020",
+              "Woah, Are you actually doing your job! That's amazing xD",
+              "Fun Fact: Tox Mod started as a Joke Bot that didn't do anything!",
+
+            ],
+    typeSpeed: 80,
+    backSpeed: 70,
+    loop: true,
+    backDelay: 3000,
+    contentType: 'html'
+  });
+  </script>
+
+ <br><br><br><br><br><br>
+
+    <!-- INCLUDE THE WEBSITE FOOTER -->
+    <%- include(footerPath, { bot, path }) %>
+</html>

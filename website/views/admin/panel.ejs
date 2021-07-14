@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- INLUCDE THE HEADER IN THE PAGE.-->
+    <head>
+      <link rel="stylesheet" href="/styling/main/custom-style.css">
+    </head>
+    <%- include(headerPath, {
+      bot, path,
+      description: 'Manage your Guild, Update the Bots Settings and more with the Tox Mod Dashboard',
+      description2: 'Manage your Guild, Update the Bots Settings and more with the Tox Mod Dashboard',
+      title: `Tox Mod | Staff Panel`,
+      main_title: `Tox Mod | Staff Panel`,
+      image: 'none',
+      }) 
+    %>
+    <!-- START THE ACTUAL PAGE BODY.. YEET. -->
+    <body>
+
+    <!-- INCLUDE THE NAVBAR IN THE PAGE. -->
+    <div class="bigthingy row">
+      <div class="seeme col-md-8 offset-md-2 row">
+        <div class="seeme col-sm-2 sinfo">
+          <p id="bigytxt" class="bigyimg"><img src="/images/ToxModLogo.gif" style="width:88px; border-radius:50%;"/></p>
+        </div>
+        <div class="seeme col-sm-10 sinfo">
+          <p id="bigytxt"><span style="font-size:25px; font-weight:bold;">Tox Mod</span><br /><span class="typed"></span></p>
+        </div>
+      </div>
+      </div>
+      <br />
+
+    <%- include(navbarPath, { bot, user, path }) %>
+
+    <div class="container">
+      <br><br>
+    <div class="column">
+        <div class="columns is-multiline is-desktop is-variable is-7 pt-5">
+          <div class="col-md-6 col-lg-4 pb-3">
+            <div class="card ibl-card-custom bg-ibl border-white border-0" style="width: 70rem;">
+              <div class="ibl-card-custom-img" style="background-image: url(<%= user.banner || "https://i.hizliresim.com/2sdunq.png" %>);"></div>
+              <div class="ibl-card-custom-avatar">
+                <img class="img-fluid" onerror="imgError(this);" src="<%= user.avatarURL({ dynamic: true }) %>" alt="Avatar" />
+              </div>
+              <div class="card-body">
+                <h4 translate="no" class="card-title">Welcome to the Staff Panel <strong><%= user.username %>#<%= user.discriminator %></strong></h4>
+                <hr style="background-color: white;">
+                <center><h4 translate="no"><i class="fa fa-cog"></i> Tox Mod Settings!</h4></center>
+                <form style="margin-top: 1em;" method="POST">
+                <center>
+                 <div class="form-group">
+                  <p for="refresh"><i class="fa fa-spinner"></i> Reload Command:</p>
+                  <p class="note">Reload a command by name xD</p>
+                  <input class="w3-input w3-border" maxlength="20" type="text" name="commandreload" value="" style="width:300px" placeholder="i.e ping"><br><br>
+                  <button style="width:200px" class="button" type="submit"><i class="fa fa-spinner"></i> Reload Command</button>
+                  <hr style="margin-left: 250px; margin-right: 250px;">
+                 </div>
+                </center> 
+                </form>
+                <hr style="background-color: white;">
+                <form method="POST">
+                <div class="form-group">
+                  <center><h4><i class="fa fa-bug"></i> Bug Reports</h4></center>
+                  <% if(reportbug.length === 0){ %>
+                    <center><b style="font-size: 30px; color:white;"><i class="fa fa-wrench"></i> No bug reports</b><br></center>
+                    <% }else{ %>
+                  <% for (i = 0; i < reportbug.length; i++) { %>
+                      <div class="card mb-8">
+                        <p>
+                          <strong style="color: rgb(255, 255, 255); font-size: 30px;">New bug report</strong>
+                          <br>
+                          Bug ID: <%= Math.ceil(Math.random() * 50) + reportbug[i].userID + Math.ceil(Math.random() * 50) %>
+                          <br>_____________
+                          <br>
+                          <code style="font-size: 20px;">Bug:</code>
+                          <br>
+                          <strong style="color: rgb(0, 0, 0);  word-break: break-all;"><%= reportbug[i].bug %> .</strong>
+                        </p>
+                        <button style="width:170px" name="acceptbug" value="<%= reportbug[i].userID %>" type="submit">Accept</button>
+                        </div>
+                    <% } %>
+                    <% } %>
+                </div>
+                </form>
+              </div>
+              <div class="card-footer">
+                <center><p>Copyright (c) 2021 Toxic Development | All Rights Reserved!</p></center>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script>
+  var typed = new Typed('.typed', {
+    strings: [
+              "The Discord Bot with a little bit of Attitude!",
+              "Making it Easier to Moderate your Server since 2020",
+              "Woah, Are you actually doing your job! That's amazing xD",
+              "Fun Fact: Tox Mod started as a Joke Bot that didn't do anything!",
+
+            ],
+    typeSpeed: 80,
+    backSpeed: 70,
+    loop: true,
+    backDelay: 3000,
+    contentType: 'html'
+  });
+  </script>
+
+ <br><br><br><br><br><br>
+
+    <!-- INCLUDE THE WEBSITE FOOTER -->
+    <%- include(footerPath, { bot, path }) %>
+</html>

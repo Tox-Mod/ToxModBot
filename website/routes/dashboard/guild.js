@@ -4,6 +4,11 @@ const { renderPage } = require('@Templates/renderPage');
 const { checkAuth } = require('@Authorization/checkAuth');
 
 const SERVERS = require('@Database/servers');
+const USERS = require('@Database/users');
+const CLOCK = require('@Database/clock');
+const CASES = require('@Database/cases');
+const ERRORS = require('@Database/errors');
+const TICKETS = require('@Database/tickets');
 
 /**
  * GET METHOD

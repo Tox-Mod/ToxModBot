@@ -6,6 +6,13 @@
       color: #7289da;
   }
 </style>
+
+<% if(theme == "light"){ %> 
+  <link rel="stylesheet" type="text/css" href="/styling/themes/light/light.css" />
+<% }else{ %>
+  <link rel="stylesheet" type="text/css" href="/styling/themes/dark/dark.css" />
+<% } %>
+
 <section class="footers bg-tox text-white pt-2 pb-3">
 <div class="container pt-5">
     <div class="row">
@@ -44,11 +51,35 @@
         <li><a href="/dashboard">Dashboard</a></li>
        </ul>
      </div>
-      <div class="col-xs-12 col-sm-6 col-md-2 footers-three">
+     <div class="col-xs-12 col-sm-6 col-md-2 footers-two">
+      <p class="uppercase bold footer-title is-size-5">Community </p>
+      <ul class="list-unstyled">
+        <li><a href="/terms" disabled>Terms</a></li>
+        <li><a href="/privacy" disabled>Privacy</a></li>
+        <li><a href="/status" disabled>Status</a></li>
+        <li><a href="/staff" disabled>Staff</a></li>
+    </ul>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-2 footers-three">
          <p class="uppercase bold footer-title is-size-5">Extras </p>
          <ul class="list-unstyled">
-          <li><a href="/status" disabled>Status</a></li>
-          <li><a href="/staff" disabled>Staff</a></li>
+          <li>
+            <div>
+              <% if(theme == "dark") { %>
+                <i class="fa fa-sun"></i>
+                <label class="switch">
+                  <input id="themetoggle" type="checkbox" onclick="theme()" checked>
+                  </i><span class="slider round"></span>
+                </label>
+              <% }else{ %>
+                <i class="fa fa-moon"></i>
+                <label class="switch">
+                  <input id="themetoggle" type="checkbox" onclick="theme()">
+                  <span class="slider round"></span>
+                </label>
+               <% } %>
+              </div>
+          </li>
           <li>
 <style type="text/css">
 a.gflag {vertical-align:middle;font-size:16px;padding:1px 0;background-repeat:no-repeat;background-image:url(//gtranslate.net/flags/16.png);}
@@ -103,17 +134,14 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
  <div class="container">
      <div class="row text-center">
          <div class="col-md-12 pt-3">
-         <div style="float: right;">
-        <a href="/terms" class="footer-link">
-          Terms of Use
-        </a>&nbsp;&nbsp;<a href="/privacy" class="footer-link">
-          Privacy Policy
-        </a>
-      </div> 
+          <div style="float: right;">
+            <iframe src="https://toxmod.instatus.com/embed-status/dark-md" width="230" height="61" 
+                      frameBorder="0" scrolling="no" style="border: none;" ></iframe>
+          </div>
       <div style="float: left;">
-        <p class="text-muted"> Copyright &copy<script>
+        <center><p class="text-muted"> Copyright &copy<script>
           document.write(new Date().getFullYear());
-        </script> Toxic Development |  All rights reserved.
+        </script> Toxic Development |  All rights reserved.</p></center>
          </div>
      </div>
  </div>
@@ -178,6 +206,35 @@ $(document).ready(function(){
 $('[data-toggle="tooltip"]').tooltip();   
 });
 </script>
+<script>
+
+  function getCookie(cname) {
+  var name = cname + "=";
+  var ca = document.cookie.split(';');
+  for(var i = 0; i < ca.length; i++) {
+  var c = ca[i];
+  while (c.charAt(0) == ' ') {
+    c = c.substring(1);
+  }
+  if (c.indexOf(name) == 0) {
+    return c.substring(name.length, c.length);
+    }
+  }
+    return "";
+  }
+  function theme() {
+  if(getCookie("theme") == "light"){
+    document.cookie = "theme=dark; expires=Tue, 19 Jan 2058 03:14:07; path=/"
+    window.location.href=window.location.href
+  }else if(getCookie("theme") == "dark"){
+  document.cookie = "theme=light; expires=Tue, 19 Jan 2058 03:14:07; path=/"
+  window.location.href=window.location.href
+  }else{
+  document.cookie = "theme=dark; expires=Tue, 19 Jan 2058 03:14:07; path=/"
+  window.location.href=window.location.href
+    }
+  }
+  </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="//cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>

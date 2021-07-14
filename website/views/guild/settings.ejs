@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- INLUCDE THE HEADER IN THE PAGE.-->
+    <head>
+      <link rel="stylesheet" href="/styling/main/custom-style.css">
+    </head>
+    <%- include(headerPath, {
+      bot, path,
+      description: 'Manage your Guild, Update the Bots Settings and more with the Tox Mod Dashboard',
+      description2: 'Manage your Guild, Update the Bots Settings and more with the Tox Mod Dashboard',
+      title: `Tox Mod | Dashboard`,
+      main_title: `Tox Mod | Dashboard`,
+      image: 'none',
+      }) 
+    %>
+
+    <% if (alert) { %>
+      <%- include(notifyAlerts, {alert}) %>
+    <% } else if (error) { %>
+      <%- include(notifyAlerts, {error}) %>
+    <% } %>
+    <!-- START THE ACTUAL PAGE BODY.. YEET. -->
+    <body>
+
+    <!-- INCLUDE THE NAVBAR IN THE PAGE. -->
+    <div class="bigthingy row">
+      <div class="seeme col-md-8 offset-md-2 row">
+        <div class="seeme col-sm-2 sinfo">
+          <p id="bigytxt" class="bigyimg"><img src="https://toxmod.xyz/images/5D72D446-8F49-43B2-8924-A2E1CA45AC01.gif" style="width:88px; border-radius:50%;"/></p>
+        </div>
+        <div class="seeme col-sm-10 sinfo">
+          <p id="bigytxt"><span style="font-size:25px; font-weight:bold;">Tox Mod</span><br /><span class="typed"></span></p>
+        </div>
+      </div>
+      </div>
+      <br />
+
+    <%- include(navbarPath, { bot, user, path }) %>
+
+    <div class="container">
+      <br><br>
+    <div class="column">
+        <div class="columns is-multiline is-desktop is-variable is-7 pt-5">
+          <div class="col-md-6 col-lg-4 pb-3">
+            <div class="card ibl-card-custom bg-ibl border-white border-0" style="width: 70rem;">
+              <div class="ibl-card-custom-img" style="background-image: url(<%= guild.banner || "https://i.hizliresim.com/2sdunq.png" %>);"></div>
+              <div class="ibl-card-custom-avatar">
+                <img class="img-fluid" onerror="imgError(this);" src="https://cdn.discordapp.com/icons/<%= guild.id %>/<%= guild.icon %>.png?size=256" alt="Avatar" />
+              </div>
+              <div class="card-body">
+                <h4 translate="no" class="card-title"><%= guild.name %></h4>
+                <hr style="background-color: white;">
+                <% let muterole = settings.mutedrole %>
+
+                <% if(muterole == "String"){ %>
+                  <%  muterole = "No Mute Role set for this Server" %>
+                <% }else{ %>
+                <% if(!guild.roles.cache.get(settings.mutedrole)){ %>
+                  <% muterole = "No Mute Role set for this Server" %>
+                <% }else{ %>
+                  <% muterole = guild.roles.cache.get(settings.mutedrole).name %>
+                <% } %>
+              <% } %>
+
+              <% let autorole = settings.autorole %>
+
+              <% if(autorole == "String"){ %>
+                <%  autorole = "No Auto-Role set for this Server" %>
+                <% }else{ %>
+                  <% if(!guild.roles.cache.get(settings.autorole)){ %>
+                  <% autorole = "No Auto-Role set for this Server" %>
+                  <% }else{ %>
+                    <% autorole = guild.roles.cache.get(settings.autorole).name %>
+                <% } %>
+              <% } %>
+
+              <% let botautorole = settings.autorole %>
+                <% if(botautorole == "String"){ %>
+                  <%  botautorole = "No Bot Auto-Role set for this Server" %>
+                <% }else{ %>
+                <% if(!guild.roles.cache.get(settings.botautorole)){ %>
+                  <% botautorole = "No Bot Auto-Role set for this Server" %>
+                <% }else{ %>
+                  <% botautorole = guild.roles.cache.get(settings.botautorole).name %>
+                <% } %>
+            <% } %>
+
+            <% let antispam = settings.antispam %>
+              <% if(antispam == "0"){ %>
+                <%  antispam = "Disabled" %>
+              <% }else if(antispam == "1"){ %>
+                  <% antispam =  "Enabled" %>
+              <% }else{ %>
+                    <%  antispam = "Disabled" %>
+              <% } %>
+              <div class="container">
+                <div class="cus_card stats2">
+                  <p><strong style="font-size: 30px;"><i class="fa fa-users"></i> Members</strong></p>
+                  <p style="color: rgb(197, 197, 197);"><%= guild.memberCount %></p>
+              </div>
+              <div class="cus_card stats2">
+                <p><strong style="font-size: 30px;"><i class="fa fa-smile-o"></i> Emojis</strong></p>
+              <p style="color: rgb(197, 197, 197);"><%= guild.emojis.cache.size %></p>
+              </div>
+              <div class="cus_card stats2">
+                <p><strong style="font-size: 30px;"><i class="fa fa-pie-chart"></i> Roles</strong></p>
+              <p style="color: rgb(197, 197, 197);"><%= guild.roles.cache.size %></p>
+              </div>
+              <div class="cus_card stats2">
+                <p><strong style="font-size: 30px;"><i class="fa fa-server"></i> Channels</strong></p>
+              <p style="color: rgb(197, 197, 197);"><%= guild.channels.cache.size %></p>
+              </div>
+              <div class="cus_card stats2">
+                <p><strong style="font-size: 30px;"><i class="fa fa-meh-o"></i> Muted Role</strong></p>
+              <p style="color: rgb(197, 197, 197);"><%= muterole %></p>
+              </div>
+              <div class="cus_card stats2">
+                <p><strong style="font-size: 30px;"><i class="fa fa-user-plus"></i> Auto Role</strong></p>
+              <p style="color: rgb(197, 197, 197);"><%= autorole %></p>
+              </div>
+              <div class="cus_card stats2">
+                <p><strong style="font-size: 30px;"><i class="fa fa-plug"></i> Bot Auto Role</strong></p>
+              <p style="color: rgb(197, 197, 197);"><%= botautorole %></p>
+              </div>
+              <div class="cus_card stats2">
+                <p><strong style="font-size: 30px;"><i class="fa fa-wrench"></i> Prefix</strong></p>
+              <p style="color: rgb(197, 197, 197);"><%= settings.prefix %></p>
+              </div>
+              <div class="cus_card stats2">
+                <p><strong style="font-size: 30px;"><i class="fa fa-warning"></i> Infractions</strong></p>
+              <p style="color: rgb(197, 197, 197);"><%= infractions.length %></p>
+              </div>
+             </div>
+            </div>
+            <div class="card-footer">
+            <h1><i class="fa fa-tasks"></i> Settings!</h1>
+            <a class="btn btn-secondary" href="/dashboard/<%= guild.id %>/others"><i class="fa fa-wrench"></i> Guild</a>
+            <a class="btn btn-secondary" href="/dashboard/<%= guild.id %>/roles"><i class="fa fa-user-plus"></i> Roles</a> 
+            <a class="btn btn-secondary" href="/dashboard/<%= guild.id %>/automod"><i class="fa fa-shield"></i> Automod</a>
+            <a class="btn btn-secondary" href="/dashboard/<%= guild.id %>/actions"><i class="fa fa-exclamation-triangle"></i> Infractions</a>
+            <a class="btn btn-secondary" href="/dashboard/<%= guild.id %>/logs"><i class="fa fa-clone"></i> Logs</a>
+            <a class="btn btn-secondary" href="/dashboard/<%= guild.id %>/welcome"><i class="fa fa-signing"></i> Welcome</a>
+            <form style="margin-top: 1em;" method="POST">
+              <button class="btn btn-danger" style="color: rgb(133, 23, 23); width: 200px;" name="leaveserver" value="<%= guild.id %>" >Kick Bot</button>  
+            </form>
+           </div>
+          </div>
+        </div>
+      </div>
+   </div>
+  </div>
+</body>
+
+ <br><br><br><br><br><br>
+
+    <!-- INCLUDE THE WEBSITE FOOTER -->
+    <%- include(footerPath, { bot, path }) %>
+</html>

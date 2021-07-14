@@ -1,5 +1,8 @@
 <html>
 <head>
+
+    <link rel="stylesheet" href="/styling/main/custom-style.css">
+
     <%- include(headerPath, {
         bot, user, path,
         description: 'The Discord Bot with a little bit of Attitude!',
@@ -11,24 +14,48 @@
       %>
 </head>
 <body>
-  <%- include('../parts/navbar', { bot, user }) %>
+  <%- include(navbarPath, { bot, user }) %>
   <div class="bigthingy row">
-  <div class="seeme col-md-8 offset-md-2 row">
-    <div class="seeme col-sm-2 sinfo">
-      <p id="bigytxt" class="bigyimg" style="font-size:88px;"><i class="fas fa-exclamation-circle"></i></p>
+    <div class="seeme col-md-8 offset-md-2 row">
+      <div class="seeme col-sm-2 sinfo">
+        <p id="bigytxt" class="bigyimg"><img src="images/ToxModLogo.gif" style="width:88px; border-radius:50%;"/></p>
+      </div>
+      <div class="seeme col-sm-10 sinfo">
+        <p id="bigytxt"><span style="font-size:25px; font-weight:bold;">Tox Mod</span><br /><span class="typed"></span></p>
+      </div>
     </div>
-    <div class="seeme col-sm-10 sinfo">
-        <p id="bigytxt"><span style="font-size:25px; font-weight:bold;">404 - Page Not Found</span></p>
     </div>
-  </div>
-  </div>
-  <br /><br /><br /><br /><br /><br />
+    <br />
 
   <center>
-     <h2 style="color: white;">Hmm, Try that again chief!</h2>
-     <br />
-     <p style="color: white;"> Whatever you're doing, you're doing it wrong, You should probably go home kid. Cause you clearly don't know what you're looking for.</p>
-  </center>
-
+    <div class="container">
+      <h1 style="font-size: 75px;">4<img src="https://media1.giphy.com/media/vYydsgZhi8aMIxqucX/200w.webp?cid=ecf05e47cho3vmizh1g73po4p1yyxwo7qhtbuj2ez75n7ji2&rid=200w.webp&ct=s" alt="Error Stuff" width="120px">4</h1>
+      <p style="color: white;">
+        Whatever you are looking for has been moved by my Dev Team or simply just no longer exists! Please try your requests again or contact my Devs for help with your request xD
+        </p>
+        <br>
+        <button class="btn btn-info" style="margin-left: 15px; margin-right: 15px; margin-top: 15px; margin-bottom: 15px;" onclick="window.location.href = '/'"><i class="fa fa-home"></i> Take me Home!</button>
+    </div>
+  </center>  
 </body>
+
+<br><br><br><br><br><br>
+
+<!-- RANDOM SCRIPT FOR THE NAVBAR STUFF -->
+<script>
+  var typed = new Typed('.typed', {
+    strings: [
+              "The Discord Bot with a little bit of Attitude!",
+              "Making it Easier to Moderate your Server since 2020"
+            ],
+    typeSpeed: 80,
+    backSpeed: 70,
+    loop: true,
+    backDelay: 3000,
+    contentType: 'html'
+  });
+  </script>
+
+    <!-- INCLUDE THE WEBSITE FOOTER -->
+    <%- include(footerPath, { bot, user, path }) %>
 </html>

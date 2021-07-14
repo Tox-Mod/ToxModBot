@@ -11,6 +11,7 @@
     "dependencies": {
         "body-parser": "^1.19.0",
         "connect-mongo": "^3.2.0",
+        "cookie-parser": "^1.4.5",
         "discord.js": "^12.3.1",
         "ejs": "^3.1.5",
         "express": "^4.17.1",
@@ -37,13 +38,14 @@
     "_moduleAliases": {
         "@root": ".",
         "@Client": "./client",
+        "@Cmds": "./client/cmds",
         "@Utils": "./client/utils",
         "@Embeds": "./client/utils/embeds",
         "@Images": "./client/utils/images",
         "@Colors": "./client/utils/colors",
         "@Structure": "./client/struct",
         "@Templates": "./utilitys/temp",
-        "@DiscordAPI": "./utilitys/discord",
+        "@Permissions": "./utilitys/discord",
         "@Authorization": "./utilitys/auth",
         "@LegalInfo": "./website/public/legal/md",
         "@Storage": "./utilitys/storage",

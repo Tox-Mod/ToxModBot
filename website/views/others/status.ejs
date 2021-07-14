@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- INLUCDE THE HEADER IN THE PAGE.-->
+    <head>
+      <link rel="stylesheet" href="/styling/main/custom-style.css">
+    </head>
+    <%- include(headerPath, {
+      bot, path,
+      description: 'Manage your Guild, Update the Bots Settings and more with the Tox Mod Dashboard',
+      description2: 'Manage your Guild, Update the Bots Settings and more with the Tox Mod Dashboard',
+      title: `Tox Mod | Dashboard`,
+      main_title: `Tox Mod | Dashboard`,
+      image: 'none',
+      }) 
+    %>
+    <!-- START THE ACTUAL PAGE BODY.. YEET. -->
+    <body>
+
+    <!-- INCLUDE THE NAVBAR IN THE PAGE. -->
+    <div class="bigthingy row">
+      <div class="seeme col-md-8 offset-md-2 row">
+        <div class="seeme col-sm-2 sinfo">
+          <p id="bigytxt" class="bigyimg"><img src="https://toxmod.xyz/images/5D72D446-8F49-43B2-8924-A2E1CA45AC01.gif" style="width:88px; border-radius:50%;"/></p>
+        </div>
+        <div class="seeme col-sm-10 sinfo">
+          <p id="bigytxt"><span style="font-size:25px; font-weight:bold;">Tox Mod</span><br /><span class="typed"></span></p>
+        </div>
+      </div>
+      </div>
+      <br />
+
+    <%- include(navbarPath, { bot, user, path }) %>
+
+    <br /><br />
+
+    <div class="container">
+        <iframe src="https://toxmod.instatus.com/" style="height: 100rem; width: 70rem;" title="Tox Mod Status"></iframe>
+    </div>
+</body>
+
+ <br><br><br><br><br><br>
+
+    <!-- INCLUDE THE WEBSITE FOOTER -->
+    <%- include(footerPath, { bot, path }) %>
+</html>

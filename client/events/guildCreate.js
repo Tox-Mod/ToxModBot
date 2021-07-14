@@ -31,9 +31,9 @@ module.exports = (client, guild) => {
       .setTitle('New Guild Created/Joined')
       .setColor(Colors.Primary)
       .setThumbnail(guild.iconURL({ dynamic: true }))
-      .setDescription('Woah, Someone thinks im Cool and invited me to their Server!')
-      .addField('Guild Name', ``, true)
-      .addField('Guild ID', ``, true)
+      .setDescription('Woah, Someone thinks im Cool and invited me to their Server! I have also successfully Set their Guilds Info in the Database!')
+      .addField('Guild Name', `${guild.name}`, true)
+      .addField('Guild ID', `${guild.id}`, true)
       .setTimestamp()
       .setFooter(Embeds.Footer, Images.Animated)
 

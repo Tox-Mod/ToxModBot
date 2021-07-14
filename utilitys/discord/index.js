@@ -1,72 +1,41 @@
-const unirest = require("unirest");
-const fetch = require('node-fetch');
-const settings = require("@Settings/config");
+const mongoose = require("mongoose");
+const path = require("path");
+const fs = require("fs");
+const chalk = require("chalk");
 
-module.exports.refreshUser = async(opts) => {
-    const params = new URLSearchParams();
-    params.append("client_id", settings.clientID);
-    params.append("client_secret", settings.clientSecret);
-    params.append("redirect_uri", `${settings.localCallback}`);
-    params.append("scope", "identify", "guilds");
+const map = {
+    CREATE_INSTANT_INVITE: 1 << 0,
+    KICK_MEMBERS: 1 << 1,
+    BAN_MEMBERS: 1 << 2,
+    ADMINISTRATOR: 1 << 3,
+    MANAGE_CHANNELS: 1 << 4,
+    MANAGE_GUILD: 1 << 5,
+    ADD_REACTIONS: 1 << 6,
+    VIEW_AUDIT_LOG: 1 << 7,
+    PRIORITY_SPEAKER: 1 << 8,
+    STREAM: 1 << 9,
+    VIEW_CHANNEL: 1 << 10,
+    SEND_MESSAGES: 1 << 11,
+    SEND_TTS_MESSAGES: 1 << 12,
+    MANAGE_MESSAGES: 1 << 13,
+    EMBED_LINKS: 1 << 14,
+    ATTACH_FILES: 1 << 15,
+    READ_MESSAGE_HISTORY: 1 << 16,
+    MENTION_EVERYONE: 1 << 17,
+    USE_EXTERNAL_EMOJIS: 1 << 18,
+    VIEW_GUILD_INSIGHTS: 1 << 19,
+    CONNECT: 1 << 20,
+    SPEAK: 1 << 21,
+    MUTE_MEMBERS: 1 << 22,
+    DEAFEN_MEMBERS: 1 << 23,
+    MOVE_MEMBERS: 1 << 24,
+    USE_VAD: 1 << 25,
+    CHANGE_NICKNAME: 1 << 26,
+    MANAGE_NICKNAMES: 1 << 27,
+    MANAGE_ROLES: 1 << 28,
+    MANAGE_WEBHOOKS: 1 << 29,
+    MANAGE_EMOJIS: 1 << 30
+  };
 
-    if (opts.code) {
-        params.append("grant_type", "authorization_code");
-        params.append("code", opts.code);
-    } else if (opts.refresh_token) {
-        params.append("grant_type", "refresh_token");
-        params.append("code", opts.refresh_token);
-    }
-
-    const response = await fetch(`https://discord.com/api/v6/oauth2/token`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: params,
-    });
-    let json = await response.json();
-    
-    return json;
-}
-
-module.exports.getUser = async (opts) => {
-    let access_token, refresh_token;
-    if (!opts.access_token) {
-        let json = await module.exports.refreshUser(opts);
-        access_token = json.access_token;
-        refresh_token = json.refresh_token
-    } else {
-        access_token = opts.access_token;
-        refresh_token = opts.refresh_token;
-    }
-
-    let data = [];
-    let user = await fetch(`https://discord.com/api/users/@me`, {
-        headers: {
-            Authorization: `Bearer ${access_token}`,
-        },
-    });
-
-    user = await user.json();
-
-    if (user.code === 0) return false;
-    data.push(user);
-    data.push({refresh_token, access_token});
-    return data;
-};
-
-module.exports.getBot = (id) => {
-    return new Promise(function (resolve, reject) {
-        let data = [];
-        unirest
-            .get(`https://discord.com/api/users/${id}`)
-            .headers({
-                Authorization: `Bot ${process.env.DISCORD_TOKEN}`,
-            })
-            .end(function (user) {
-                if (user["raw_body"].error) return resolve(false);
-                data.push(JSON.parse(user["raw_body"]));
-                resolve(data);
-            });
-    });
-};
+  module.exports = map;
+  

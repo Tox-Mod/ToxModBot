@@ -1,0 +1,62 @@
+<html>
+<head>
+
+    <link rel="stylesheet" href="/styling/main/custom-style.css">
+
+    <%- include(headerPath, {
+        bot, user, path,
+        description: 'Sorry, Only the Tox Mod staff team can access this page!',
+        description2: 'Sorry, Only the Tox Mod staff team can access this page!',
+        title: 'Tox Mod | Unauthorized',
+        main_title: 'Tox Mod | Unauthorized',
+        image: 'none',
+        }) 
+      %>
+</head>
+<body>
+  <%- include(navbarPath, { bot, user }) %>
+  <div class="bigthingy row">
+    <div class="seeme col-md-8 offset-md-2 row">
+      <div class="seeme col-sm-2 sinfo">
+        <p id="bigytxt" class="bigyimg"><img src="images/ToxModLogo.gif" style="width:88px; border-radius:50%;"/></p>
+      </div>
+      <div class="seeme col-sm-10 sinfo">
+        <p id="bigytxt"><span style="font-size:25px; font-weight:bold;">Tox Mod</span><br /><span class="typed"></span></p>
+      </div>
+    </div>
+    </div>
+    <br />
+
+  <center>
+    <div class="container">
+      <h1 style="font-size: 75px;">4<img src="https://media1.giphy.com/media/vYydsgZhi8aMIxqucX/200w.webp?cid=ecf05e47cho3vmizh1g73po4p1yyxwo7qhtbuj2ez75n7ji2&rid=200w.webp&ct=s" alt="Error Stuff" width="120px">1</h1>
+      <p style="color: white;">
+        Only the Tox Mod Staff Team can access the requested page, If you believe this is a mistake or you are an active Staff Member please contact <a target="_blank" href="https://discordapp.com/users/510065483693817867">Toxic Dev</a>
+        </p>
+        <br>
+        <button class="btn btn-info" style="margin-left: 15px; margin-right: 15px; margin-top: 15px; margin-bottom: 15px;" onclick="window.location.href = '/'"><i class="fa fa-home"></i> Take me Home!</button>
+    </div>
+  </center>  
+</body>
+
+<br><br><br><br><br><br>
+
+<!-- RANDOM SCRIPT FOR THE NAVBAR STUFF -->
+<script>
+  var typed = new Typed('.typed', {
+    strings: [
+              "Lol, You done goofed and thought you had access!",
+              "Admin Pages are locked to my Staff Team and Devs xD",
+              "Fun Fact: Roses are red Violets are blue I have access sucks to be you xD"
+            ],
+    typeSpeed: 80,
+    backSpeed: 70,
+    loop: true,
+    backDelay: 3000,
+    contentType: 'html'
+  });
+  </script>
+
+    <!-- INCLUDE THE WEBSITE FOOTER -->
+    <%- include(footerPath, { bot, user, path }) %>
+</html>

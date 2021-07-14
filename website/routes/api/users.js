@@ -1,5 +1,5 @@
 const route = require("express").Router();
-const renderPage = require('@Templates/renderPage');
+const { renderPage } = require('@Templates/renderPage');
 const { checkAuth } = require('@Authorization/checkAuth');
 
 const USERS = require('@Database/users');

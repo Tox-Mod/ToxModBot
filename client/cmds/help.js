@@ -53,22 +53,22 @@ module.exports.run = async (client, message, args, params) => {
         let mod_cmds = client.commands.filter(cmd => cmd.help.category == 'mod');
         let owner_cmds = client.commands.filter(cmd => cmd.help.category == 'owner');
 
-        const embed = new MessageEmbed()
-          embed.setTitle('Tox Mod Help')
-          embed.setColor(Colors.Primary)
-          embed.setDescription("**Default Prefix: **" + "``" + prefix + "``")
-          embed.setThumbnail(Images.Animated)
-          embed.addField('Command Help', `${prefix}help [CommandName]`, true)
-          embed.addField('Info Commands', info_cmds.map(cmd => "``" + cmd.help.name + "``" ).join("** , **"), true)
-          embed.addField('Mod Commands', mod_cmds.map(cmd => "``" + cmd.help.name + "``" ).join("** , **"), true)
+        const embed2 = new MessageEmbed()
+          embed2.setTitle('Tox Mod Help')
+          embed2.setColor(Colors.Primary)
+          embed2.setDescription("**Default Prefix: **" + "``" + prefix + "``")
+          embed2.setThumbnail(Images.Animated)
+          embed2.addField('Command Help', `${prefix}help [CommandName]`, true)
+          embed2.addField('Info Commands', info_cmds.map(cmd => "``" + cmd.help.name + "``" ).join("** , **"), true)
+          embed2.addField('Mod Commands', mod_cmds.map(cmd => "``" + cmd.help.name + "``" ).join("** , **"), true)
 
           if (client.config.owners.includes(message.author.id)) {
 
-            embed.addField('Owner Commands', owner_cmds.map(cmd => "``" + cmd.help.name + "``" ).join("** , **"), true)
+            embed2.addField('Owner Commands', owner_cmds.map(cmd => "``" + cmd.help.name + "``" ).join("** , **"), true)
 
           }
 
-          embed.setFooter(Embeds.Footer, Images.Animated)
+          embed2.setFooter(Embeds.Footer, Images.Animated)
     })
 }
 

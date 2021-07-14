@@ -1,6 +1,6 @@
 const route = require("express").Router();
 const { MessageEmbed, Discord } = require('discord.js');
-const renderPage = require('@Templates/renderPage');
+const { renderPage } = require('@Templates/renderPage');
 const { checkAuth } = require('@Authorization/checkAuth');
 
 const SERVERS = require('@Database/servers');

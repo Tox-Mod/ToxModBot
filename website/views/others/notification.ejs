@@ -1,17 +1,46 @@
-<% if(alert) { %>
-    <div class="notify" id="notify" style="animation: came-out 2s">
-        <b class="notify-title" style="color: green;"><i class="fa fa-check-circle"></i> Success!</b><br>
-        <b style="color: white;"><%= alert %></b>
-    </div> 
-<% }else if(error){ %>
-    <div class="notify" id="notify" style="animation: came-out 2s">
-        <b class="notify-title" style="color: red;"><i class="fa fa-times-circle"></i> Error!</b><br>
-        <b style="color: white;"><%= error %></b>
-    </div>
-<% } %>
+<head>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+</head>
 
-<script>
-setTimeout(() => {
-    document.getElementById("notify").style = "display: none;"
-},  5000)
-</script>
+<% if(alert) { %>
+    <script>
+        Swal.fire({
+          title: "Success!",
+          icon: "success",
+          text: `<%= alert %>`,
+          width: 'auto',
+          height: '50px',
+          background: '#23272a',
+          buttons: false,
+          footer: "Note: This alert will close in 3 Seconds!",
+          allowOutsideClick: true,
+          allowEscapeKey: true,
+          showConfirmButton: true,
+          confirmButtonText: "Yeet this alert now!",
+          confirmButtonColor: "#7289DA",
+          showCancelButton: false,
+          animation: true,
+        })
+    </script>
+<% } else if (error) { %>
+    <script>
+        Swal.fire({
+          title: "Error!",
+          icon: "error",
+          text: `<%= error %>`,
+          width: 'auto',
+          height: '50px',
+          background: '#23272a',
+          position: "bottom-right",
+          buttons: false,
+          footer: "Note: This alert will close in 3 Seconds!",
+          allowOutsideClick: true,
+          allowEscapeKey: true,
+          showConfirmButton: true,
+          showCancelButton: false,
+          animation: true,
+        })
+    </script>
+<% } %>

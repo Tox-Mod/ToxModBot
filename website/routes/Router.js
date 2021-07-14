@@ -41,14 +41,18 @@ router.use( customHeaders );
  */
 router.use('/', require('@Routes/home/index'));
 
+router.use('/status', require('@Routes/Status'));
+router.use('/staff', require('@Routes/Staff'));
+router.use('/admin', require('@Routes/admin/panel'));
+router.use('/bugs', require('@Routes/reports/bugs'));
+
 router.use('/api/user', require('@Routes/api/users'));
 //router.use('/api/case', require('@Routes/api/case')); // COMING SOON
 //router.use('/api/cases', require('@Routes/api/cases')); // COMING SOON
 
 router.use('/commands', require('@Routes/bot/commands'));
 
-router.use('/dashboard', require('@Routes/dashboard/index'));
-router.use('/dashboard', require('@Routes/dashboard/actions'));
+router.use('/dashboard', require('@Routes/dashboard/Router'));
 
 router.use('/callback', require('@Routes/auth/callback'));
 router.use('/login', require('@Routes/auth/login'));
@@ -59,6 +63,7 @@ router.use('/user', require('@Routes/users/user'));
 
 router.use('/terms', require('@Routes/legal/terms'));
 
+router.use('/nope', require('@Routes/errors/staff'));
 router.use('/403', require('@Routes/errors/403'));
 router.use('/404', require('@Routes/errors/404'));
 router.use('/500', require('@Routes/errors/500'));
