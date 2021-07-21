@@ -64,7 +64,7 @@ module.exports = async (client) => {
         i++
     }, 30000);
 
-    if (client.shard.ids[0] === 0) console.log(`[Tox Mod | Bot] Signed in as ${client.user.username} | Loaded: ${eventFiles2.length} Events | Loaded: ${client.commands.size} Commands`);
+    console.log(`[Tox Mod | Bot] Signed in as ${client.user.username} | Loaded: ${eventFiles2.length} Events | Loaded: ${client.commands.size} Commands`);
     
     IBL.post(client.guilds.cache.size, '0')
 }
