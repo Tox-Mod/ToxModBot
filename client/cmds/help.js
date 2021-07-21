@@ -68,6 +68,8 @@ module.exports.run = async (client, message, args, params) => {
           }
 
           embed2.setFooter(Embeds.Footer, Images.Animated)
+        
+        return message.channel.send(embed2)
     })
 }
 
