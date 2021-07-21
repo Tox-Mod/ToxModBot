@@ -1,3 +1,9 @@
+/**
+* 
+* Website Copyright (c) Toxic Development | github.com/TheRealToxicDev
+*
+*/
+
 (function (factory) {
     if (typeof define === 'function' && define.amd) {
         define(['jquery'], factory);

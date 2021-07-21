@@ -3,6 +3,7 @@ const { join } = require("path")
 const filePath2 = join(__dirname, "..", "events");
 const eventFiles2 = readdirSync(filePath2);
 const timers = require("timers");
+const mongoose = require('mongoose');
 
 const BotListData = require('@Settings/botlists');
 

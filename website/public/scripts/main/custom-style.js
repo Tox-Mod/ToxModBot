@@ -1,3 +1,9 @@
+/**
+* 
+* Website Copyright (c) Toxic Development | github.com/TheRealToxicDev
+*
+*/
+
 function imgError(place) {
     place.src='https://toxmod.xyz/images/5D72D446-8F49-43B2-8924-A2E1CA45AC01.gif';
 }

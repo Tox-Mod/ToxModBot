@@ -23,26 +23,22 @@ exports.AuthLogs = '857816088578752512'
 exports.BanLogs = '857816139773509632'
 exports.BugLogs = '857816157921738762'
 
-
+exports.maintenance = false
 
 /**
 * DEFINE THE USERS AND THEIR ACCESS 
 */
 exports.owners = [
-    "510065483693817867"
-]
-
-exports.admins = [
-    "391376464064282627",
-    "673937399801184306"
-]
-
-exports.staff = [
     "510065483693817867", // Toxic Dev
     "324646179134636043", // Connor
     "713632188863610911", // Maxim
     "391376464064282627", // Cpt Calcium
     "673937399801184306" // Greed
+]
+
+exports.admins = [
+    "391376464064282627",
+    "673937399801184306"
 ]
 
 exports.beta = [

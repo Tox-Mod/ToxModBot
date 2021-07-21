@@ -1,3 +1,9 @@
+/**
+* 
+* Website Copyright (c) Toxic Development | github.com/TheRealToxicDev
+*
+*/
+
 function getCookie(cname) {
     var name = cname + "=";
     var ca = document.cookie.split(';');

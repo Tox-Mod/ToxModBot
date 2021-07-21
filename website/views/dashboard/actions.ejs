@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- INLUCDE THE HEADER IN THE PAGE.-->
+    <head>
+      <link rel="stylesheet" href="/styling/main/custom-style.css">
+    </head>
+    <%- include(headerPath, {
+      bot, path,
+      description: 'View and Manage your Servers Infractions and Cases',
+      description2: 'View and Manage your Servers Infractions and Cases',
+      title: `Tox Mod | Dashboard - Actions`,
+      main_title: `Tox Mod | Dashboard - Actions`,
+      image: 'none',
+      }) 
+    %>
+    <!-- START THE ACTUAL PAGE BODY.. YEET. -->
+
+    <%- include(navbarPath, { bot, user, path }) %>
+
+    <% if (alert) { %>
+      <%- include(notifyAlerts, {alert}) %>
+    <% } else if (error) { %>
+      <%- include(notifyAlerts, {error}) %>
+    <% } %>
+    <body>
+
+    <!-- INCLUDE THE NAVBAR IN THE PAGE. -->
+    <div class="bigthingy row">
+      <div class="seeme col-md-8 offset-md-2 row">
+        <div class="seeme col-sm-2 sinfo">
+          <p id="bigytxt" class="bigyimg"><img src="/images/ToxModLogo.gif" style="width:88px; border-radius:50%;"/></p>
+        </div>
+        <div class="seeme col-sm-10 sinfo">
+          <p id="bigytxt"><span style="font-size:25px; font-weight:bold;">Tox Mod</span><br /><span class="typed"></span></p>
+        </div>
+      </div>
+    </div>
+      <br />
+
+    <%- include(navbarPath, { bot, user, path }) %>
+
+    <div class="faq">
+      <center>
+        <h1 style="color: rgb(0, 102, 255);"><strong>Server Actions!</strong></h1>
+        <h4 style="color: white;"><strong>Server cases!</strong></h4>
+        </form>
+        <form style="margin-top: 1em;" method="POST"> <!-- method="post" tiggers a POST request to the same url with the body of the form control inputs -->
+          <div class="container">
+        <% if(cases.length === 0){ %>
+          <img src="https://cdn1.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-256.png" style="width: 70px;">
+          <p style="font-size: 20px; color: white">No infractions for this server</p><br>
+          <% }else{ %>
+            <% for (i = 0; i < cases.length; i++) { %>
+              <% bot.users.fetch(cases[i].userID) %>
+                <% } %>
+        <% for (i = 0; i < cases.length; i++) { %>
+                <% let reason = ''; %>
+                <% let time = ''; %>
+                <% let member = ''; %>
+                <% let moderator = ""; %>
+                <% let duration = ""; %>
+                <% if(cases[i].reason == ''){ %>
+                    <% reason = 'No reason Provided' %>
+                    <% }else{ %>
+                    <% reason = cases[i].reason %>
+                    <% } %>
+                <% if(cases[i].time == undefined){ %>
+                    <% time = 'No time' %> 
+                    <% }else{ %>
+                        <% time = cases[i].time %>
+                    <% } %>
+                    <% if(bot.users.cache.get(cases[i].Moderator)){ %>
+                        <% moderator = bot.users.cache.get(cases[i].Moderator).tag %>
+                        <% }else{ %>
+                            <% moderator = "Wasn't defined at this time" %>
+                        <% } %>
+                        <% if(bot.users.cache.get(cases[i].userID)){ %>
+                        <% member = bot.users.cache.get(cases[i].userID).tag %>
+                        <% }else{ %>
+                            <% member = "Error occured" %>
+                        <% } %>
+                        <% if(cases[i].duration == undefined){ %>
+                          <% duration = 'No duration set for that action!' %> 
+                          <% }else{ %>
+                              <% duration = cases[i].duration %>
+                          <% } %>
+            <div class="card bug">
+              <p><strong style="color: rgb(255, 255, 255); font-size: 30px;">Case number </strong>#<%= cases[i].case %><br>_____________<br><code>Action:</code> <strong><%= cases[i].action %></strong><br><code>Allegation:</code> <strong><%= member %></strong><br><code>Moderator: </code><strong><%= moderator %></strong><br><code>Duration: </code><strong><%= duration %></strong><br><code>Time: </code><strong><%= time %></strong><br><code>Reason: </code><strong><%= reason %></strong></code></p>
+              <button style="width:170px; color: rgb(247, 91, 91);" name="deletecase" value="<%= cases[i].case %>" type="submit">Delete</button>
+            </div>
+              <% } %>
+          <% } %>
+        </div>
+        </form>
+      <a class="btn btn-info" style="color: white; margin-left: 22px;"  href="/dashboard/guilds/<%= guild.id %>">Back to dashboard</a>
+    </center>
+    </div>
+</body>
+
+<script>
+  var typed = new Typed('.typed', {
+    strings: [
+              "The Discord Bot with a little bit of Attitude!",
+              "Making it Easier to Moderate your Server since 2020"
+            ],
+    typeSpeed: 80,
+    backSpeed: 70,
+    loop: true,
+    backDelay: 3000,
+    contentType: 'html'
+  });
+  </script>
+
+ <br><br><br><br><br><br>
+
+    <!-- INCLUDE THE WEBSITE FOOTER -->
+    <%- include(footerPath, { bot, path }) %>
+</html>

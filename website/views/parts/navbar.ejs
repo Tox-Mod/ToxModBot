@@ -18,8 +18,11 @@
               <a class="nav-link" href="/discord">Support</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/status">Status</a>
+            <a class="nav-link" href="https://toxmod.instatus.com">Status</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://docs.toxmod.xyz">Docs</a>
+      </li>
         <li class="nav-item">
           <a class="nav-link" href="/bugs">Bugs</a>
       </li>
@@ -28,14 +31,19 @@
         <% if(user != null) { %>
             <li class="nav-item dropdown" style="margin-left:10px;">
                 <a class="btn btn-dark dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <img height="30" style="border-radius:50%;" src="<%= user.displayAvatarURL({dynamic: true}) %>"/> <%= user.username %></a>
+            <img height="30" style="border-radius:50%;" src="https://cdn.discordapp.com/avatars/<%= user.id %>/<%= user.avatar %>"/> <%= user.username %></a>
                 <div class="dropdown-menu dropdown-menu-right" style="background-color: #23272a;" aria-labelledby="navbarDropdown" style="z-index: 100;">
                     <h6 class="dropdown-header">
                         <%= user.username %>
                     </h6>
-                    <a style="text-color: black;" class="dropdown-item" href="/profile"><i class="fas fa-server"></i> Profile</a>
-                    <a style="color: black;" class="dropdown-item" href="/dashboard" disabled><i class="fas fa-user-cog"></i> Dashboard</a>
-                    <% if(config.staff.includes(user.id) || config.owners.includes(user.id) || config.devs.includes(req.user.id)) { %>
+                    <a style="text-color: black;" class="dropdown-item" href="/profile"><i class="fa fa-user"></i> View Profile</a>
+                    <a style="text-color: black;" class="dropdown-item" href="/me/edit"><i class="fa fa-user-cog"></i> Edit Profile</a>
+                    <div class="dropdown-divider"></div>
+                    <h6 class="dropdown-header">
+                      Dashboard
+                    </h6>
+                    <a style="color: black;" class="dropdown-item" href="/dashboard" disabled><i class="fas fa-cog"></i> Dashboard</a>
+                    <% if(config.owners.includes(user.id)) { %>
                         <div class="dropdown-divider"></div>
                         <h6 class="dropdown-header">Staff Menu</h6>
                         <a style="color: black;" class="dropdown-item" href="/admin"><i class="fas fa-tasks"></i> Panel</a>

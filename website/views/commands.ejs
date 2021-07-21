@@ -6,10 +6,10 @@
     </head>
     <%- include(headerPath, {
       bot, user, path,
-      description: 'The Discord Bot with a little bit of Attitude!',
-      description2: 'The Discord Bot with a little bit of Attitude!',
-      title: 'Tox Mod | Home',
-      main_title: 'Tox Mod | Home',
+      description: 'View a list of the Tox Mod Commands!',
+      description2: 'View a list of the Tox Mod Commands!',
+      title: 'Tox Mod | Commands',
+      main_title: 'Tox Mod | Commands',
       image: 'none',
       }) 
     %>
@@ -19,7 +19,7 @@
     <div class="bigthingy row">
       <div class="seeme col-md-8 offset-md-2 row">
         <div class="seeme col-sm-2 sinfo">
-          <p id="bigytxt" class="bigyimg"><img src="https://toxmod.xyz/images/5D72D446-8F49-43B2-8924-A2E1CA45AC01.gif" style="width:88px; border-radius:50%;"/></p>
+          <p id="bigytxt" class="bigyimg"><img src="/images/ToxModLogo.gif" style="width:88px; border-radius:50%;"/></p>
         </div>
         <div class="seeme col-sm-10 sinfo">
           <p id="bigytxt"><span style="font-size:25px; font-weight:bold;">Tox Mod<sup> COMMANDS</sup></span><br /><span class="typed"></span></p>
@@ -37,6 +37,38 @@
         <p id="infocmds" class="has-text-white title is-large"><i class="fas fa-exclamation-circle"></i>&nbsp;Information Commands</p>
         <div class="columns is-multiline is-desktop is-variable is-7 pt-5">
           <% bot.commands.filter(cmd => cmd.help.category == 'info').map(cmd => { %>
+            <div class="col-md-6 col-lg-4 pb-3">
+              <div class="card ibl-card-custom bg-ibl border-white border-0">
+                <div class="card-body">
+                  <h4 class="card-title"><strong>Name: </strong><%= cmd.help.name %></h4>
+                  <hr style="background-color: white;">
+                  <p class="card-text iblbotDesc">
+                    <strong>Description:</strong> <code><%= cmd.help.description %></code>
+                    <hr style="background-color: white;">
+                    <strong>User Permissions:</strong> <code><%= cmd.requirements.userPerms %></code>
+                    <br /><br />
+                    <strong>Bot Permissions:</strong> <code><%= cmd.requirements.clientPerms %></code>
+                    <br /><br />
+                    <strong>Aliases:</strong> <code><%= cmd.help.aliases %></code>
+                    <br /><br />
+                    <strong>Cooldown:</strong> <code><%= cmd.limits.cooldown %></code>
+                    <br /><br />
+                    <strong>Ratelimit:</strong> <code><%= cmd.limits.rateLimit %></code>
+                  </p>
+                </div>
+              </div>
+            </div>
+          <% }) %>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <br><br>
+      <div class="column">
+        <p id="infocmds" class="has-text-white title is-large"><i class="fas fa-exclamation-circle"></i>&nbsp;Chat Commands</p>
+        <div class="columns is-multiline is-desktop is-variable is-7 pt-5">
+          <% bot.commands.filter(cmd => cmd.help.category == 'chat').map(cmd => { %>
             <div class="col-md-6 col-lg-4 pb-3">
               <div class="card ibl-card-custom bg-ibl border-white border-0">
                 <div class="card-body">

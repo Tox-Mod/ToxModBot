@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- INLUCDE THE HEADER IN THE PAGE.-->
+    <head>
+      <link rel="stylesheet" href="/styling/main/custom-style.css">
+    </head>
+    <%- include(headerPath, {
+      bot, path,
+      description: 'Configure the Other settings for your Guild',
+      description2: 'Configure the Other settings for your Guild',
+      title: `Tox Mod | Dashboard - Others`,
+      main_title: `Tox Mod | Dashboard - Others`,
+      image: 'none',
+      }) 
+    %>
+    <!-- START THE ACTUAL PAGE BODY.. YEET. -->
+
+    <%- include(navbarPath, { bot, user, path }) %>
+
+    <% if (alert) { %>
+      <%- include(notifyAlerts, {alert}) %>
+    <% } else if (error) { %>
+      <%- include(notifyAlerts, {error}) %>
+    <% } %>
+    <body>
+
+    <!-- INCLUDE THE NAVBAR IN THE PAGE. -->
+    <div class="bigthingy row">
+      <div class="seeme col-md-8 offset-md-2 row">
+        <div class="seeme col-sm-2 sinfo">
+          <p id="bigytxt" class="bigyimg"><img src="/images/ToxModLogo.gif" style="width:88px; border-radius:50%;"/></p>
+        </div>
+        <div class="seeme col-sm-10 sinfo">
+          <p id="bigytxt"><span style="font-size:25px; font-weight:bold;">Tox Mod</span><br /><span class="typed"></span></p>
+        </div>
+      </div>
+    </div>
+      <br />
+
+    <%- include(navbarPath, { bot, user, path }) %>
+
+    <div class="faq">
+      <center>
+        <form style="margin-top: 1em;" method="POST"> <!-- method="post" tiggers a POST request to the same url with the body of the form control inputs -->
+            <p style="font-size: 50px;"><strong>Change the prefix</strong></p>
+            <p><code>Currently prefix is <strong style="color: rgb(255, 0, 0);"><%= settings.prefix %></strong></code></p>
+            <input class="input" maxlength="5" type="text" name="prefix" value="<%= settings.prefix %>" placeholder="Type your new prefix..."><br><br>
+            <p style="font-size: 50px;"><strong>Change max warns amount</strong></p>
+            <p><code>Currently max warns count is <strong style="color: rgb(255, 0, 0);"><%= settings.maxwarns %></strong></code></p>
+            <p><code>Max amount is <strong style="color: rgb(255, 0, 0);"> 99 </strong></code></p>
+            <input class="input" maxlength="2" type="text" name="maxwarns"  value="<%= settings.maxwarns %>" placeholder="Type your new amount..."><br><br>
+            <p style="font-size: 50px;"><strong>Change Tox Mods nickname</strong></p>
+            <input class="input" maxlength="25" type="text" name="nickname"  value="<%= guild.me.nickname || bot.user.username %>" placeholder="i.e vapor mod"><br><br>
+            <button style="width:170px" class="button" type="submit">Update</button>
+          </form>
+      <a class="btn btn-info" style="color: white; margin-left: 22px;"  href="/dashboard/guilds/<%= guild.id %>">Back to dashboard</a>
+    </center>
+    </div>
+</body>
+
+<script>
+  var typed = new Typed('.typed', {
+    strings: [
+              "The Discord Bot with a little bit of Attitude!",
+              "Making it Easier to Moderate your Server since 2020"
+            ],
+    typeSpeed: 80,
+    backSpeed: 70,
+    loop: true,
+    backDelay: 3000,
+    contentType: 'html'
+  });
+  </script>
+
+ <br><br><br><br><br><br>
+
+    <!-- INCLUDE THE WEBSITE FOOTER -->
+    <%- include(footerPath, { bot, path }) %>
+</html>

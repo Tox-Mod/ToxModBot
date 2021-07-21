@@ -1,4 +1,5 @@
 const route = require("express").Router();
+const { MessageEmbed } = require('discord.js');
 const { checkAuth } = require('@Authorization/checkAuth');
 const { renderPage } = require('@Templates/renderPage');
 const config = require('@Settings/config')
@@ -9,7 +10,14 @@ const CLOCK = require('@Database/clock');
 const CASES = require('@Database/cases');
 const ERRORS = require('@Database/errors');
 const TICKETS = require('@Database/tickets');
+
+const Images = require('@Images/index');
+const Colors = require('@Colors/index');
+const Embeds = require('@Embeds/index');
+
 const { render } = require("ejs");
+
+const ratelimit = new Set()
 
 route.get("/", checkAuth, async (req, res) => {
 
@@ -38,6 +46,20 @@ route.post("/", checkAuth, async (req, res) => {
 
             newBug.save().catch(() => {});
 
+            let BugEmbed = new MessageEmbed()
+             .setTitle('New Bug Report')
+             .setColor(Colors.Error)
+             .setDescription(`${req.body.reportbug}`)
+             .addField('Submitted By', `${req.user.username}#${req.user.discriminator}`, true)
+             .addField('User ID', `${req.user.id}`, true)
+             .addField('User Profile', `https://discordapp.com/users/${req.user.id}`, true)
+             .setTimestamp()
+             .setFooter(Embeds.Footer, Images.Animated)
+
+             await req.app.get('client').guilds.cache.get(config.SupportGuild).channels.cache.get(config.BugLogs).send(BugEmbed).catch((error) => {
+                 console.log(`[Tox Mod | Web] Stacktrace: ${error}`)
+             });
+
             alertmsg = "Your report has been submitted to our Dev Team!"
 
             setTimeout(() => {
@@ -51,7 +73,7 @@ route.post("/", checkAuth, async (req, res) => {
         error: errormsg
     }
 
-    renderPage(res, req, 'reports/bug', data)
+    renderPage(res, req, 'reports/bugs', data)
 })
 
 module.exports = route;

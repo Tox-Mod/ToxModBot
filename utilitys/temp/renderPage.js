@@ -1,5 +1,5 @@
 const config = require('@Settings/config')
-const express = require("express");
+const router = require("express").Router();
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const passport = require("passport");
@@ -8,17 +8,21 @@ const path = require('path');
 
 const templateDir = path.resolve(`${process.cwd()}${path.sep}website/views`);
 
-passport.serializeUser((user, done) => done(null, user));
-passport.deserializeUser((obj, done) => done(null, obj));
-
 module.exports.renderPage = async (res, req, template, data = {}) => {
 
+    router.use(passport.initialize());
+    router.use(passport.session());
+
+    passport.serializeUser((user, done) => done(null, user));
+    passport.deserializeUser((obj, done) => done(null, obj));
+
     let client = await req.app.get('client');
+    let user = await req.isAuthenticated() ? client.users.cache.get(req.user.id) : null;
 
     const baseData = {
         bot: client,
         path: req.path,
-        user: req.isAuthenticated() ? req.app.get('client').users.fetch(req.user.id) : null,
+        user: user,
         theme: req.cookies.theme, 
         config: config,
         headerPath: `${templateDir}${path.sep}parts/header`,

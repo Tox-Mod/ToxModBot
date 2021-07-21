@@ -16,7 +16,7 @@ const TICKETS = require('@Database/tickets');
  */
 route.get("/", checkAuth, async (req, res) => {
 
-    if (!config.staff.includes(req.user.id)) return res.redirect('/nope');
+    if (!config.owners.includes(req.user.id)) return res.redirect('/nope');
 
     const bugres = await ERRORS.find({}, { _id: false, auth: false })
 
@@ -35,9 +35,9 @@ route.get("/", checkAuth, async (req, res) => {
 /**
  * POST METHOD
  */
- route.get("/", checkAuth, async (req, res) => {
+ route.post("/", checkAuth, async (req, res) => {
 
-    if (!config.staff.includes(req.user.id)) return res.redirect('/nope');
+    if (!config.owners.includes(req.user.id)) return res.redirect('/nope');
 
     let alertmsg = ""
     let errormsg = ""
@@ -45,7 +45,7 @@ route.get("/", checkAuth, async (req, res) => {
     if (req.body.commandreload) {
 
         try {
-            delete require.cache[require.resolve(`../../../client/cmds/${req,body.commandreload}.js`)]
+            delete require.cache[require.resolve(require(`@Cmds/${req.body.commandreload}.js`))]
 
             client.commands.delete(req.body.commandreload)
 

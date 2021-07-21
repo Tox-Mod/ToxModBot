@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- INLUCDE THE HEADER IN THE PAGE.-->
+    <head>
+      <link rel="stylesheet" href="/styling/main/custom-style.css">
+    </head>
+    <%- include(headerPath, {
+      bot, path,
+      description: 'Configure the Auto-Mod settings for your Guild',
+      description2: 'Configure the Auto-Mod settings for your Guild',
+      title: `Tox Mod | Dashboard - Auto-Mod`,
+      main_title: `Tox Mod | Dashboard - Auto-Mod`,
+      image: 'none',
+      }) 
+    %>
+    <!-- START THE ACTUAL PAGE BODY.. YEET. -->
+
+    <%- include(navbarPath, { bot, user, path }) %>
+
+    <% if (alert) { %>
+      <%- include(notifyAlerts, {alert}) %>
+    <% } else if (error) { %>
+      <%- include(notifyAlerts, {error}) %>
+    <% } %>
+    <body>
+
+    <!-- INCLUDE THE NAVBAR IN THE PAGE. -->
+    <div class="bigthingy row">
+      <div class="seeme col-md-8 offset-md-2 row">
+        <div class="seeme col-sm-2 sinfo">
+          <p id="bigytxt" class="bigyimg"><img src="/images/ToxModLogo.gif" style="width:88px; border-radius:50%;"/></p>
+        </div>
+        <div class="seeme col-sm-10 sinfo">
+          <p id="bigytxt"><span style="font-size:25px; font-weight:bold;">Tox Mod</span><br /><span class="typed"></span></p>
+        </div>
+      </div>
+    </div>
+      <br />
+
+    <%- include(navbarPath, { bot, user, path }) %>
+
+    <div class="faq">
+      <center>
+        <form style="margin-top: 1em;" method="POST"> <!-- method="post" tiggers a POST request to the same url with the body of the form control inputs -->
+            <% let antispamen = settings.antispam %>
+            <% if(antispamen == "0"){ %>
+              <%  antispamen = "Disabled" %>
+              <% }else if(antispamen == "1"){ %>
+                <% antispamen =  "Enabled" %>
+                <% }else{ %>
+                  <%  antispamen = "Disabled" %>
+                  <% } %>
+            <center>
+          <h1><strong>Anti Swear/Links</strong></h1>
+          <p>Anti Swear applies to members without manage messages permissions .</p>
+          <p><code>Currently anti swear/links is <%= antispamen %></code></p>
+          <% if(guild.me.hasPermission("MANAGE_MESSAGES")){ %>
+          <select class="select" name="antispam">
+            <option value="<%= settings.antispam %>"><%= antispamen %></option>
+            <% if(settings.antispam == "0"){ %>
+              <option value="1">Enable</option>
+              <% }else if(settings.antispam == "1"){ %>
+                <option value="0">Disable</option>
+                <% }else{ %>
+                  <option value="1">Enable</option>
+                  <% } %>
+          </select>
+          <% }else{ %>
+            <p style="color: red">Bot is missing manage messages permissions! re-add then try again</p>
+            <% } %>
+              <% let antiraiden = settings.antiraid %>
+            <% if(antiraiden == "0"){ %>
+              <%  antiraiden = "Disabled" %>
+              <% }else if(antiraiden == "1"){ %>
+                <% antiraiden =  "Enabled" %>
+                <% }else{ %>
+                  <%  antiraiden = "Disabled" %>
+                  <% } %>
+           <center>
+        <h1><strong>Anti raid</strong></h1>
+        <p>Anti raid is dangerous, this option locks members from joining the server!, and sends a private message to them! explaining! , think once , twice before you enable it</p>
+          <p><code>Currently Anti raid is <%= antiraiden %></code></p>
+            <% if(guild.me.hasPermission("KICK_MEMBERS")){ %>
+        <select class="select" name="antiraid">
+            <option value="<%= settings.antiraid %>"><%= antiraiden %></option>
+            <% if(settings.antiraid == "0"){ %>
+              <option value="1">Enable</option>
+              <% }else if(settings.antiraid == "1"){ %>
+                <option value="0">Disable</option>
+                <% }else{ %>
+                  <option value="1">Enable</option>
+                  <% } %>
+        </select>
+          <% }else{ %>
+          <p style="color: red">Bot is missing kick members permissions! re add then try again</p>
+          <% } %>
+        <br>
+        <br>
+        <button style="width:170px" class="button"  type="submit">Update</button>
+        
+          </form>
+      <a class="btn btn-info" style="color: white; margin-left: 22px;"  href="/dashboard/guilds/<%= guild.id %>">Back to dashboard</a>
+    </center>
+    </div>
+</body>
+
+<script>
+  var typed = new Typed('.typed', {
+    strings: [
+              "The Discord Bot with a little bit of Attitude!",
+              "Making it Easier to Moderate your Server since 2020"
+            ],
+    typeSpeed: 80,
+    backSpeed: 70,
+    loop: true,
+    backDelay: 3000,
+    contentType: 'html'
+  });
+  </script>
+
+ <br><br><br><br><br><br>
+
+    <!-- INCLUDE THE WEBSITE FOOTER -->
+    <%- include(footerPath, { bot, path }) %>
+</html>

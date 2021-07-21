@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- INLUCDE THE HEADER IN THE PAGE.-->
+    <head>
+      <link rel="stylesheet" href="/styling/main/custom-style.css">
+    </head>
+    <%- include(headerPath, {
+      bot, user, path,
+      description: 'Edit your Bio, Social Media Links and More!',
+      description2: 'Edit your Bio, Social Media Links and More!',
+      title: 'Tox Mod | Edit Profile',
+      main_title: 'Tox Mod | Edit Profile',
+      image: 'none',
+      }) 
+    %>
+    <!-- START THE ACTUAL PAGE BODY.. YEET. -->
+    <body>
+
+    <!-- INCLUDE THE NAVBAR IN THE PAGE. -->
+    <div class="bigthingy row">
+      <div class="seeme col-md-8 offset-md-2 row">
+        <div class="seeme col-sm-2 sinfo">
+          <p id="bigytxt" class="bigyimg"><img src="/images/ToxModLogo.gif" style="width:88px; border-radius:50%;"/></p>
+        </div>
+        <div class="seeme col-sm-10 sinfo">
+          <p id="bigytxt"><span style="font-size:25px; font-weight:bold;">Tox Mod</span><br /><span class="typed"></span></p>
+        </div>
+      </div>
+      </div>
+      <br />
+
+    <%- include(navbarPath, { bot, user, path }) %>
+
+    <% if (alert) { %>
+      <%- include(notifyAlerts, {alert}) %>
+    <% } else if (error) { %>
+      <%- include(notifyAlerts, {error}) %>
+    <% } %>
+
+    <div class="container">
+        <center>
+        <img src="<%= user.displayAvatarURL({ dynamic: true }) %>">
+        <h3 style="color: #fff;">Editing User: <strong><%= user.username %></strong></h3>
+        </center>
+        <br><br>
+        <form method="POST" class="form-discorddark">
+      <% if(!profile) {%>
+      <label for="basic-url"><i class="fab fa-github"></i> Github (Optional)</label>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon3">https://github.com/</span>
+        </div>
+        <input type="text" class="form-control" name="github" id="github" aria-describedby="basic-addon3">
+      </div>
+      <label for="basic-url"><i class="fab fa-twitter"></i> Twitter (Optional)</label>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon3">https://twitter.com/</span>
+        </div>
+        <input type="text" class="form-control" name="twitter" id="twitter" aria-describedby="basic-addon3">
+      </div>
+      <label for="basic-url"><i class="fab fa-instagram"></i> Instagram (Optional)</label>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon3">https://instagram.com/</span>
+        </div>
+        <input type="text" class="form-control" name="instagram" id="instagram" aria-describedby="basic-addon3">
+      </div>
+      <label for="basic-url"><i class="fad fa-globe"></i> Website (Optional)</label>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon3">Straight URL</span>
+        </div>
+        <input type="text" class="form-control" name="website" id="website" aria-describedby="basic-addon3">
+      </div>
+      <label for="basic-url"><i class="fad fa-text"></i> Biography (Optional)</label>
+      <div class="input-group mb-3">
+        <textarea id="bio" name="bio" style="width: 100%" maxlength="250"></textarea>
+      </div>
+      <% } else { %>
+      <label for="basic-url"><i class="fab fa-github"></i> Github (Optional)</label>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon3">https://github.com/</span>
+        </div>
+        <input type="text" class="form-control" value="<%= profile.github %>" name="github" id="github" aria-describedby="basic-addon3">
+      </div>
+      <label for="basic-url"><i class="fab fa-twitter"></i> Twitter (Optional)</label>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon3">https://twitter.com/</span>
+        </div>
+        <input type="text" class="form-control" value="<%= profile.twitter %>" name="twitter" id="twitter" aria-describedby="basic-addon3">
+      </div>
+      <label for="basic-url"><i class="fab fa-instagram"></i> Instagram (Optional)</label>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon3">https://instagram.com/</span>
+        </div>
+        <input type="text" class="form-control" value="<%= profile.instagram %>" name="instagram" id="instagram" aria-describedby="basic-addon3">
+      </div>
+      <label for="basic-url"><i class="fad fa-globe"></i> Website (Optional)</label>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon3">Straight URL</span>
+        </div>
+        <input type="text" class="form-control" value="<%= profile.website %>" name="website" id="website" aria-describedby="basic-addon3">
+      </div>
+      <label for="basic-url"><i class="fad fa-text"></i> Biography (Optional)</label>
+      <div class="input-group mb-3">
+        <textarea id="bio" name="bio" style="width: 100%" maxlength="250"><%= profile.bio %></textarea>
+      </div>
+      <% } %>
+    </div>
+    <center>
+      <button type="submit" class="btn btn-success"><i class="fad fa-save"></i> Save Changes!</button>
+    </center>
+</body>
+
+<script>
+  var typed = new Typed('.typed', {
+    strings: [
+              "The Discord Bot with a little bit of Attitude!",
+              "Making it Easier to Moderate your Server since 2020"
+            ],
+    typeSpeed: 80,
+    backSpeed: 70,
+    loop: true,
+    backDelay: 3000,
+    contentType: 'html'
+  });
+  </script>
+
+ <br><br><br><br><br><br>
+
+    <!-- INCLUDE THE WEBSITE FOOTER -->
+    <%- include(footerPath, { bot, user, path }) %>
+</html>

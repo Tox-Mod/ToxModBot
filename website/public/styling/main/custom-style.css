@@ -1,6 +1,81 @@
+/**
+* 
+* Website Copyright (c) Toxic Development | github.com/TheRealToxicDev
+*
+*/
+
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap');
 
 /* The side navigation menu */
+.favicon {
+  width: 42px;
+  margin-bottom: -15px;
+  -webkit-transition: -webkit-transform 0.8s ease-in-out;
+  transition: transform 0.8s ease-in-out;
+}
+
+.favicon:hover {
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+
+.btn-tag {
+  background-color: var(--input-disabled);
+  color: var(--label-color);
+  font-size: 14px;
+  border-radius: 6px;
+  border: none;
+}
+.btn-tag:hover {
+  color: var(--label-color);
+}
+
+/* Screen Res */
+@media only screen and (max-width: 999px) {
+  button {
+    margin: 5px;
+  }
+  .phone {
+    display: block;
+    animation: 0.4s;
+  }
+  .desktop {
+    display: none;
+  }
+  .textarea {
+    width: 350px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .header {
+    height: 80px;
+    width: 95.2%;
+  }
+  .searchbar{
+    width: auto;
+  }
+  .faq{
+    margin: 10px;
+  }
+}
+@media only screen and (max-width: 360px) {
+  .phone {
+    display: block;
+    animation: 0.4s;
+  }
+  .desktop {
+    display: none;
+  }
+  .textarea {
+    width: 220px;
+  }
+}
 .sidenav {
   height: 75%;
   width: 200px;
@@ -2986,10 +3061,9 @@ color: #fff!important;
   background-color: #2c2f33;
   color: #fff;
   padding: 5px;
-  float: right;
   margin-top: -50%;
   display: block;
-  font-size: 14px!important;
+  font-size: 20px!important;
   font-weight: 600;
 }
 .badge-stats.mt-1 {

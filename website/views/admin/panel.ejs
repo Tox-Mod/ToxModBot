@@ -13,6 +13,12 @@
       image: 'none',
       }) 
     %>
+
+    <% if (alert) { %>
+      <%- include(notifyAlerts, {alert}) %>
+    <% } else if (error) { %>
+      <%- include(notifyAlerts, {error}) %>
+    <% } %>
     <!-- START THE ACTUAL PAGE BODY.. YEET. -->
     <body>
 
@@ -39,7 +45,7 @@
             <div class="card ibl-card-custom bg-ibl border-white border-0" style="width: 70rem;">
               <div class="ibl-card-custom-img" style="background-image: url(<%= user.banner || "https://i.hizliresim.com/2sdunq.png" %>);"></div>
               <div class="ibl-card-custom-avatar">
-                <img class="img-fluid" onerror="imgError(this);" src="<%= user.avatarURL({ dynamic: true }) %>" alt="Avatar" />
+                <img class="img-fluid" onerror="imgError(this);" src="https://cdn.discordapp.com/avatars/<%= user.id %>/<%= user.avatar %>" alt="Avatar" />
               </div>
               <div class="card-body">
                 <h4 translate="no" class="card-title">Welcome to the Staff Panel <strong><%= user.username %>#<%= user.discriminator %></strong></h4>
@@ -64,7 +70,7 @@
                     <center><b style="font-size: 30px; color:white;"><i class="fa fa-wrench"></i> No bug reports</b><br></center>
                     <% }else{ %>
                   <% for (i = 0; i < reportbug.length; i++) { %>
-                      <div class="card mb-8">
+                      <div class="cus_card mb-8">
                         <p>
                           <strong style="color: rgb(255, 255, 255); font-size: 30px;">New bug report</strong>
                           <br>
@@ -76,9 +82,9 @@
                           <strong style="color: rgb(0, 0, 0);  word-break: break-all;"><%= reportbug[i].bug %> .</strong>
                         </p>
                         <button style="width:170px" name="acceptbug" value="<%= reportbug[i].userID %>" type="submit">Accept</button>
-                        </div>
+                      </div>
                     <% } %>
-                    <% } %>
+                  <% } %>
                 </div>
                 </form>
               </div>

@@ -1,7 +1,4 @@
-/**
- * REQUIRE THE MODULE MANAGER
- */
-require('module-alias/regsiter');
+require("module-alias/register");
 
 /**
  * IMPORT THE CONSTANT REQUIREMENTS
@@ -12,7 +9,7 @@ const token = require('@Settings/config.js').token;
 /**
  * INITIALIZE THE SHARDING CLIENT
  */
-const manager = new ShardingManager("@Client/index.js", { token, totalShards: 'auto' });
+const manager = new ShardingManager("./client/index.js", { token, totalShards: 'auto' });
 
 /**
  * SPAWN THE SHARDING MANAGER

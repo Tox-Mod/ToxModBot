@@ -18,7 +18,7 @@
   <div class="bigthingy row">
     <div class="seeme col-md-8 offset-md-2 row">
       <div class="seeme col-sm-2 sinfo">
-        <p id="bigytxt" class="bigyimg"><img src="images/ToxModLogo.gif" style="width:88px; border-radius:50%;"/></p>
+        <p id="bigytxt" class="bigyimg"><img src="/images/ToxModLogo.gif" style="width:88px; border-radius:50%;"/></p>
       </div>
       <div class="seeme col-sm-10 sinfo">
         <p id="bigytxt"><span style="font-size:25px; font-weight:bold;">Tox Mod</span><br /><span class="typed"></span></p>
@@ -29,12 +29,18 @@
 
   <center>
     <div class="container">
-      <h1 style="font-size: 75px;"><img src="https://media1.giphy.com/media/3d2mbHx3OBJvN3dRk3/200w.webp?cid=ecf05e47cho3vmizh1g73po4p1yyxwo7qhtbuj2ez75n7ji2&rid=200w.webp&ct=s" alt="Error Stuff" width="120px">00</h1>
-      <p style="color: white;">
-        Woah hold up bud, You triggered an Internal Error. I dont know what you managed to break but you done goofed. You should probably contact my <a href="/bugs">Dev Team</a> and let them know what you did to recieve this error so they can check the required Stacktrace.
-        </p>
+      <h1 style="font-size: 75px;"><%= status %></h1>
+      <p style="color: white;">You should probably copy this error and<a href="/bugs"> Report it.</a></p>
+      <div class="faq">
+        <p style="color: white;"><code><%= body %></code></p>
+        <br />
         <br>
-        <button class="btn btn-info" style="margin-left: 15px; margin-right: 15px; margin-top: 15px; margin-bottom: 15px;" onclick="window.location.href = '/'"><i class="fa fa-home"></i> Take me Home!</button>
+        <center>
+          <button class="btn btn-tag" style="border-color: #0EFF00; background-color: black; color: white;" onclick="window.location.href = '/'"><i class="fa fa-home"></i> Take me Home!</button>
+          <button class="btn btn-tag" style="border-color: #0EFF00; background-color: black; color: white;" onclick="window.location.href = '/bugs'"><i class="fa fa-home"></i> Report this error!</button>
+          <button class="btn btn-tag" style="border-color: #0EFF00; background-color: black; color: white;" onclick="window.location.href = '/discord'"><i class="fa fa-home"></i> Contact my Devs!</button>
+        </center>
+      </div>  
     </div>
   </center>  
 </body>

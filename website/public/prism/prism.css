@@ -6,6 +6,12 @@ https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+cli
  * @author Rose Pritchard
  */
 
+ /**
+* 
+* Website Copyright (c) Toxic Development | github.com/TheRealToxicDev
+*
+*/
+
 code[class*="language-"],
 pre[class*="language-"] {
 	color: #ccc;

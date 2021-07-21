@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- INLUCDE THE HEADER IN THE PAGE.-->
+    <head>
+      <link rel="stylesheet" href="/styling/main/custom-style.css">
+    </head>
+    <%- include(headerPath, {
+      bot, path,
+      description: 'Configure the Welcome/Leave settings for your Guild',
+      description2: 'Configure the Welcome/Leave settings for your Guild',
+      title: `Tox Mod | Dashboard - Welcome`,
+      main_title: `Tox Mod | Dashboard - Welcome`,
+      image: 'none',
+      }) 
+    %>
+    <!-- START THE ACTUAL PAGE BODY.. YEET. -->
+
+    <%- include(navbarPath, { bot, user, path }) %>
+
+    <% if (alert) { %>
+      <%- include(notifyAlerts, {alert}) %>
+    <% } else if (error) { %>
+      <%- include(notifyAlerts, {error}) %>
+    <% } %>
+    <body>
+
+    <!-- INCLUDE THE NAVBAR IN THE PAGE. -->
+    <div class="bigthingy row">
+      <div class="seeme col-md-8 offset-md-2 row">
+        <div class="seeme col-sm-2 sinfo">
+          <p id="bigytxt" class="bigyimg"><img src="/images/ToxModLogo.gif" style="width:88px; border-radius:50%;"/></p>
+        </div>
+        <div class="seeme col-sm-10 sinfo">
+          <p id="bigytxt"><span style="font-size:25px; font-weight:bold;">Tox Mod</span><br /><span class="typed"></span></p>
+        </div>
+      </div>
+    </div>
+      <br />
+
+    <%- include(navbarPath, { bot, user, path }) %>
+
+    <div class="faq">
+      <center>
+        <h1><strong>Set welcome for server!</strong></h1>
+        <form style="margin-top: 1em;" method="POST"> <!-- method="post" tiggers a POST request to the same url with the body of the form control inputs -->
+            <% let thechannel = settings.welcome %>
+            <% if(thechannel == "String"){ %> 
+              <%  thechannel = "None" %> 
+              <% }else{ %>
+                  <% if(!guild.channels.cache.get(settings.welcome)){ %>
+                      <% thechannel = "None" %>
+                      <% }else{ %>
+                      <% thechannel = guild.channels.cache.get(settings.welcome).name %>
+                      <% } %>
+              <% } %>
+            <h3>The currently welcome channel: <%= thechannel %></h3>
+          
+            <select class="select" name="welcomechannel">
+              <option value="<%= settings.welcome %>"><%= thechannel %></option>
+              <option value="None">None</option>
+             <% guild.channels.cache.filter(c => c.permissionsFor(guild.me).has("VIEW_CHANNEL") && c.type == "text").sort((b, a) => b.position - a.position).map(channel => { %>
+              <% if(channel.permissionsFor(guild.me).has("SEND_MESSAGES")){ %>
+              <option value="<%= channel.id %>"><%= channel.name %></option>
+              <% } %>
+              <% }) %>
+            </select>
+            <br>
+            <br>
+            <center>
+              <p>Set a welcome message, leave it empty if you want it send random messages</p>
+              <% let welmsg = ""; %>
+              <% if(settings.welcomemsg == "String"){ %>
+                  <% }else if(settings.welcomemsg !== "String"){ %>
+                      <% welmsg = settings.welcomemsg %>
+                  <% } %>
+              <textarea class="input2" maxlength="500" type="text" name="welcomemsg" style="width: 75%; height: 150px;" placeholder="i.e Welcome {member} to {guild.name}."><%= welmsg %></textarea>
+              <p>Set a private welcome message, leave it empty if want disable</p>
+              <% let privatemsg = ""; %>
+              <% if(settings.private == "String"){ %>
+                <p>Private msg is disabled<p>
+                  <% }else if(settings.private !== "String"){ %>
+                    <p>Private msg is enabled<p>
+                      <% privatemsg = settings.private %>
+                  <% }else{ %>
+                    <p>Private msg is disabled<p>
+                    <% } %>
+              <textarea class="input2" maxlength="500" type="text" name="privatemsg" style="width: 75%; height: 150px;" placeholder="i.e Welcome {member} to {guild.name} you are the member number {guild.memberCount}th"><%= privatemsg %></textarea>
+            </center>
+            <br>
+            <br>
+            <hr style="margin-left: 100px; margin-right: 100px;">
+            <h1><strong>Set Leave for server!</strong></h1>
+            <% let thechannelleave = settings.leave %>
+            <% if(thechannelleave == "String"){ %> 
+              <%  thechannelleave = "None" %> 
+              <% }else{ %>
+                  <% if(!guild.channels.cache.get(settings.leave)){ %>
+                      <% thechannelleave = "None" %>
+                      <% }else{ %>
+                          <% thechannelleave = guild.channels.cache.get(settings.leave).name %>
+                      <% } %>
+                  <% } %>
+            <h3>The currently leave channel: <%= thechannelleave %></h3>
+          
+            <select class="select" name="leavechannel">
+              <option value="<%= settings.leave %>"><%= thechannelleave %></option>
+              <option value="None">None</option>
+             <% guild.channels.cache.filter(c => c.permissionsFor(guild.me).has("VIEW_CHANNEL") && c.type == "text").sort((b, a) => b.position - a.position).map(channel => { %>
+              <% if(channel.permissionsFor(guild.me).has("SEND_MESSAGES")){ %>
+              <option value="<%= channel.id %>"><%= channel.name %></option>
+              <% } %>
+              <% }) %>
+            </select>
+            <br>
+            <br>
+            <center>
+              <% let levmsg = ""; %>
+                  <% if(settings.leavemsg == "String"){ %>
+                      <% }else if(settings.leavemsg !== "String"){ %>
+                          <% levmsg = settings.leavemsg %>
+                      <% } %>
+            <p>Set a leave message, leave it empty if you want it send random messages</p>
+            <textarea class="input2" maxlength="500" type="text" name="leavemsg" style="width: 75%; height: 150px;" placeholder="i.e goodbye {member} see you later"><%= levmsg %></textarea>
+          </center>
+            <br>
+            <br>
+            <center>
+              <p>Welcome - leave regex , and what it do</p>
+              <textarea class="input2 regex" maxlength="500" type="text" style="width: 75%; height: 150px;" readonly><%= "{member} For member mention!\n{member.tag} For member tag\n{guild.name} for guild name\n{guild.memberCount} for guild members count\n{member.username} for member name" %></textarea>
+            </center>
+            <button style="width:170px" class="button" type="submit">Update</button>
+            </form>
+      <a class="btn btn-info" style="color: white; margin-left: 22px;"  href="/dashboard/guilds/<%= guild.id %>">Back to dashboard</a>
+    </center>
+    </div>
+</body>
+
+<script>
+  var typed = new Typed('.typed', {
+    strings: [
+              "The Discord Bot with a little bit of Attitude!",
+              "Making it Easier to Moderate your Server since 2020"
+            ],
+    typeSpeed: 80,
+    backSpeed: 70,
+    loop: true,
+    backDelay: 3000,
+    contentType: 'html'
+  });
+  </script>
+
+ <br><br><br><br><br><br>
+
+    <!-- INCLUDE THE WEBSITE FOOTER -->
+    <%- include(footerPath, { bot, path }) %>
+</html>

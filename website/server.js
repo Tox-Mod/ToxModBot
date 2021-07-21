@@ -74,7 +74,7 @@ passport.use(new Strategy({
  */
  app.use(
   session({
-    cookie: { secure: true, maxAge: require("ms")("10 years") },
+    cookie: { maxAge: require("ms")("10 years") },
     store: new MongoStore({ mongooseConnection: mongoose.connection }),
     secret: "CIv+ZgFBk0MSYvDGV8Xge4fZB6xsodqs0BhYs8CxP5g=",
     resave: false,

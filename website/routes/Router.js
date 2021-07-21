@@ -5,6 +5,9 @@ const Strategy = require("passport-discord").Strategy;
 const bodyParser = require("body-parser");
 const config = require('@Settings/config');
 
+const { renderPage } = require('@Templates/renderPage');
+const { checkAuth } = require('@Authorization/checkAuth');
+
 /**
  * SET AND USE OUR CUSTOM HEADERS
  */
@@ -41,6 +44,11 @@ router.use( customHeaders );
  */
 router.use('/', require('@Routes/home/index'));
 
+router.use('/discord', require('@Routes/redirects/discord'));
+router.use('/join', require('@Routes/redirects/discord'));
+router.use('/github', require('@Routes/redirects/github'));
+router.use('/invite', require('@Routes/redirects/invite'));
+
 router.use('/status', require('@Routes/Status'));
 router.use('/staff', require('@Routes/Staff'));
 router.use('/admin', require('@Routes/admin/panel'));
@@ -59,11 +67,14 @@ router.use('/login', require('@Routes/auth/login'));
 router.use('/logout', require('@Routes/auth/logout'));
 
 router.use('/profile', require('@Routes/users/profile'));
+router.use('/me/edit', require('@Routes/users/edit'));
 router.use('/user', require('@Routes/users/user'));
 
 router.use('/terms', require('@Routes/legal/terms'));
+router.use('/privacy', require('@Routes/legal/privacy'));
 
 router.use('/nope', require('@Routes/errors/staff'));
+router.use('/brb', require('@Routes/errors/maintenance'));
 router.use('/403', require('@Routes/errors/403'));
 router.use('/404', require('@Routes/errors/404'));
 router.use('/500', require('@Routes/errors/500'));
@@ -76,8 +87,13 @@ router.use('/500', require('@Routes/errors/500'));
 });
 
 router.use(function (error, req, res, next) {
-  res.status(500).redirect('/500');
-  console.log(error)
+
+  renderPage(res, req, 'errors/500', {
+    status: 500,
+    body: error || 'Hmm, I dont know what to tell you chief! Theres nothing wrong'
+  });
+
+  return console.log(`[Tox Mod | Web] Stacktrace: ${error}`)
 });
 
 module.exports = router;

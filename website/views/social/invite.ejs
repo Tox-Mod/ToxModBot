@@ -1,0 +1,36 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="refresh" content="5;URL=https://discord.com/api/oauth2/authorize?client_id=631558023109804032&permissions=2683698934&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Fcallback&scope=bot" />
+  <%- include(headerPath, {
+    bot, user, path,
+    description: 'Invite Tox Mod to your Discord Server.',
+    description2: 'Invite Tox Mod to your Discord Server.',
+    title: 'Tox Mod | Invite',
+    main_title: 'Tox Mod | Invite',
+    image: 'none',
+    }) 
+  %>
+</head>
+<body>
+    <%- include('../parts/navbar', { bot, user }) %>
+    <div class="bigthingy row">
+    <div class="seeme col-md-8 offset-md-2 row">
+      <div class="seeme col-sm-2 sinfo">
+        <p id="bigytxt" class="bigyimg" style="font-size:88px;"><i class="fas fa-exclamation-circle"></i></p>
+      </div>
+      <div class="seeme col-sm-10 sinfo">
+          <p id="bigytxt"><span style="font-size:25px; font-weight:bold;">308 - Redirecting in Progress!!</span>
+      </div>
+    </div>
+    </div>
+    <br /><br /><br /><br /><br /><br />
+  
+    <center>
+       <h2 style="color: white;">You're being redirected to our Invite Page.</h2>
+       <br />
+       <p style="color: white;">This process is automatic. If nothing happens or the redirect hangs please follow <a href="https://discord.com/api/oauth2/authorize?client_id=631558023109804032&permissions=2683698934&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Fcallback&scope=bot">This Link</a></p>
+    </center>
+  
+  </body>
+</html>

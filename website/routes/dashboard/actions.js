@@ -17,7 +17,7 @@ const Embeds = require('@Embeds/index');
 /**
  * GET METHOD
  */
-route.get("/:guildID/actions", checkAuth, async (req, res) => {
+route.get("/:guildID", checkAuth, async (req, res) => {
 
     const guild = req.app.get('client').guilds.cache.get(req.params.guildID);
 
@@ -74,7 +74,7 @@ route.get("/:guildID/actions", checkAuth, async (req, res) => {
 /**
  * POST METHOD
  */
- route.post("/:guildID/actions", checkAuth, async (req, res) => {
+ route.post("/:guildID", checkAuth, async (req, res) => {
 
     let alertmsg = '';
     let errormsg = '';

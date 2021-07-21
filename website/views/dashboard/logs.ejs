@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- INLUCDE THE HEADER IN THE PAGE.-->
+    <head>
+      <link rel="stylesheet" href="/styling/main/custom-style.css">
+    </head>
+    <%- include(headerPath, {
+      bot, path,
+      description: 'Configure the Log Channel settings for your Guild',
+      description2: 'Configure the Log Channel settings for your Guild',
+      title: `Tox Mod | Dashboard - Logs`,
+      main_title: `Tox Mod | Dashboard - Logs`,
+      image: 'none',
+      }) 
+    %>
+    <!-- START THE ACTUAL PAGE BODY.. YEET. -->
+
+    <%- include(navbarPath, { bot, user, path }) %>
+
+    <% if (alert) { %>
+      <%- include(notifyAlerts, {alert}) %>
+    <% } else if (error) { %>
+      <%- include(notifyAlerts, {error}) %>
+    <% } %>
+    <body>
+
+    <!-- INCLUDE THE NAVBAR IN THE PAGE. -->
+    <div class="bigthingy row">
+      <div class="seeme col-md-8 offset-md-2 row">
+        <div class="seeme col-sm-2 sinfo">
+          <p id="bigytxt" class="bigyimg"><img src="/images/ToxModLogo.gif" style="width:88px; border-radius:50%;"/></p>
+        </div>
+        <div class="seeme col-sm-10 sinfo">
+          <p id="bigytxt"><span style="font-size:25px; font-weight:bold;">Tox Mod</span><br /><span class="typed"></span></p>
+        </div>
+      </div>
+      </div>
+      <br />
+
+    <%- include(navbarPath, { bot, user, path }) %>
+
+    <div class="faq">
+      <center>
+      <form style="margin-top: 1em;" method="POST"> <!-- method="post" tiggers a POST request to the same url with the body of the form control inputs -->
+        <h1><strong>Set audit log for server!</strong></h1>
+        <% let thechannelaudit = settings.audit %>
+        <% if(thechannelaudit == "String"){ %> 
+          <%  thechannelaudit = "None" %> 
+          <% }else{ %>
+              <% if(!guild.channels.cache.get(settings.audit)){ %>
+                  <% thechannelaudit = "None" %>
+                  <% }else{ %>
+                      <% thechannelaudit = guild.channels.cache.get(settings.audit).name %>
+                  <% } %>
+              <% } %>
+
+        <span data-tooltip="Current Channel Config" data-tooltip-location="top" class="badge badge-stats mb-tox mt-1 w-55"><i class="fa fa-exclamation-circle has-text-danger"></i>&nbsp;Audit Logs Channel: <%= thechannelaudit %></span>
+        <br /><br />
+        <select class="select" name="auditchannel">
+          <option value="<%= settings.audit %>"><%= thechannelaudit %></option>
+          <% if(thechannelaudit !== "None"){ %>
+          <option value="None">None</option>
+          <% } %> 
+         <% guild.channels.cache.filter(c => c.permissionsFor(guild.me).has("VIEW_CHANNEL") && c.type == "text").sort((b, a) => b.position - a.position).map(channel => { %>
+          <% if(channel.permissionsFor(guild.me).has("SEND_MESSAGES")){ %>
+            <% if(channel.permissionsFor(guild.me).has("EMBED_LINKS")){ %>
+          <option value="<%= channel.id %>"><%= channel.name %></option>
+          <% } %>
+          <% } %>
+          <% }) %>
+        </select>
+        <br /><br />
+        <h1><strong>Set mod log for server!</strong></h1>
+        <% let thechannelmod = settings.mod %>
+        <% if(thechannelmod == "String"){ %> 
+          <%  thechannelmod = "None" %> 
+          <% }else{ %>
+              <% if(!guild.channels.cache.get(settings.mod)){ %>
+                  <% thechannelmod = "None" %>
+                  <% }else{ %>
+                      <% thechannelmod = guild.channels.cache.get(settings.mod).name %>
+                  <% } %>
+              <% } %>
+        <span data-tooltip="Current Channel Config" data-tooltip-location="top" class="badge badge-stats mb-tox mt-1 w-55"><i class="fa fa-exclamation-circle has-text-danger"></i>&nbsp;Mod Logs Channel: <%= thechannelmod %></span>
+        <br /><br />
+        <select class="select" name="modchannel">
+          <option value="<%= settings.mod %>"><%= thechannelmod %></option>
+          <% if(thechannelmod !== "None"){ %>
+            <option value="None">None</option>
+            <% } %> 
+         <% guild.channels.cache.filter(c => c.permissionsFor(guild.me).has("VIEW_CHANNEL") && c.type == "text").sort((b, a) => b.position - a.position).map(channel => { %>
+          <% if(channel.permissionsFor(guild.me).has("SEND_MESSAGES")){ %>
+            <% if(channel.permissionsFor(guild.me).has("EMBED_LINKS")){ %>
+          <option value="<%= channel.id %>"><%= channel.name %></option>
+          <% } %>
+          <% } %>
+          <% }) %>
+        </select>
+        <br>
+        <br>
+      <button style="width:170px" class="btn btn-success" type="submit">Update</button>
+      </form>
+      <br />
+      <a class="btn btn-info" style="color: white; margin-left: 22px;"  href="/dashboard/guilds/<%= guild.id %>">Back to dashboard</a>
+    </center>
+    </div>
+</body>
+
+<script>
+  var typed = new Typed('.typed', {
+    strings: [
+              "The Discord Bot with a little bit of Attitude!",
+              "Making it Easier to Moderate your Server since 2020"
+            ],
+    typeSpeed: 80,
+    backSpeed: 70,
+    loop: true,
+    backDelay: 3000,
+    contentType: 'html'
+  });
+  </script>
+
+ <br><br><br><br><br><br>
+
+    <!-- INCLUDE THE WEBSITE FOOTER -->
+    <%- include(footerPath, { bot, path }) %>
+</html>

@@ -16,6 +16,8 @@ route.get("/", checkAuth, async (req, res) => {
 
     let users = await USERS.findOne({ userID: req.user.id });
 
+    let cachedUser = req.app.get('client').users.cache.get(req.user.id);
+
     USERS.findOne({ userID: req.user.id }, async (err, res) => {
 
         if (!res) {
@@ -30,6 +32,7 @@ route.get("/", checkAuth, async (req, res) => {
     let infractions = await CASES.find({ userID: req.user.id });
 
     let data = {
+        cachedUser: cachedUser,
         cases: infractions,
         profile: users,
         bio: users.bio,
@@ -40,156 +43,54 @@ route.get("/", checkAuth, async (req, res) => {
     renderPage(res, req, 'user/profile', data)
 });
 
-/**
- * POST METHOD FOR USER PROFILES
- */
 route.post("/", checkAuth, async (req, res) => {
 
-    let users = await USERS.findOne({ userID: req.user.id });
-    
-    let alertmsg = '';
-    let errormsg = '';
+    let users = await USERS.findOne({userID: req.user.id})
 
-    USERS.findOne({ userID: req.user.id}, async (err, res) => {
+    let alertmsg = "";
+    let errormsg = "";
 
-        if (!res) {
+    USERS.findOne({userID: req.user.id}, async (err, res) =>{
 
-            await new USERS({
-                userID: req.user.id,
-                bio: req.body.changebio || 'This person has not set a bio, They must be pretty Lame!'
-            }).save();
-        }
+      if(!res){
+        await new USERS({
+          userID: req.user.id,
+        }).save()
+      }
     })
 
-    let infractions = await CASES.find({ userID: req.user.id });
+    let infractions = await CASES.find({userID: req.user.id})
 
-    if (req.body.changebio) {
+    if(req.body.captcha == "delete"){
 
-        if (req.body.changebio.length > 50) {
+      if(req.body.requestdelete){
 
-            errormsg = '[Bio Error] Can not be more then 50 characters!'
+            if(!users){
 
-            let data = {
-                cases: infractions,
-                profile: users,
-                bio: users.bio,
-                alert: alertmsg,
-                error: errormsg
-            }
+              errormsg = "You don't have any Stored Data to delete!"
 
-            return renderPage(res, req, 'user/profile', data);
+              return renderPage(res, req, "user/profile", {cases: infractions, profile: users, alert: alertmsg, error: errormsg});
 
-        } else if (req.body.changebio.length < 10) {
+          }else{
 
-            errormsg = '[Bio Error] Can not be shorter then 10 characters!'
+            await USERS.findOneAndDelete({userID: req.user.id})
 
-            let data = {
-                cases: infractions,
-                profile: users,
-                alert: alertmsg,
-                error: errormsg
-            }
+            alertmsg = "Your Stored Data has been Deleted!"
 
-            return renderPage(res, req, 'user/profile', data);
+            users = await USERS.findOne({userID: req.user.id})
 
-        } else {
+            return await renderPage(res, req, "user/profile", {cases: infractions, profile: users, alert: alertmsg, error: errormsg});
+          }
+      }
 
-            if (users) {
+    }else{
 
-                users.bio = req.body.changebio
+        errormsg = "Please confirm that you agree to this request."
 
-                await users.save();
-
-                alertmsg = '[Success] Your bio has been updated!'
-
-                users = await USERS.findOne({ userID: req.user.id });
-
-                let data = {
-                    cases: infractions,
-                    profile: users,
-                    bio: req.body.changebio,
-                    alert: alertmsg,
-                    error: errormsg
-                }
-
-                return renderPage(res, req, 'user/profile', data);
-            } else {
-
-                users = await USERS.findOne({ userID: req.user.id });
-
-                alertmsg = '[Success] Your bio has been updated!'
-
-                let data = {
-                    cases: infractions,
-                    profile: users,
-                    bio: users.bio,
-                    alert: alertmsg,
-                    error: errormsg
-                }
-            }
-        }
+        return renderPage(res, req, "user/profile", {cases: infractions, profile: users, alert: alertmsg, error: errormsg});
     }
-
-        if (req.body.captcha == "delete") {
-
-            if (req.body.userdelete) {
-
-                if (!users) {
-
-                    errormsg = "[Database Error] You don't have any Data stored on our website!"
-
-                    let data = {
-                        cases: infractions,
-                        profile: users,
-                        bio: users.bio,
-                        alert: alertmsg,
-                        error: errormsg
-                    }
-
-                    return renderPage(res, req, 'user/profile', data);
-                } else {
-
-                    await USERS.findOneAndDelete({ userID: req.user.id });
-
-                    alertmsg = '[Success] Your data has been deleted!'
-
-                    users = await USERS.findOne({ userID: req.user.id });
-
-                    let data = {
-                        cases: infractions,
-                        profile: users,
-                        bio: users.bio,
-                        alert: alertmsg,
-                        error: errormsg
-                    }
-
-                    return await renderPage(res, req, 'user/profile', data);
-                }
-            }
-        } else {
-
-            errormsg = "[Client Error] You didn't complete the captcha!"
-
-            let data = {
-                cases: infractions,
-                profile: users,
-                bio: users.bio,
-                alert: alertmsg,
-                error: errormsg
-            }
-
-            return renderPage(res, req, 'user/profile', data);
-        }
-
-        let data = {
-            cases: infractions,
-            profile: users,
-            bio: users.bio,
-            alert: alertmsg,
-            error: errormsg
-        }
-
-        renderPage(res, req, 'user/profile', data);
-});
+    
+    renderPage(res, req, "user/profile", {cases: infractions, profile: users, alert: alertmsg, error: errormsg});
+  });
 
 module.exports = route;

@@ -3,10 +3,11 @@
     "version": "2.0.0",
     "description": "The Discord Moderation Bot with a little bot of Attitude.",
     "author": "TheRealToxicDev <toxic.dev09@gmail.com>",
-    "main": "client/index.js",
+    "main": "client/shards.js",
     "scripts": {
-        "website": "node ./website/server.js",
-        "manager": "node ./client/index.js"
+        "start": "node website/server.js && node client/index.js",
+        "website": "node website/server.js",
+        "manager": "node client/shards.js"
     },
     "dependencies": {
         "body-parser": "^1.19.0",

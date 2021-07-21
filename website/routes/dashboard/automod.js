@@ -8,7 +8,7 @@ const SERVERS = require('@Database/servers');
 /**
  * GET METHOD
  */
-route.get("/:guildID/automod", checkAuth, async (req, res) => {
+route.get("/:guildID", checkAuth, async (req, res) => {
 
   const guild = await req.app.get('client').guilds.cache.get(req.params.guildID);
 
@@ -59,7 +59,7 @@ route.get("/:guildID/automod", checkAuth, async (req, res) => {
 /**
  * POST METHOD
  */
- route.post("/:guildID/automod", checkAuth, async (req, res) => {
+ route.post("/:guildID", checkAuth, async (req, res) => {
 
   const guild = await req.app.get('client').guilds.cache.get(req.params.guildID);
 

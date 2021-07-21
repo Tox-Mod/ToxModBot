@@ -6,10 +6,10 @@
     </head>
     <%- include(headerPath, {
       bot, user, path,
-      description: 'The Discord Bot with a little bit of Attitude!',
-      description2: 'The Discord Bot with a little bit of Attitude!',
-      title: 'Tox Mod | Home',
-      main_title: 'Tox Mod | Home',
+      description: 'View and Update your Bio, Social Media and more!',
+      description2: 'View and Update your Bio, Social Media and more!',
+      title: `Tox Mod | Profile`,
+      main_title: `Tox Mod | Profile`,
       image: 'none',
       }) 
     %>
@@ -20,7 +20,7 @@
     <div class="bigthingy row">
       <div class="seeme col-md-8 offset-md-2 row">
         <div class="seeme col-sm-2 sinfo">
-          <p id="bigytxt" class="bigyimg"><img src="https://toxmod.xyz/images/5D72D446-8F49-43B2-8924-A2E1CA45AC01.gif" style="width:88px; border-radius:50%;"/></p>
+          <p id="bigytxt" class="bigyimg"><img src="/images/ToxModLogo.gif" style="width:88px; border-radius:50%;"/></p>
         </div>
         <div class="seeme col-sm-10 sinfo">
           <p id="bigytxt"><span style="font-size:25px; font-weight:bold;">Tox Mod</span><br /><span class="typed"></span></p>
@@ -37,103 +37,153 @@
       <%- include(notifyAlerts, {error}) %>
     <% } %>
 
-    <div class="container">
-      <br><br>
-    <div class="column">
-        <div class="columns is-multiline is-desktop is-variable is-7 pt-5">
-          <div class="col-md-6 col-lg-4 pb-3">
-            <div class="card ibl-card-custom bg-ibl border-white border-0" style="width: 70rem;">
-              <div class="ibl-card-custom-img" style="background-image: url(<%= user.banner || "https://i.hizliresim.com/2sdunq.png" %>);"></div>
-              <div class="ibl-card-custom-avatar">
-                <img draggable="false" class="pulse-avatar-<%=user.presence.status%>"  onerror=" imgerror(this);"="" src="<%= user.avatarURL({dynamic: true}) %>" style="border-radius: 50%;">
-              </div>
-              <div class="card-body">
-                <h4 translate="no" class="card-title">
-                  <%= user.username %>
-                </h4>
-                <hr style="background-color: white;">
-                <p><strong>About: </strong><%= bio %></p>
-                <hr style="background-color: white;">
-                <p>
-                  <strong>Badges:</strong>
-                  <div class="user-badges">
-                    <% if(user.flags) {%>
-                    <% user.flags.toArray().forEach(flag =>{
-                    if (flag === "HOUSE_BALANCE") { %>
-                    <span data-tooltip="Hypesquad Balance" data-tooltip-location="top"><img draggable="false" src="https://discord.com/assets/9fdc63ef8a3cc1617c7586286c34e4f1.svg" data-tooltip="Hypesquad Balance" data-tippy-content="Hypesquad Balance" width="32px"></span>
-                    <% } if (flag === "HOUSE_BRILLIANCE") { %>
-                    <span data-tooltip="Hypesquad Brilliance"data-tooltip-location="top"><img draggable="false" src="https://ptb.discord.com/assets/48cf0556d93901c8cb16317be2436523.svg" data-tippy-content="HypeSquad Brilliance" width="32px"></span>
-                    <% } if (flag === "HOUSE_BRAVERY") { %>
-                    <span data-tooltip="Hypesquad Bravery"data-tooltip-location="top"><img draggable="false" src="https://canary.discord.com/assets/64ae1208b6aefc0a0c3681e6be36f0ff.svg" data-tippy-content="HypeSquad Bravery" width="32px"></span>
-                    <% } if (flag === "VERIFIED_DEVELOPER") { %>
-                    <span data-tooltip="Verified Developer"data-tooltip-location="top"><img draggable="false" src="https://discord.com/assets/45cd06af582dcd3c6b79370b4e3630de.svg" data-tippy-content="Early Verified Developer" width="32px"></span>
-                    <% } if (flag === "EARLY_SUPPORTER") { %>
-                    <span data-tooltip="Early Supporter" data-tooltip-location="top"><img draggable="false" src="https://discord.com/assets/23e59d799436a73c024819f84ea0b627.svg" data-tippy-content="Early Supporter" width="32px"></span>
-                    <% } }) %>
-                    <% } %> 
-                    </div>       
-                </p>
-                <hr style="background-color: white;">
-                <div class="column">
-                  <center><p class="has-text-white title is-large"><i class="fa fa-trash"></i>&nbsp;Request Data Removal</p></center>
-                </div>
-                <center>
-                  <form style="margin-top: 1em;" method="POST">
-                   <p translate="no" class="has-text-white is-small" style="margin-bottom: 10px;">
-                     type <code>delete</code> to Delete all the Data we collect about you!
-                   </p>
-                   <input class="w3-input w3-border" style="border-radius: 5px; width:300px;" maxlength="50" type="text" name="captcha"  value="" placeholder="delete">
-                   <button style="width: 50px; color: rgb(230, 123, 123);" name="requestdelete" value="Don't try change the id neeba"><i class="fa fa-trash"></i></button> 
-                 </form>
-                </center>
-                <hr style="background-color: white;">
-                <div class="column">
-                  <center><p class="has-text-white title is-large"><i class="fa fa-gavel"></i>&nbsp;Change Your BIO</p></center>
-                </div>
-      
-                <center>
-      
-                <button style="width:150px;" class="button" onclick="openBioChange()"> Open BIO Menu</button>
-                
-                <br /><br />
-                
-                <div class="card popout" style="display: none; border-radius: 15px; height: 280px; width: 100%;" id="changeBioMenu">
-                  <img src="https://cdn3.iconfinder.com/data/icons/hr-and-recruitment/100/biography_cv_job_recruitment_candidate_hr-512.png" style="width: 70px;">
-                  <br /><br />
-                  <form style="margin-top: 1em;" method="POST">
-                    <% if(profile){ %>
-                      <% if(!profile.bio){ %>
-                        <input class="input" style="border-radius: 5px;" maxlength="50" type="text" name="changebio"  value="I am a very mysterious person!" placeholder="i.e I am jone i love programming!"><br><br>
-                          <% }else if(profile.bio){ %>
-                            <input class="input" style="border-radius: 5px;" maxlength="50" type="text" name="changebio"  value="<%= profile.bio %>" placeholder="i.e I am jone i love programming!"><br><br>
-                            <% } %>
-                          <% }else{ %>
-                            <input class="input" style="border-radius: 5px;" maxlength="50" type="text" name="changebio"  value="I am a very mysterious person!" placeholder="i.e I am jone i love programming!"><br><br>
-                      <% } %>
-                      <button class="btn btn-success" onclick="openBioChange()">Update Your BIO</button>
-                  </form>
-                  <br />
-                      <button class="btn btn-warning" onclick="closeBioChange()">Close BIO Menu</button>
-                </center>
-            </div>
+    <div class="container px-3 px-3 mt-5 pt-5">
+      <div class="columns container px-3 is-multiline">
+          <div class="column is-2">
+              <img draggable="false" class="pulse-avatar-<%= user.presence.status%>"  onerror=" imgerror(this);"="" src="<%= user.avatarURL({dynamic: true}) %>" style="border-radius: 50%;">
+          </div>
+          <div class="column is-6">
+            <p translate="no" class="has-text-white is-size-3" style="margin-bottom: 10px;"><%= user.username %><span class="is-size-4" style="opacity: 0.7;">#<%= user.discriminator %></span>&nbsp;<i class="status-circle fa fa-circle status-<%=user.presence.status%>"></i></p>
+             <div class="user-badges">
+
+              </div>             
+              <% if(profile) { %>
+              <% if(!profile.bio) { %>
+                <p class="mt-1 has-text-white">This user prefers to be Anonymous 🤔</p>
+              <% } else if (profile.bio) { %>
+                <p class="mt-1 has-text-white"><%= profile.bio %></p>
+              <% } else { %>
+                <p class="mt-1 has-text-white">This user prefers to be Anonymous 🤔</p>
+              <% } %>
+            <% } %>
+              <a class="btn btn-tag" style="border-color: #0EFF00; background-color: black; color: white;" href="/me/edit"><i class="fa fa-pencil"></i> Edit Profile</a>
+              <br />
+              <form style="margin-top: 1em;" method="POST">
+                <p style="color: white"><i class="fa fa-exclamation-circle has-text-danger"></i> Write <strong>delete</strong> to delete all your data we are collecting!</p>
+                <input class="w3-input w3-border"  style="border-radius: 5px; width:300px" maxlength="50" type="text" name="captcha"  value="" placeholder="delete">
+                <button style="width:50px; color: rgb(230, 123, 123);" name="requestdelete" value="Don't try change the id neeba"><i class="fa fa-trash"></i> </button>
+              </form>
+          </div>
+          <div class="is-4 mt-1 column">
+              <% if(profile) { %>
+                  <% if(profile.twitter) { %>
+                      <a href="https://twitter.com/<%= profile.twitter %>" class="is-flex mt-1">
+                        <div style="background: #2077aa" class="box-2-p"><i class="fab fa-twitter is-size-6 mt-1"></i></div>
+                        <p style="background: #019ffa" class="box-2">Twitter</p>
+                      </a>
+                  <% } %>
+                  <% if(profile.instagram) { %>
+                  <a href="https://instagram.com/<%= profile.instagram %>" class="is-flex mt-1">
+                      <div style="background: #923453" class="box-2-p"><i class="fab fa-instagram is-size-6 mt-1"></i></div>
+                      <p style="background: #E1306C" class="box-2">Instagram</p>
+                  </a>
+                   <% } %>
+                    <% if(profile.website) { %>
+                    <a href="<%= profile.website %>" class="is-flex mt-1">
+                      <div style="background: rgb(33, 167, 111);" class="box-2-p"><i class="fa fa-globe is-size-6 mt-1"></i></div>
+                      <p style="background: rgb(8, 187, 112);"class="box-2">Website</p>
+                    </a>
+                    <% } %>
+                    <% if(profile.github) { %>
+                    <a href="https://github.com/<%= profile.github %>" class="is-flex mt-1">
+                      <div style="background: rgb(0, 0, 0);" class="box-2-p"><i class="fab fa-github is-size-6 mt-1"></i></div>
+                      <p style="background: rgb(8, 8, 8);" class="box-2">Github</p>
+                    </a>
+                    <% } %>
+              <% } %>
           </div>
         </div>
       </div>
-   </div>
-  </div>
-<script>
-function openBioChange() {
-  document.getElementById('changeBioMenu').style.animation = "fadeIn 0.4s";
-  document.getElementById('changeBioMenu').style.display = "block";
-}
-
-function closeBioChange() {
-  document.getElementById("changeBioMenu").style.animation = "fadeIn 0.4s";
-  document.getElementById("changeBioMenu").style = "display: none;";
-}
-</script>
-
+        <br /><br />
+        <div class="container">
+          <br><br>
+        <div class="column">
+          <center>
+            <p class="has-text-white title is-large"><i class="fa fa-gavel has-text-danger"></i>&nbsp;Global Infractions</p>
+            <p class="content has-text-white" style="margin-top: -20px;">NOTE: These infractions can be seen Globally and will affect your Trust Score/Reputation</p>
+          </center>
+            <div class="columns is-multiline is-desktop is-variable is-7 pt-5">
+              <% if(cases.length === 0){ %>
+              <center>
+                <p style="font-size: 20px; color: white"><img src="https://cdn1.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-256.png" style="width: 70px;"> You are safe with no infractions!</p>
+              </center>
+                <% }else{ %>
+                  <% for (i = 0; i < cases.length; i++) { %>
+                    <% bot.users.fetch(cases[i].userID) %>
+                      <% } %>
+              <% for (i = 0; i < cases.length; i++) { %>
+                      <% let reason = ''; %>
+                      <% let time = ''; %>
+                      <% let member = ''; %>
+                      <% let moderator = ""; %>
+                      <% let server = ""; %>
+                      <% if(bot.guilds.cache.get(cases[i].serverID)){ %>
+                          <% server = bot.guilds.cache.get(cases[i].serverID).name %>
+                          <% }else{ %>
+                              <% server = "Unable to find the Guild possibly Deleted or i was Kicked!" %>
+                          <% } %>
+                      <% if(cases[i].reason == ''){ %>
+                          <% reason = 'No reason Provided' %>
+                          <% }else{ %>
+                          <% reason = cases[i].reason %>
+                          <% } %>
+                      <% if(cases[i].time == undefined){ %>
+                          <% time = 'No time' %> 
+                          <% }else{ %>
+                              <% time = cases[i].time %>
+                          <% } %>
+                      <% if(bot.users.cache.get(cases[i].Moderator)){ %>
+                            <% moderator = bot.users.cache.get(cases[i].Moderator).tag %>
+                      <% }else{ %>
+                            <% moderator = "Wasn't defined at this time" %>
+                          <% } %>
+                     <% if(bot.users.cache.get(cases[i].userID)){ %>
+                            <% member = bot.users.cache.get(cases[i].userID).tag %>
+                     <% }else{ %>
+                      <% member = "Error occured" %>
+                <% } %>
+              <div class="col-md-6 col-lg-4 pb-3">
+                <div data-aos="fade-left">
+                <div class="card tox-card-custom bg-tox border-white border-0">
+                  <div class="card-body">
+                   <div class="is-pulled-right mt-tox mt-1">
+                    <span data-tooltip="Total Votes" data-tooltip-location="left" class="badge badge-stats mb-tox mt-1 w-100"><i class="fa fa-exclamation-circle has-text-danger"></i>&nbsp; Case: #<%= cases[i].case %></span>
+                      </div>
+                    <h4 translate="no" class="card-title">Action: <strong><%= cases[i].action %></strong></h4>
+                    <p translate="no" class="card-text toxbotDesc">
+                      <code>Moderator: <strong><%= moderator %></strong></code>
+                      <br />
+                      <code>Reason: <strong><%= reason %></strong></code>
+                      <br />
+                      <code>Time: <strong><%= time %></strong></code>
+                    </p>
+                  </div>
+                  <div class="card-footer">
+                    <p>Server: <strong><%= server %></strong></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% } %>
+        <% } %>
+      </div>
+    </div>
+  </div>  
 </body>
+
+<script>
+  var typed = new Typed('.typed', {
+    strings: [
+              "The Discord Bot with a little bit of Attitude!",
+              "Making it Easier to Moderate your Server since 2020"
+            ],
+    typeSpeed: 80,
+    backSpeed: 70,
+    loop: true,
+    backDelay: 3000,
+    contentType: 'html'
+  });
+  </script>
 
  <br><br><br><br><br><br>
 

@@ -21,32 +21,78 @@
     </div>
   </div>
   </div>
+
   <br />  <br />  <br />
+
+
   <div class="container mt-3">
       <div class="row">
         <div class="col-md-8 offset-md-2">
+          <div class="column">
+            <p class="has-text-white title is-large"><i class="fa fa-server"></i>&nbsp;Collected Data</p>
+          </div>
+          <div class="card mb-8" style="width: 100%">
+            <div class="card-body">
+              <p style="text-align: left;">
+                Tox Mod uses Discord for authentication in place of having our own accounts as well as offering Discord Users with a moderation service. 
+                Because of this we store information about your Discord account and any guild that you and or the bot are a member of in our secure databases.
+                <br /> 
+                <strong>This information includes:</strong>
+                <br>• Your Discord User ID.
+                <br>• Your Discord Username.
+                <br>• Your Discord Avatar.
+                <br>• Discord Guild ID and Prefix.
+                <br>• Discord. Channel(s) chosen by the user.
+                <br>• Discord Role(s) chosen by the user.
+                <br>
+                For users with no created content this data will be deleted after a few days of inactivity.
+              <p>
+            </div>
+          </div>
+          <br /><br />
+          <div class="column">
+            <p class="has-text-white title is-large"><i class="fa fa-trash"></i>&nbsp;Data Removal</p>
+          </div>
           <div class="card mb-8">
             <div class="card-body">
-              <p style="text-align: left; color: black">
-      The following privacy policy outlines how your data is used on our website. The site administration has the right to change this privacy policy at any point without warning.<br /><br />
-      <strong>Data</strong><br/>
-      Basic non-identifiable information about your user on the website is collected; the majority of which is provided during first-time login, such as email addresses and usernames.<br />
-      In addition to this, IP addresses for registered users are stored within the system to aid with moderation duties. This includes spam prevention, and detecting alternative accounts.<br /><br />
-      <em style="color: #444444 !important;">Account data can be deleted by a site administrator upon request, which will remove all data relating to your user from our system.</em><br /><br />
-      <strong>Cookies</strong><br />
-      Cookies are used to store small pieces of non-identifiable information with your consent. In order to consent to the use of cookies, by using our website you consent to the use of cookies.<br />
-      Data stored by cookies include Discord IDs, Discord discriminator, Discord avatar, along with a unique token, and a unidentifiable hash.<br /><br />
-      <strong>Arc</strong><br />
-      <em style="color: #444444 !important;">VoidList.xyz is faster with Arc.</em> Arc loads content from people's devices near you instead of from slower servers. In return, it helps your device provide content to others.<br />
-      <em style="color: #444444 !important;">Arc lets VoidList.xyz earn money with less ads.</em> Just by being here, you share a little bandwidth for VoidList.xyz and help create a faster Internet with fewer ads.<br />
-      <em style="color: #444444 !important;">You're safe and in control.</em> Arc doesn't impact your data or performance, and you can opt out any time.<br />
-      <a target="_blank" href="https://arc.io/#whatArcDoes">Learn more about Arc here!</a><br /><!--<br />
-      <strong>Ads</strong><br />
-      Void Bots uses Google Adsense ads to make money to pay our bills. Learn more <a href="https://adssettings.google.com/whythisad" target="_blank">here</a>.--></p>
+              <p style="text-align: left;">
+                • Users can request their data to be removed by contacting our <a href="/discord">Staff Team</a>. Additionally a user can request their collected data (username etc) to be deleted in their profile.
+              <p>
+            </div>
+          </div>
+          <br /><br />
+          <div class="column">
+            <p class="has-text-white title is-large"><i class="fa fa-exclamation-circle"></i>&nbsp;User Data</p>
+          </div>
+          <div class="card mb-8">
+            <div class="card-body">
+              <p style="text-align: left;">
+                We collect little to no Discord User Data just what servers you are in, avatar, username & id but once you sign out it is deleted as it is stored publicly via cookies!
+              <p>
+            </div>
+          </div>
+          <div class="column">
+            <p class="has-text-white title is-large"><i class="fa fa-exclamation-circle"></i>&nbsp;User Terms</p>
+          </div>
+          <div class="card mb-8">
+            <div class="card-body">
+              <p style="text-align: left;">
+                <strong>By inviting the bot you agree to be bound to the following terms:</strong>
+                <br> 1. Allowing Tox Mod to collect and store your:
+                <br>  • Discord User ID
+                <br>  • Discord Username 
+                <br>  • Discord User Avatar
+                <br>  • FiveM Server IP:PORT
+                <br>  • Discord Server ID & Bot Prefix.
+                <br>  • Collect a list of the users guilds.
+                <br>2. Abuse of the bots services will result in a blacklist.
+              <p>
             </div>
           </div>
       </div>
     </div>
   </div>
 </body>
+<%- include(footerPath, { bot, user, path }) %>
 </html>
+

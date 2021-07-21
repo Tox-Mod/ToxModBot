@@ -52,6 +52,7 @@ module.exports.run = async (client, message, args, params) => {
         let info_cmds = client.commands.filter(cmd => cmd.help.category == 'info');
         let mod_cmds = client.commands.filter(cmd => cmd.help.category == 'mod');
         let owner_cmds = client.commands.filter(cmd => cmd.help.category == 'owner');
+        let chat_cmds = client.commands.filter(cmd => cmd.help.category == 'chat');
 
         const embed2 = new MessageEmbed()
           embed2.setTitle('Tox Mod Help')
@@ -61,11 +62,9 @@ module.exports.run = async (client, message, args, params) => {
           embed2.addField('Command Help', `${prefix}help [CommandName]`, true)
           embed2.addField('Info Commands', info_cmds.map(cmd => "``" + cmd.help.name + "``" ).join("** , **"), true)
           embed2.addField('Mod Commands', mod_cmds.map(cmd => "``" + cmd.help.name + "``" ).join("** , **"), true)
-
+          embed2.addField('Chat Commands', chat_cmds.map(cmd => "``" + cmd.help.name + "``").join("** , **"), true)
           if (client.config.owners.includes(message.author.id)) {
-
             embed2.addField('Owner Commands', owner_cmds.map(cmd => "``" + cmd.help.name + "``" ).join("** , **"), true)
-
           }
 
           embed2.setFooter(Embeds.Footer, Images.Animated)
