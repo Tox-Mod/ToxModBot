@@ -1,8 +1,8 @@
 require("module-alias/register");
 const mongo = require("mongoose");
 
-const Website = require('');
-const Client = require('');
+const Website = require('./website/server');
+const Client = require('./client/index');
 
 (async () => {
     
