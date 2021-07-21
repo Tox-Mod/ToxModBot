@@ -87,7 +87,7 @@ module.exports.run = async (client, message, args, params) => {
 
                     cases1.save();
                 })
-            }) .catch(() => message.reply('I was unable to kick the member. Check if their roles are higher then mine or if they have administrative permissions!')); 
+            }).catch(() => message.reply('I was unable to kick the member. Check if their roles are higher then mine or if they have administrative permissions!')); 
         }
       } else {
 
