@@ -10,9 +10,9 @@
 
 ---
 ### Contact:
-+ Toxics Discord: ☣ Tσxιƈ Dҽʋ ☣#7308 (510065483693817867)
++ Discord Profile: https://discordapp.com/users/510065483693817867
 + Discord Server: https://redirect.toxicdev.me/discord
-+ Toxics Email: contact@toxicdev.me
++ Send Me a Email: contact@toxicdev.me
 ---
 
 ### Allowed
