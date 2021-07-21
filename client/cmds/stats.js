@@ -15,9 +15,9 @@ module.exports.run = async (client, message, args, params) => {
 
     try {
 
-        let guilds = await client.shard.broadcastEval('this.guilds.cache.size').then(x => x.reduce((a, b) => b + a));
-        let users =  await client.shard.broadcastEval('this.guilds.cache.reduce((acc, guild) => acc + guild.memberCount, 0)').then(x => x.reduce((a, b) => b + a));
-        let channels = await client.shard.broadcastEval('this.guilds.cache.reduce((acc, guild) => acc + guild.channels.cache.size, 0)').then(x => x.reduce((a, b) => b + a));
+        let guilds = client.guilds.cache.size;
+        let users =  client.users.cache.size;
+        let channels = client.channels.cache.size;
 
         let embed = new Discord.MessageEmbed()
          .setAuthor('Tox Mod Statistics', client.user.displayAvatarURL({ dynamic: true }))
