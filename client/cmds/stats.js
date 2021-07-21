@@ -51,6 +51,8 @@ module.exports.run = async (client, message, args, params) => {
          .setTimestamp()
          .setFooter(Embeds.Footer, Images.Animated)
 
+         console.log(err);
+
         return message.channel.send(ErrorEmbed);
     }
 }
