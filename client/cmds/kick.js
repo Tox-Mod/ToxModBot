@@ -34,7 +34,17 @@ module.exports.run = async (client, message, args, params) => {
 
             let cases = await CASES.find({ userID: member.id });
 
-            member.kick('You was kicked for some reason boii!').then(() => {
+            let embed = new MessageEmbed()
+               .setTitle('Uh-Oh, What did you do?')
+               .setColor(Colors.Error)
+               .setDescription('You have been kicked from a Guild that i manage!')
+               .addField('Guild Name', `${message.guild.name}`, true)
+               .addField('Moderator', `${message.author.tag}`, true)
+               .addField('Reason', `${reason}`, true)
+               .setTimestamp()
+               .setFooter(Embeds.Footer, Images.Animated)
+
+            member.kick(embed).then(() => {
                 SERVERS.findOne({ guildID: message.guild.id }, async (err, res) => {
 
                     let channel = message.guild.channels.cache.get(res.mod);
@@ -77,16 +87,6 @@ module.exports.run = async (client, message, args, params) => {
 
                     cases1.save();
                 })
-
-                let embed = new MessageEmbed()
-                  .setTitle('Uh-Oh, What did you do?')
-                  .setColor(Colors.Error)
-                  .setDescription('You have been kicked from a Guild that i manage!')
-                  .addField('Guild Name', `${message.guild.name}`, true)
-                  .addField('Moderator', `${message.author.tag}`, true)
-                  .addField('Reason', `${reason}`, true)
-                  .setTimestamp()
-                  .setFooter(Embeds.Footer, Images.Animated)
             })
 
             let Hmmm = new MessageEmbed()
