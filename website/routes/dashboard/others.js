@@ -2,6 +2,7 @@ const route = require("express").Router();
 const Discord = require('discord.js');
 const { renderPage } = require('@Templates/renderPage');
 const { checkAuth } = require('@Authorization/checkAuth');
+const { checkMaintenance } = require('@Authorization/checkMaintenance');
 
 const SERVERS = require('@Database/servers');
 const USERS = require('@Database/users');
