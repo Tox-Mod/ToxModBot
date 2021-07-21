@@ -87,18 +87,10 @@ module.exports.run = async (client, message, args, params) => {
 
                     cases1.save();
                 })
-            })
-
-            let Hmmm = new MessageEmbed()
-            .setTitle('Uh-Oh, What did you do?')
-            .setColor(Colors.Error)
-            .setDescription('I was unable to kick that user, Check their roles and permissions and try again!')
-            .setTimestamp()
-            .setFooter(Embeds.Footer, Images.Animated)
-
-            .catch(() => message.channel.send(Hmmm)) 
+            }) .catch(() => message.reply('I was unable to kick the member. Check if their roles are higher then mine or if they have administrative permissions!')); 
         }
       } else {
+
           message.reply("Bruhh, I can't kick the air and would look stupid if i tried. Gimme someone to kick noob!")
       }
    }
