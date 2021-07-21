@@ -23,6 +23,7 @@ exports.JoinLogs = '857816065428946945'
 exports.AuthLogs = '857816088578752512'
 exports.BanLogs = '857816139773509632'
 exports.BugLogs = '857816157921738762'
+exports.ErrLogs = '866860424418951199'
 
 exports.maintenance = false
 
