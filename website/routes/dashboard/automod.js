@@ -8,7 +8,7 @@ const SERVERS = require('@Database/servers');
 /**
  * GET METHOD
  */
-route.get("/:guildID", checkAuth, async (req, res) => {
+route.get("/:guildID", checkAuth, checkMaintenance, async (req, res) => {
 
   const guild = await req.app.get('client').guilds.cache.get(req.params.guildID);
 
