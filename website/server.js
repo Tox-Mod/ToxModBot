@@ -22,7 +22,12 @@ const client = new Client({
   restTimeOffset: 0,
 });
 
-client.commands = require('@Structure/commands')
+client.commands = new Collection();
+client.aliases = new Collection();
+
+const commands = require('@Structure/commands');
+
+ commands.run(client);
 
 // Then Discord
 client.login(settings.token);
