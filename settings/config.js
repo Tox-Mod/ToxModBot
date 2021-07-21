@@ -25,7 +25,7 @@ exports.BanLogs = '857816139773509632'
 exports.BugLogs = '857816157921738762'
 exports.ErrLogs = '866860424418951199'
 
-exports.maintenance = true
+exports.maintenance = 'true'
 
 /**
 * DEFINE THE USERS AND THEIR ACCESS 
