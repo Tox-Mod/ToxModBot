@@ -11,7 +11,7 @@ exports.localCallback = 'http://localhost:8080/callback'
 
 exports.mongo_url = 'mongodb://admin:eMrFan00MqjT4OFN@SG-ToxMod-40838.servers.mongodirector.com:27017/admin'
 
-exports.port = 8080
+exports.port = process.env.PORT
 
 /**
  * SUPPORT SERVER SETTINGS
