@@ -33,7 +33,7 @@ module.exports = (client, oldMessage, newMessage) => {
                      .addField('New Message', `${newMessage.content}` + " ", true)
                      .addField('Edited At', `${newMessage.channel}`, true)
                      .setTimestamp()
-                     .setFooter(Embeds.Footer, message.author.displayAvatarURL({ dynamic: true }))
+                     .setFooter(Embeds.Footer, newMessage.author.displayAvatarURL({ dynamic: true }))
                     
                     if(newMessage.author.bot) return;
                         
