@@ -14,8 +14,6 @@ const router = require("@Routes/Router");
 
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-//const { Client, Collection } = require("discord.js");
-const client = require('@Client/index');
 
 app.disable("server");
 
