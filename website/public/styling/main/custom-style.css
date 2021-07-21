@@ -60,9 +60,6 @@
   .searchbar{
     width: auto;
   }
-  .faq{
-    margin: 10px;
-  }
 }
 @media only screen and (max-width: 360px) {
   .phone {
