@@ -58,7 +58,7 @@ module.exports.run = async (client, message, args, params) => {
 module.exports.help = {
     name: 'stats',
     category: 'info',
-    aliases: ['bi', 'bs', 'statistics'],
+    aliases: ['bs', 'statistics'],
     description: 'View some Statistics for Tox Mod',
     example: '``stats``'
 }
