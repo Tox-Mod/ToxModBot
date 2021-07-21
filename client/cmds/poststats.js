@@ -19,7 +19,7 @@ module.exports.run = async (client, message, args, params) => {
                 Authorization: BotLists.Paradise_AUTH,
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({ server_count: client.guilds.cache.size, shard_count: client.shard.count }),
+            body: JSON.stringify({ server_count: client.guilds.cache.size, shard_count: '0' }),
         }).then(response => response.text());
 
         fetch(`https://api.infinitybotlist.com/bot/${client.user.id}`, {
@@ -28,7 +28,7 @@ module.exports.run = async (client, message, args, params) => {
                 authorization: BotLists.IBL_AUTH,
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({ servers: client.guilds.cache.size, shards: client.shard.count }),
+            body: JSON.stringify({ servers: client.guilds.cache.size, shards: '0' }),
         }).then(response => response.text());
 
         let StatsPost = new MessageEmbed()
