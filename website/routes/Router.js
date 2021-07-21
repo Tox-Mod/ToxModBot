@@ -101,7 +101,7 @@ router.use(function async (error, req, res, next) {
   let ErrorEmbed = new MessageEmbed()
     .setTitle('500 | Internal Error')
     .setColor(Colors.Error)
-    .setDescription(````${error}````)
+    .setDescription(`${error}`)
     .addField('Error Path', `${req.path}`, true)
     .setTimestamp()
     .setFooter(Embeds.Footer, Images.Animated)
