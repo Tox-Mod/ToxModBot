@@ -1,7 +1,7 @@
 /**
  * DISCORD CLIENT STUFF
  */
-exports.token = 'NjMxNTU4MDIzMTA5ODA0MDMy.XZ4mPg.NBjuOvf_phE_fC8SDnMjxBBBIVQ'
+exports.token = 'NjMxNTU4MDIzMTA5ODA0MDMy.XZ4mPg.s8nm9tfBtWExwHz1SavOnEiQjxE'
 
 exports.clientID = '631558023109804032'
 
