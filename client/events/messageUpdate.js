@@ -27,7 +27,7 @@ module.exports = (client, oldMessage, newMessage) => {
                     let UpdateEmbed = new MessageEmbed()
                      .setTitle('✏️ Message Edited')
                      .setColor(Colors.Primary)
-                     .setThumbnail(message.author.displayAvatarURL({ dynamic: true }))
+                     .setThumbnail(newMessage.author.displayAvatarURL({ dynamic: true }))
                      .addField('Jump to Message', `[Click Me](${newMessage.url})`, true)
                      .addField('Old Message', `${oldMessage.content}` + " ", true)
                      .addField('New Message', `${newMessage.content}` + " ", true)
