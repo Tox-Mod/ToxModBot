@@ -1,4 +1,6 @@
 const route = require("express").Router();
+const { checkAuth } = require('@Authorization/checkAuth');
+const { checkMaintenance } = require('@Authorization/checkMaintenance');
 const { renderPage } = require('@Templates/renderPage');
 const config = require('@Settings/config')
 
