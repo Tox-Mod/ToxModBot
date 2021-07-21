@@ -58,7 +58,7 @@ module.exports.run = async (client, message, args, params) => {
 
 module.exports.help = {
     name: 'poststats',
-    category: 'info',
+    category: 'owner',
     aliases: ['ps', 'post'],
     description: 'Post Stats to all Bot Lists',
     example: '``poststats``'
