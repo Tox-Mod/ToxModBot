@@ -7,11 +7,11 @@ const Embeds = require('@Embeds/index');
 
 module.exports.run = async (client, message, args, params) => {
 
-    let guilds = await client.shard.broadcastEval('this.client.guilds.cache.size').then(x => x.reduce((a, b) => b + a));
+    let guilds = client.guilds.cache.size;
 
-    let users =  await client.shard.broadcastEval('this.guilds.cache.reduce((acc, guild) => acc + guild.memberCount, 0)').then(x => x.reduce((a, b) => b + a));
+    let users =  client.users.cache.size;
 
-    let channels = await client.shard.broadcastEval('this.guilds.cache.reduce((acc, guild) => acc + guild.channels.cache.size, 0)').then(x => x.reduce((a, b) => b + a));
+    let channels = client.channels.cache.size;
 
     let embed = new MessageEmbed()
       .setTitle('Info and Statistics')
