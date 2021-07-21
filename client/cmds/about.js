@@ -31,7 +31,7 @@ module.exports.run = async (client, message, args, params) => {
       .addField('Primary Language', 'English', true)
       .addField('Latency and Ping', `${client.ws.ping}ms`, true)
       .addField('Created On', `${moment(client.user.createdAt).format("MM/DD/YYYY HH:mm:ss A")}`, true)
-      .addField('Created By', '', true)
+      .addField('Created By', 'Toxic Dev#1421 ', true)
       .setTimestamp()
       .setFooter(Embeds.Footer, Images.Animated)
 
@@ -41,7 +41,7 @@ module.exports.run = async (client, message, args, params) => {
 module.exports.help = {
     name: 'about',
     category: 'info',
-    aliases: ['botinfo', 'info', 'stats', 'bi', 'bs'],
+    aliases: ['botinfo', 'bi'],
     description: 'Shows some information about Tox Mod',
     example: '``help <CommandName>``'
 }
