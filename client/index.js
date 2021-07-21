@@ -23,9 +23,5 @@ const events = require('@Structure/events');
 commands.run(client);
 events.run(client);
 
-module.exports.init = async (token) => {
-    client.userBaseDirectory = __dirname;
-     await client.login(token);
-    return client;
-}
+client.login(config.token);
 
