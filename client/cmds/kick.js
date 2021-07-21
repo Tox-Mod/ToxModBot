@@ -44,7 +44,7 @@ module.exports.run = async (client, message, args, params) => {
                .setTimestamp()
                .setFooter(Embeds.Footer, Images.Animated)
 
-            member.kick(embed).then(() => {
+            member.kick('That hoe Was Kicked For a Reason').then(() => {
                 SERVERS.findOne({ guildID: message.guild.id }, async (err, res) => {
 
                     let channel = message.guild.channels.cache.get(res.mod);
