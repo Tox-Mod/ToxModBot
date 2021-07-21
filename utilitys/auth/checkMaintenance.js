@@ -8,7 +8,7 @@ const app = express();
 
 module.exports.checkMaintenance = async (req, res, next) => {
 
-    if (config.maintenace = true) {
+    if (config.maintenace === true) {
 
         if (req.isAuthenticated() || req.user) {
 
