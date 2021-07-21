@@ -8,7 +8,13 @@ const Strategy = require("passport-discord").Strategy;
 const MongoStore = require("connect-mongo")(session);
 const path = require('path');
 const app = express();
-const client = require('../client/index');
+
+const { Client, Collection } = require('discord.js');
+
+const client = new Client({ 
+    disableEveryone: true, 
+    disabledEvents: ['TYPING_START']
+});
 
 const settings = require("@Settings/config");
 const router = require("@Routes/Router");
