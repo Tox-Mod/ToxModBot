@@ -91,7 +91,7 @@ router.use('/500', require('@Routes/errors/500'));
   res.status(404).redirect('/404');
 });
 
-router.use(function async (error, req, res, next) {
+router.use(async function (error, req, res, next) {
 
   renderPage(res, req, 'errors/500', {
     status: 500,
