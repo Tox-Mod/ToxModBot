@@ -25,3 +25,5 @@ events.run(client);
 
 client.login(config.token);
 
+module.exports = client;
+
