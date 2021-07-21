@@ -25,13 +25,6 @@ const client = new Client({
 client.commands = new Collection();
 client.aliases = new Collection();
 
-const commands = require('@Structure/commands');
-
-commands.run(client);
-
-// Then Discord
-client.login(settings.token);
-
 // Discord Client Ready
 client.on("ready", async () => {
   console.log(`[Tox Mod | Web] Successfully connected to the Discord API! as ${client.user.username}`);
