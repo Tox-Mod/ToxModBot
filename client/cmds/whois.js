@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const CASES = require('@Database/cases');
 const USERS = require('@Database/users');
 const SERVERS = require('@Database/servers');
@@ -125,7 +125,7 @@ module.exports.run = async (client, message, args, params) => {
      })
     } catch (err) {
 
-        let ErrorEmbed = new Discord.MessageEmbed()
+        let ErrorEmbed = new MessageEmbed()
          .setTitle('Internal Error | Hmmm')
          .setColor(Colors.Error)
          .setDescription('Something went wrong here, Please try again or Contact my Dev Team.')
