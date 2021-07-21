@@ -18,7 +18,7 @@ route.get("/:guildID", checkAuth, async (req, res) => {
     let alertmsg = '';
     let errormsg = '';
 
-    const guild = client.guilds.cache.get(req.params.guildID);
+    const guild = req.app.get('client').guilds.cache.get(req.params.guildID);
 
     if (!guild) return res.redirect("/dashboard");
 
@@ -71,7 +71,7 @@ route.post('/:guildID', checkAuth, async (req, res, next) => {
     let alertmsg = '';
     let errormsg = '';
 
-    const guild = client.guilds.cache.get(req.params.guildID);
+    const guild = req.app.get('client').guilds.cache.get(req.params.guildID);
 
     if (!guild) return res.redirect("/dashboard");
 
