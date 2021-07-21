@@ -5,7 +5,7 @@
     "author": "TheRealToxicDev <toxic.dev09@gmail.com>",
     "main": "client/shards.js",
     "scripts": {
-        "start": "npm-run-all --parallel website manager",
+        "start": "node client/index.js",
         "website": "node website/server.js",
         "manager": "node client/index.js"
     },
