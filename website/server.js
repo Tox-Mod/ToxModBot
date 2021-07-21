@@ -14,9 +14,10 @@ const router = require("@Routes/Router");
 
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const { Client, Collection } = require("discord.js");
+//const { Client, Collection } = require("discord.js");
+const client = require('@Client/index');
 
-const client = new Client({
+/**const client = new Client({
   disableEveryone: true,
   disabledEvents: ["TYPING_START"],
   restTimeOffset: 0,
@@ -35,7 +36,7 @@ client.login(settings.token);
 // Discord Client Ready
 client.on("ready", async () => {
   console.log(`[Tox Mod | Web] Successfully connected to the Discord API! as ${client.user.username}`);
-});
+});*/
 
 app.disable("server");
 
