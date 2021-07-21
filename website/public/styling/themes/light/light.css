@@ -23,6 +23,7 @@ body {
 }
 
 .faq{
+    width: 70%;
     background-color: #15141b;
     padding: 10px;
     margin: 100px;
