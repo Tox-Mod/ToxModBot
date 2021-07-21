@@ -28,7 +28,7 @@ module.exports.run = async (client, message, args, params) => {
                 let PositiveTrust = new MessageEmbed()
                  .setTitle('User Trust/Reputation Score!')
                  .setColor(Colors.Primary)
-                 .setDescription(`${member.tag} is ``100%`` safe with ``0`` active cases/infractions!`)
+                 .setDescription(`${member} is ``100%`` safe with ``0`` active cases/infractions!`)
                  .setTimestamp()
                  .setFooter(Embeds.Footer, Images.Animated)
 
@@ -46,7 +46,7 @@ module.exports.run = async (client, message, args, params) => {
                 let NegativeTrust = new MessageEmbed()
                  .setTitle('User Trust/Reputation Score!')
                  .setColor(Colors.Error)
-                 .setDescription(`${member.tag} is ``${perc}`` safe with ``${res.length}`` active cases/infractions!`)
+                 .setDescription(`${member} is ``${perc}`` safe with ``${res.length}`` active cases/infractions!`)
                  .setTimestamp()
                  .setFooter(Embeds.Footer, Images.Animated)
 
