@@ -8,9 +8,9 @@ const Client = require('');
     
     let client = await Client.init();
 
-    console.log(`Logged in as ${client.user.tag}`);
+    console.log('[Tox Mod | Bot] Connected to the Discord API');
 
     await new Website(client).listen(process.env.PORT);
 
-    console.log(`Tox ing on port `);
+    console.log(`[Tox Mod | Web] Running on port: ${process.env.PORT}`);
 })()
