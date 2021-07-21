@@ -13,9 +13,7 @@ const BotLists = require('@Settings/botlists');
 
 module.exports.run = async (client, message, args, params) => {
 
-    try {
-
-        fetch(`https://paradisebots.net/api/v1/bot/${client.user.id}`, {
+       fetch(`https://paradisebots.net/api/v1/bot/${client.user.id}`, {
             method: "POST",
             headers: {
                 Authorization: BotLists.Paradise_AUTH,
@@ -42,19 +40,7 @@ module.exports.run = async (client, message, args, params) => {
 
         return message.channel.send(StatsPost);
 
-    } catch (err) {
-
-        let ErrorEmbed = new MessageEmbed()
-         .setTitle('Internal Error | Hmmm')
-         .setColor(Colors.Error)
-         .setDescription('Something went wrong here, Please try again or Contact my Dev Team.')
-         .setTimestamp()
-         .setFooter(Embeds.Footer, Images.Animated)
-
-        return message.channel.send(ErrorEmbed);
-
     }
-}
 
 module.exports.help = {
     name: 'poststats',
