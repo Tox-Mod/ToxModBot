@@ -14,7 +14,7 @@ const TICKETS = require('@Database/tickets');
 /**
  * GET METHOD
  */
-route.get("/", checkAuth, async (req, res) => {
+route.get("/", checkAuth, checkMaintenance, async (req, res) => {
 
     if (!config.owners.includes(req.user.id)) return res.redirect('/nope');
 
@@ -35,7 +35,7 @@ route.get("/", checkAuth, async (req, res) => {
 /**
  * POST METHOD
  */
- route.post("/", checkAuth, async (req, res) => {
+ route.post("/", checkAuth, checkMaintenance, async (req, res) => {
 
     if (!config.owners.includes(req.user.id)) return res.redirect('/nope');
 
