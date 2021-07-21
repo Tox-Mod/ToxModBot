@@ -30,7 +30,7 @@ router.use( customHeaders );
  passport.use(new Strategy({
        clientID: config.clientID,
        clientSecret: config.clientSecret,
-       callbackURL: config.localCallback,
+       callbackURL: config.domain,
        scope: ["identify", "guilds",],
      },
      (accessToken, refreshToken, profile, done) => {
