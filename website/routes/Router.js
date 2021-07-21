@@ -1,3 +1,4 @@
+const { MessageEmbed } = require('discord.js');
 const { Router } = require("express");
 const router = require("express").Router();
 const passport = require("passport");
@@ -7,6 +8,10 @@ const config = require('@Settings/config');
 
 const { renderPage } = require('@Templates/renderPage');
 const { checkAuth } = require('@Authorization/checkAuth');
+
+const Images = require('@Images/index');
+const Colors = require('@Colors/index');
+const Embeds = require('@Embeds/index');
 
 /**
  * SET AND USE OUR CUSTOM HEADERS
@@ -86,13 +91,23 @@ router.use('/500', require('@Routes/errors/500'));
   res.status(404).redirect('/404');
 });
 
-router.use(function (error, req, res, next) {
+router.use(function async (error, req, res, next) {
 
   renderPage(res, req, 'errors/500', {
     status: 500,
     body: error || 'Hmm, I dont know what to tell you chief! Theres nothing wrong'
   });
 
+  let ErrorEmbed = new MessageEmbed()
+    .setTitle('500 | Internal Error')
+    .setColor(Colors.Error)
+    .setDescription(````error````)
+    .addField('Error Path', `${req.path}`, true)
+    .setTimestamp()
+    .setFooter(Embeds.Footer, Images.Animated)
+
+  await req.app.get('client').guilds.cache.get(config.SupportGuild).channels.cache.get(config.ErrLogs).send(ErrorEmbed);
+                
   return console.log(`[Tox Mod | Web] Stacktrace: ${error}`)
 });
 
