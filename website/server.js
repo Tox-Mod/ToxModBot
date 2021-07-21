@@ -60,7 +60,7 @@ passport.deserializeUser((obj, done) => done(null, obj));
 passport.use(new Strategy({
       clientID: settings.clientID,
       clientSecret: settings.clientSecret,
-      callbackURL: settings.localCallback,
+      callbackURL: settings.domain,
       scope: ["identify", "guilds",],
     },
     (accessToken, refreshToken, profile, done) => {
