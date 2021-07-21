@@ -71,7 +71,7 @@ module.exports = async (client, member) => {
 
                     if (!client.guilds.cache.get(member.guild.id).channels.cache.get(res.welcome)) return;
 
-                    let defaultMessages = [
+                    let messages = [
                         `**Welcome ${member} to ${member.guild.name}**`,
                         `**Welcome ${member} to ${member.guild.name}**`,
                         `**Welcome ${member} to ${member.guild.name}**`,
