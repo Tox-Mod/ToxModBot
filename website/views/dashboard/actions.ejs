@@ -39,13 +39,18 @@
 
     <%- include(navbarPath, { bot, user, path }) %>
 
-    <div class="faq">
       <center>
         <h1 style="color: rgb(0, 102, 255);"><strong>Server Actions!</strong></h1>
         <h4 style="color: white;"><strong>Server cases!</strong></h4>
         </form>
         <form style="margin-top: 1em;" method="POST"> <!-- method="post" tiggers a POST request to the same url with the body of the form control inputs -->
           <div class="container">
+            <br><br>
+            <div class="column">
+              <center>
+                <p class="has-text-white title is-large"><i class="fa fa-gavel has-text-danger"></i>&nbsp;Global Infractions</p>
+              </center>
+                <div class="columns is-multiline is-desktop is-variable is-7 pt-5">
         <% if(cases.length === 0){ %>
           <img src="https://cdn1.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-256.png" style="width: 70px;">
           <p style="font-size: 20px; color: white">No infractions for this server</p><br>
@@ -84,17 +89,39 @@
                           <% }else{ %>
                               <% duration = cases[i].duration %>
                           <% } %>
-            <div class="card bug">
-              <p><strong style="color: rgb(255, 255, 255); font-size: 30px;">Case number </strong>#<%= cases[i].case %><br>_____________<br><code>Action:</code> <strong><%= cases[i].action %></strong><br><code>Allegation:</code> <strong><%= member %></strong><br><code>Moderator: </code><strong><%= moderator %></strong><br><code>Duration: </code><strong><%= duration %></strong><br><code>Time: </code><strong><%= time %></strong><br><code>Reason: </code><strong><%= reason %></strong></code></p>
-              <button style="width:170px; color: rgb(247, 91, 91);" name="deletecase" value="<%= cases[i].case %>" type="submit">Delete</button>
-            </div>
+                          <div class="col-md-6 col-lg-4 pb-3">
+                            <div data-aos="fade-left">
+                            <div class="card tox-card-custom bg-tox border-white border-0">
+                              <div class="card-body">
+                               <div class="is-pulled-right mt-tox mt-1">
+                                <span data-tooltip="Total Votes" data-tooltip-location="left" class="badge badge-stats mb-tox mt-1 w-100"><i class="fa fa-exclamation-circle has-text-danger"></i>&nbsp; Case: #<%= cases[i].case %></span>
+                                  </div>
+                                <h4 translate="no" class="card-title">Action: <strong><%= cases[i].action %></strong></h4>
+                                <p translate="no" class="card-text toxbotDesc">
+                                  <code>Moderator: <strong><%= moderator %></strong></code>
+                                  <br />
+                                  <code>Reason: <strong><%= reason %></strong></code>
+                                  <br />
+                                  <code>Time: <strong><%= time %></strong></code>
+                                </p>
+                              </div>
+                              <div class="card-footer">
+                                <p>Server: <strong><%= server %></strong></p>
+                                <button style="width:170px; color: rgb(247, 91, 91);" name="deletecase" value="<%= cases[i].case %>" type="submit">Delete</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      <% } %>
+                    <% } %>
+                  </div>
+                </div>
               <% } %>
           <% } %>
         </div>
         </form>
       <a class="btn btn-info" style="color: white; margin-left: 22px;"  href="/dashboard/guilds/<%= guild.id %>">Back to dashboard</a>
     </center>
-    </div>
 </body>
 
 <script>
