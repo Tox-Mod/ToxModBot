@@ -64,31 +64,44 @@
                 <% let member = ''; %>
                 <% let moderator = ""; %>
                 <% let duration = ""; %>
+                <% let server = ""; %>
+
                 <% if(cases[i].reason == ''){ %>
                     <% reason = 'No reason Provided' %>
                     <% }else{ %>
                     <% reason = cases[i].reason %>
                     <% } %>
+
                 <% if(cases[i].time == undefined){ %>
                     <% time = 'No time' %> 
                     <% }else{ %>
                         <% time = cases[i].time %>
                     <% } %>
+
+                    <% if(bot.guilds.cache.get(cases[i].serverID)){ %>
+                       <% server = bot.guilds.cache.get(cases[i].serverID).name %>
+                    <% }else{ %>
+                      <% server = "Can't get the guild!" %>
+                    <% } %>
+
                     <% if(bot.users.cache.get(cases[i].Moderator)){ %>
                         <% moderator = bot.users.cache.get(cases[i].Moderator).tag %>
                         <% }else{ %>
                             <% moderator = "Wasn't defined at this time" %>
                         <% } %>
+
                         <% if(bot.users.cache.get(cases[i].userID)){ %>
                         <% member = bot.users.cache.get(cases[i].userID).tag %>
                         <% }else{ %>
                             <% member = "Error occured" %>
                         <% } %>
+
                         <% if(cases[i].duration == undefined){ %>
                           <% duration = 'No duration set for that action!' %> 
                           <% }else{ %>
                               <% duration = cases[i].duration %>
                           <% } %>
+
                           <div class="col-md-6 col-lg-4 pb-3">
                             <div data-aos="fade-left">
                             <div class="card tox-card-custom bg-tox border-white border-0">
