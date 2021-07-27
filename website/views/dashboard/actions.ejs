@@ -58,7 +58,7 @@
             <% for (i = 0; i < cases.length; i++) { %>
               <% bot.users.fetch(cases[i].userID) %>
                 <% } %>
-        <% for (i = 0; i < cases.length; i++) { %>
+            <% for (i = 0; i < cases.length; i++) { %>
                 <% let reason = ''; %>
                 <% let time = ''; %>
                 <% let member = ''; %>
@@ -115,10 +115,8 @@
                       <% } %>
                     <% } %>
                   </div>
-                </div>
-              <% } %>
-          <% } %>
-        </div>
+              </div>
+            </div>
         </form>
       <a class="btn btn-info" style="color: white; margin-left: 22px;"  href="/dashboard/guilds/<%= guild.id %>">Back to dashboard</a>
     </center>
