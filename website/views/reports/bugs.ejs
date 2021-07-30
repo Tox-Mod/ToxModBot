@@ -38,30 +38,27 @@
     <%- include(navbarPath, { bot, user, path }) %>
 
     <div class="container">
-      <br><br>
-    <div class="column">
-        <div class="columns is-multiline is-desktop is-variable is-7 pt-5">
-          <div class="col-md-6 col-lg-4 pb-3">
-            <div class="card ibl-card-custom bg-ibl border-white border-0" style="width: 70rem;">
-              <div class="card-body">
-                <center><h1><i class="fa fa-bug"></i>Report a bug</h1></center>
-                <center><p>Type a Brief Bug report in more then 25 Characters | Ex: Dashboard button is not redirecting me to the Dashboard</p></center>
-                <hr style="background-color: white;">
-                <form method="POST">
-                  <div class="form-group">
-                    <center><textarea class="input" maxlength="500" type="text" name="reportbug" style="width: 100%; height: 150px; border-radius: 2px; text-decoration-color: black;" placeholder="i.e i found that dashboard button not redirecting"></textarea><br><br></center>
-                    <center><button style="width:170px" class="button" type="submit">Report Bug</button></center>
-                  </div>
-                </form>
-              </div>
-              <div class="card-footer">
+      <br /><br />
+      <div class="container contact-form">
+        <div class="contact-image">
+          <i></i>
+        </div>
 
+        <form method="POST">
+          <h3>Report a Bug</h3>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label><i class="fa fa-comment-o"></i> Describe the Issue!</label>
+                <textarea class="form-control" maxlength="500" type="text" name="reportbug" style="width: 100%; height: 150px; border-radius: 2px; text-decoration-color: black;" placeholder="i.e i found that dashboard button not redirecting"></textarea>
               </div>
+              <button class="btn btn-info" type="submit">Send Report</button>
             </div>
           </div>
+        </form>
       </div>
     </div>
-  </div>
+
 </body>
 
 <script>
