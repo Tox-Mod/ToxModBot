@@ -37,7 +37,7 @@ module.exports.run = async (client, message, args, params) => {
          .setAuthor(`${guild.name} (${guild.id})`, guild.iconURL({ dynamic: true }))
          .setColor(Colors.Secondary)
          .setThumbnail(guild.iconURL({ dynamic: true }))
-         .setDescription(`${description}`)
+         .setDescription(`${description || "No Description Set"}`)
          .addField('Guild Owner', `${message.guild.owner.user.tag} (${message.guild.owner.user.id})`, true)
          .addField('Created On', `${moment(guild.createdAt).format('MM/DD/YYYY HH:mm:ss A')}`, true)
          .addField('Server Region', `${guild.region}`, true)
