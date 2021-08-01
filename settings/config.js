@@ -17,13 +17,13 @@ exports.port = process.env.PORT
 /**
 * SUPPORT SERVER SETTINGS
 */
-exports.ServerInvite = 'https://discord.gg/9Fu2sJHvFF'
-exports.SupportGuild = '807387115117215784' // Toxic FX Server
-exports.JoinLogs = '857816065428946945'
-exports.AuthLogs = '857816088578752512'
-exports.BanLogs = '857816139773509632'
-exports.BugLogs = '857816157921738762'
-exports.ErrLogs = '866860424418951199'
+exports.ServerInvite = 'https://discord.gg/wHU5NtE2QD'
+exports.SupportGuild = '871204257649557604' // Toxic FX Server
+exports.JoinLogs = '871280337056043039'
+exports.AuthLogs = '871279880166314004'
+exports.BanLogs = '871279899351081000'
+exports.BugLogs = '871280453406064650'
+exports.ErrLogs = '871279921379565618'
 
 exports.maintenance = false
 
@@ -31,7 +31,7 @@ exports.maintenance = false
 * DEFINE THE USERS AND THEIR ACCESS 
 */
 exports.owners = [
-    "510065483693817867", // Toxic Dev
+    "486659270876856362", // Toxic Dev
     "324646179134636043", // Connor
     "713632188863610911", // Maxim
     "391376464064282627", // Cpt Calcium
@@ -51,7 +51,7 @@ exports.beta = [
 ]
 
 exports.devs = [
-    "510065483693817867", // Toxic
+    "486659270876856362", // Toxic
     "713632188863610911", // Maxim
     "324646179134636043" // Connor
 ]
