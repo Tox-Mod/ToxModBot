@@ -17,7 +17,7 @@ exports.port = process.env.PORT
 /**
 * SUPPORT SERVER SETTINGS
 */
-exports.ServerInvite = 'https://discord.gg/wHU5NtE2QD'
+exports.ServerInvite = 'https://discord.gg/GgauPE6SkC'
 exports.SupportGuild = '871204257649557604' // Toxic FX Server
 exports.JoinLogs = '871280337056043039'
 exports.AuthLogs = '871279880166314004'
