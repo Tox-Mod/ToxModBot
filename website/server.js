@@ -26,17 +26,15 @@ client.commands = new Collection();
 client.aliases = new Collection();
 
 const commands = require('@Structure/commands');
-
- commands.run(client);
+commands.run(client);
 
 // Then Discord
-client.login(settings.token);
+client.login(settings.token).catch(console.error);;
 
 // Discord Client Ready
 client.on("ready", async () => {
   console.log(`[Tox Mod | Web] Successfully connected to the Discord API! as ${client.user.username}`);
 });
-
 
 app.disable("server");
 
@@ -77,7 +75,7 @@ passport.use(new Strategy({
   session({
     cookie: { maxAge: require("ms")("10 years") },
     store: new MongoStore({ mongooseConnection: mongoose.connection }),
-    secret: "CIv+ZgFBk0MSYvDGV8Xge4fZB6xsodqs0BhYs8CxP5g=",
+    secret: "gGvp2tCfyrmk6sQeMrMGGdSw3aSfdmhfNzzJytYtTDEvHjqNLQsuynsA7WpxmEcgWvBaZr3rj9kXmM8uq4LtFXucCRAJMjXRvw7sW4fUhDradQNnseMe59vY2UBm6vRB2bbDTvdsx9XEPp4y2J4wVStRm4wF95Xk6HZeNwYMDYVuPdvZWh25bpmf3Hqa6v4jyj3XnA5AKCgGFExyevtGG35Bs563eMy74DA8D9FVbVdbWYvrgP5z25Y5Bg8tn5CW",
     resave: false,
     saveUninitialized: false
   })
