@@ -17,13 +17,13 @@ exports.port = process.env.PORT
 /**
 * SUPPORT SERVER SETTINGS
 */
-exports.ServerInvite = 'https://discord.gg/GgauPE6SkC'
-exports.SupportGuild = '871204257649557604' // Toxic FX Server
-exports.JoinLogs = '871280337056043039'
-exports.AuthLogs = '871279880166314004'
-exports.BanLogs = '871279899351081000'
-exports.BugLogs = '871280453406064650'
-exports.ErrLogs = '871279921379565618'
+exports.ServerInvite = 'https://discord.gg/gCtBJVQw4Q'
+exports.SupportGuild = '896849194290130985' // Toxic FX Server
+exports.JoinLogs = '896857901711376414'
+exports.AuthLogs = '896857529735327754'
+exports.BanLogs = '896857622731440179'
+exports.BugLogs = '896857759595773992'
+exports.ErrLogs = '896857811504480266'
 
 exports.maintenance = false
 
