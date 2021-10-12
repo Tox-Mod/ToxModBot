@@ -1,3 +1,4 @@
+
 /**
 * DISCORD CLIENT STUFF GOES HERE
 */
@@ -10,8 +11,6 @@ exports.clientSecret = 'aBu09DDITVkQ8tHw_Avgf_4VC4G--a4J'
 exports.localCallback = 'http://localhost:8080/callback'
 exports.domain = 'https://toxmod.xyz/callback'
 
-exports.test = "Hmmm, what are those!"
-
 exports.mongo_url = 'mongodb://admin:eMrFan00MqjT4OFN@SG-ToxMod-40838.servers.mongodirector.com:27017/admin'
 
 exports.port = process.env.PORT
@@ -20,7 +19,7 @@ exports.port = process.env.PORT
 * SUPPORT SERVER SETTINGS
 */
 exports.ServerInvite = 'https://discord.gg/gCtBJVQw4Q'
-exports.SupportGuild = '896849194290130985'
+exports.SupportGuild = '896849194290130985' // Toxic FX Server
 exports.JoinLogs = '896857901711376414'
 exports.AuthLogs = '896857529735327754'
 exports.BanLogs = '896857622731440179'
