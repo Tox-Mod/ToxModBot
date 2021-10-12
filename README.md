@@ -2,3 +2,10 @@
 <p align="center">The Discord Bot with a little bit of Attitude. Prevent Raids, Moderate your Server in your Absence, Check a Users Rank and Reputation and More.</p>
 
 <hr>
+
+<h2 align='center'><br>Features</h2>
+<p align="center">- Auto Moderation</p>
+<p align="center">- Anti Raid</p>
+<p align="center">- Welcome/Leave System</p>
+<p align="center">- Rank/Reputation System</p>
+<p align="center">- Complete Dashboard</p>
