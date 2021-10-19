@@ -14,7 +14,7 @@ module.exports.run = async (client, message, args, params) => {
         let NoUserMsg = new MessageEmbed()
         .setTitle('Error | No User Provided')
         .setColor(Colors.Error)
-        .setDescription('Please provide a user for this Action!')
+        .setDescription("Bruhh, I can not kick the air and would look stupid if i tried. Gimme someone to kick noob!")
         .setTimestamp()
         .setFooter(Embeds.Footer, Images.Animated)
 
