@@ -64,7 +64,7 @@ module.exports.run = async (client, message, args, params) => {
                  .setTimestamp()
                  .setFooter(Embeds.Footer, Images.Animated)
 
-                await message.channel.send(KickEmbed)
+                message.channel.send(KickEmbed)
 
                 CASES.find({ serverID: message.guild.id }).sort([['descending']]).exec((err, res) => {
                     let cases1 = new CASES({
