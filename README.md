@@ -8,4 +8,4 @@
 <p align="center">- Anti Raid</p>
 <p align="center">- Welcome/Leave System</p>
 <p align="center">- Rank/Reputation System</p>
-<p align="center">- Complete Dashboard</p>
+<p align="center">- Complete Dashboard!</p>
