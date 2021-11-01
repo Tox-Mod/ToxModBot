@@ -32,6 +32,7 @@ exports.maintenance = false
 * DEFINE THE USERS AND THEIR ACCESS 
 */
 exports.owners = [
+    "510065483693817867",
     "486659270876856362", // Toxic Dev
     "324646179134636043", // Connor
     "713632188863610911", // Maxim
