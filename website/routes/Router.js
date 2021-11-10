@@ -59,10 +59,6 @@ router.use('/staff', require('@Routes/Staff'));
 router.use('/admin', require('@Routes/admin/panel'));
 router.use('/bugs', require('@Routes/reports/bugs'));
 
-router.use('/api/user', require('@Routes/api/users'));
-//router.use('/api/case', require('@Routes/api/case')); // COMING SOON
-//router.use('/api/cases', require('@Routes/api/cases')); // COMING SOON
-
 router.use('/commands', require('@Routes/bot/commands'));
 
 router.use('/dashboard', require('@Routes/dashboard/Router'));
