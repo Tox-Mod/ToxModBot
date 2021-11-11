@@ -116,8 +116,8 @@ module.exports.help = {
 }
 
 module.exports.requirements = {
-    userPerms: ["MANAGE_GUILD"],
-    clientPerms: ['MANAGE_ROLES'],
+    userPerms: ["MANAGE_ROLES"],
+    clientPerms: [],
     ownerOnly: false,
     betaMode: false,
     devLock: false
