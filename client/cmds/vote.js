@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const CASES = require('@Database/cases');
 const SERVERS = require('@Database/servers');
 const CLOCK = require('@Database/clock');
@@ -13,7 +13,9 @@ const BotLists = require('@Settings/botlists');
 
 module.exports.run = async (client, message, args, params) => {
 
-     let embed = new MessageEmbed()
+    try {
+
+        let embed = new MessageEmbed()
          .setAuthor('Vote for Tox Mod', Images.Animated)
          .setColor(Colors.Primary)
          .setDescription('Like the bot? vote for it here!')
@@ -25,6 +27,18 @@ module.exports.run = async (client, message, args, params) => {
 
   
         return message.channel.send(embed)
+        
+    } catch (err) {
+
+        let ErrorEmbed = new Discord.MessageEmbed()
+         .setTitle('Internal Error | Hmmm')
+         .setColor(Colors.Error)
+         .setDescription('Something went wrong here, Please try again or Contact my Dev Team.')
+         .setTimestamp()
+         .setFooter(Embeds.Footer, Images.Animated)
+
+        return message.channel.send(ErrorEmbed);
+    }
 }
 
 module.exports.help = {
@@ -37,7 +51,7 @@ module.exports.help = {
 
 module.exports.requirements = {
     userPerms: [],
-    clientPerms: [],
+    clientPerms: ["MANAGE_CHANNELS"],
     ownerOnly: false,
     betaMode: false,
     devLock: false
