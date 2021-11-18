@@ -17,7 +17,8 @@ module.exports.renderPage = async (res, req, template, data = {}) => {
     passport.deserializeUser((obj, done) => done(null, obj));
 
     let client = await req.app.get('client');
-    let user = await req.isAuthenticated() ? client.users.cache.get(req.user.id) : null;
+    //let user = await req.isAuthenticated() ? client.users.cache.get(req.user.id) : null;
+    let user = await req.isAuthenticated() ? req.user : null;
 
     const baseData = {
         bot: client,
