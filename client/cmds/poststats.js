@@ -37,6 +37,8 @@ module.exports.run = async (client, message, args, params) => {
          .setTitle('Okay chief!')
          .setColor(Colors.Primary)
          .setDescription('Posted Stats to all Bot Lists!')
+         .addField('Guilds', `${client.guilds.cache.size}`)
+         .addField('Shards', `0`)
          .setTimestamp()
          .setFooter(Embeds.Footer, Images.Animated)
 
