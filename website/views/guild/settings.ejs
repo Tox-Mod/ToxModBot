@@ -90,6 +90,7 @@
                                     <%  antispam = "Disabled" %>
                                     <% } %>
                                     <h1><%= guild.name %></h1>
+                                    <hr style="color: white; background-color: white;"/>
                                     <div class="row">
                                       <div class="col-md-6">
                                         <center><span data-tooltip="Member Count" data-tooltip-location="top" class="badge badge-stats mt-1 w-75"><i class="fa fa-users"></i> Members: <strong><%= guild.memberCount %></strong></span></center>
@@ -109,9 +110,9 @@
                                         <center><span data-tooltip="Role Count" data-tooltip-location="top" class="badge badge-stats mt-1 w-75"><i class="fa fa-wrench"></i> Guild Prefix: <strong><%= settings.prefix %></strong></span></center>
                                         <br />
                                         <center><span data-tooltip="Role Count" data-tooltip-location="top" class="badge badge-stats mt-1 w-75"><i class="fa fa-warning"> Infractions: <strong><%= infractions.length %></strong></span></center>
-                                          <label><i class="fa fa-comment-o"></i> Guild Settings!</label>
+                                        <hr style="color: white; background-color: white;"/>
                                           <h1><i class="fa fa-tasks"></i> Settings!</h1>
-                                          <br>
+                                         <hr style="color: white; background-color: white;"/>
                                         <a class="btn btn-info" style="color: white;"  href="/dashboard/others/<%= guild.id %>"><i class="fa fa-wrench"></i> Guild</a>
                                         <a class="btn btn-info" style="color: white;"  href="/dashboard/roles/<%= guild.id %>"><i class="fa fa-user-plus"></i> Roles</a> 
                                         <a class="btn btn-info" style="color: white;"  href="/dashboard/automod/<%= guild.id %>"><i class="fa fa-shield"></i> Automod</a>
@@ -119,8 +120,7 @@
                                         <a class="btn btn-info" style="color: white;"  href="/dashboard/actions/<%= guild.id %>"><i class="fa fa-exclamation-triangle"></i> Infractions</a>
                                         <a class="btn btn-info" style="color: white;"  href="/dashboard/logs/<%= guild.id %>"><i class="fa fa-clone"></i> Logs</a>
                                         <a class="btn btn-info" style="color: white;"  href="/dashboard/welcome/<%= guild.id %>"><i class="fa fa-signing"></i> Welcome</a>
-                                        <br>
-                                        <br>
+                                        <hr style="color: white; background-color: white;"/>
                                         <p style="color: white">If you want kick bot you should click button bellow!<br>Please think once and twice and third before click!</p>
                                           <form method="POST">
                                              <button style="color: rgb(133, 23, 23); width: 200px;" name="leaveserver" value="<%= guild.id %>" class="btn btn-danger">Kick Bot</button>  
