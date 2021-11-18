@@ -11,7 +11,7 @@ module.exports = async (client, member) => {
 
     if(member.guild){
 
-        servers.findOne({ guildID: member.guild.id}, (err , res) => {
+        SERVERS.findOne({ guildID: member.guild.id}, (err , res) => {
 
             if(!res){
 
