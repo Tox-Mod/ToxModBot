@@ -33,7 +33,7 @@ module.exports.run = async (client, message, args, params) => {
             userID: GuildMember.id }, (err, Numbers) => {
 
                 CASES.find({
-                    serverID: nessage.guild.id,
+                    serverID: message.guild.id,
                     action: 'Ban',
                     userID: GuildMember.id }, (err, ban) => {
 
