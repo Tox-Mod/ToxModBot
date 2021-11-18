@@ -60,7 +60,8 @@ module.exports.run = async (client, message, args, params) => {
                 let KickEmbed = new MessageEmbed()
                  .setTitle('That shit head is gone!')
                  .setColor(Colors.Primary)
-                 .setDescription(`Okay, Kicked for ``${reason}``.`)
+                 .setDescription(`Okay, i have eliminated the negativity! Please see the Logs for more info!`)
+                 .addField('Reason', `${reason}`)
                  .setTimestamp()
                  .setFooter(Embeds.Footer, Images.Animated)
 
