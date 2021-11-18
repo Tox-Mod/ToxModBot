@@ -38,97 +38,98 @@
 
     <%- include(navbarPath, { bot, user, path }) %>
 
-  <div class="container">
-    <div class="faq">
-      <center>
+    <div class="container">
+      <br /><br />
+      <div class="container contact-form">
+        <div class="contact-image">
+          <img id="guild-icon" style="border-radius: 35%;" width="180px" height="180px" src="<%= iconurl %>?size=256">
+        </div>
         <% iconurl = "";%>
          <% if(!guild.icon) { %>
           <% iconurl = "https://maxcdn.icons8.com/Share/icon/Logos/discord_logo1600.png" %>
           <% }else{ %>
           <% iconurl =  `https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.png?size=256` %>
           <% } %>
-     
-<img id="guild-icon" style="border-radius: 35%;" width="180px" height="180px" src="<%= iconurl %>?size=256">
-<h1><strong><%= guild.name %></strong></h1>
-<% let muterole = settings.mutedrole %>
-<% if(muterole == "String"){ %>
-  <%  muterole = "No mute role set for this server" %>
-  <% }else{ %>
-    <% if(!guild.roles.cache.get(settings.mutedrole)){ %>
-    <% muterole = "No mute role set for this server" %>
-    <% }else{ %>
-      <% muterole = guild.roles.cache.get(settings.mutedrole).name %>
-    <% } %>
-    <% } %>
-    <% let autorole = settings.autorole %>
-    <% if(autorole == "String"){ %>
-      <%  autorole = "No auto role set for this server" %>
-      <% }else{ %>
-        <% if(!guild.roles.cache.get(settings.autorole)){ %>
-        <% autorole = "No auto role set for this server" %>
+         <% let muterole = settings.mutedrole %>
+         <% if(muterole == "String"){ %>
+          <%  muterole = "No mute role set for this server" %>
         <% }else{ %>
-          <% autorole = guild.roles.cache.get(settings.autorole).name %>
-        <% } %>
-        <% } %>
-        <% let botautorole = settings.autorole %>
-   <% if(botautorole == "String"){ %>
-          <%  botautorole = "Nobot  auto role set for this server" %>
-          <% }else{ %>
-            <% if(!guild.roles.cache.get(settings.botautorole)){ %>
-            <% botautorole = "No bot auto role set for this server" %>
+          <% if(!guild.roles.cache.get(settings.mutedrole)){ %>
+            <% muterole = "No mute role set for this server" %>
             <% }else{ %>
-              <% botautorole = guild.roles.cache.get(settings.botautorole).name %>
-            <% } %>
-            <% } %>
-<% let antispam = settings.antispam %>
-    <% if(antispam == "0"){ %>
-      <%  antispam = "Disabled" %>
-      <% }else if(antispam == "1"){ %>
-        <% antispam =  "Enabled" %>
-        <% }else{ %>
-          <%  antispam = "Disabled" %>
-          <% } %>
-  <div class="container">
-    <center><span data-tooltip="Member Count" data-tooltip-location="top" class="badge badge-stats mt-1 w-75"><i class="fa fa-users"></i> Members: <strong><%= guild.memberCount %></strong></span></center>
-    <br />
-    <center><span data-tooltip="Emoji Count" data-tooltip-location="top" class="badge badge-stats mt-1 w-75"><i class="fa fa-smile"></i> Emojis: <strong><%= guild.emojis.cache.size %></strong></span></center>
-    <br />
-    <center><span data-tooltip="Role Count" data-tooltip-location="top" class="badge badge-stats mt-1 w-75"><i class="fas fa-pie-chart"></i> Roles: <strong><%= guild.roles.cache.size %></strong></span></center>
-    <br />
-    <center><span data-tooltip="Role Count" data-tooltip-location="top" class="badge badge-stats mt-1 w-75"><i class="fa fa-server"></i> Channels: <strong><%= guild.channels.cache.size %></strong></span></center>
-    <br />
-    <center><span data-tooltip="Role Count" data-tooltip-location="top" class="badge badge-stats mt-1 w-75"><i class="fa fa-meh-o"></i> Muted Role: <strong><%= muterole %></strong></span></center>
-    <br />
-    <center><span data-tooltip="Role Count" data-tooltip-location="top" class="badge badge-stats mt-1 w-75"><i class="fa fa-user-plus"></i> Auto Role: <strong><%= autorole %></strong></span></center>
-    <br />
-    <center><span data-tooltip="Role Count" data-tooltip-location="top" class="badge badge-stats mt-1 w-75"><i class="fa fa-robot"></i> Bot Auto Role: <strong><%= botautorole %></strong></span></center>
-    <br />
-    <center><span data-tooltip="Role Count" data-tooltip-location="top" class="badge badge-stats mt-1 w-75"><i class="fa fa-wrench"></i> Guild Prefix: <strong><%= settings.prefix %></strong></span></center>
-    <br />
-    <center><span data-tooltip="Role Count" data-tooltip-location="top" class="badge badge-stats mt-1 w-75"><i class="fa fa-warning"> Infractions: <strong><%= infractions.length %></strong></span></center>
-</div>
-  <h1><i class="fa fa-tasks"></i> Settings!</h1>
-  <br>
-<a class="btn btn-info" style="color: white;"  href="/dashboard/others/<%= guild.id %>"><i class="fa fa-wrench"></i> Guild</a>
-<a class="btn btn-info" style="color: white;"  href="/dashboard/roles/<%= guild.id %>"><i class="fa fa-user-plus"></i> Roles</a> 
-<a class="btn btn-info" style="color: white;"  href="/dashboard/automod/<%= guild.id %>"><i class="fa fa-shield"></i> Automod</a>
-<br><br><br>
-<a class="btn btn-info" style="color: white;"  href="/dashboard/actions/<%= guild.id %>"><i class="fa fa-exclamation-triangle"></i> Infractions</a>
-<a class="btn btn-info" style="color: white;"  href="/dashboard/logs/<%= guild.id %>"><i class="fa fa-clone"></i> Logs</a>
-<a class="btn btn-info" style="color: white;"  href="/dashboard/welcome/<%= guild.id %>"><i class="fa fa-signing"></i> Welcome</a>
-<br>
-<br>
-<p style="color: white">If you want kick bot you should click button bellow!<br>Please think once and twice and third before click!</p>
-<form style="margin-top: 1em;" method="POST"> <!-- method="post" tiggers a POST request to the same url with the body of the form control inputs -->
-  <button style="color: rgb(133, 23, 23); width: 200px;" name="leaveserver" value="<%= guild.id %>" class="btn btn-danger">Kick Bot</button>  
-</form>
-</div>
-      </center>
-    </div>
-  </div>
-
-</body>
-
+              <% muterole = guild.roles.cache.get(settings.mutedrole).name %>
+              <% } %>
+              <% } %>
+              <% let autorole = settings.autorole %>
+              <% if(autorole == "String"){ %>
+                <%  autorole = "No auto role set for this server" %>
+                <% }else{ %>
+                  <% if(!guild.roles.cache.get(settings.autorole)){ %>
+                    <% autorole = "No auto role set for this server" %>
+                    <% }else{ %>
+                      <% autorole = guild.roles.cache.get(settings.autorole).name %>
+                      <% } %>
+                      <% } %>
+                      <% let botautorole = settings.autorole %>
+                      <% if(botautorole == "String"){ %>
+                        <%  botautorole = "Nobot  auto role set for this server" %>
+                        <% }else{ %>
+                          <% if(!guild.roles.cache.get(settings.botautorole)){ %>
+                            <% botautorole = "No bot auto role set for this server" %>
+                            <% }else{ %>
+                              <% botautorole = guild.roles.cache.get(settings.botautorole).name %>
+                              <% } %>
+                              <% } %>
+                              <% let antispam = settings.antispam %>
+                              <% if(antispam == "0"){ %>
+                                <%  antispam = "Disabled" %>
+                                <% }else if(antispam == "1"){ %>
+                                  <% antispam =  "Enabled" %>
+                                  <% }else{ %>
+                                    <%  antispam = "Disabled" %>
+                                    <% } %>
+                                    <h1><%= guild.name %></h1>
+                                    <div class="row">
+                                      <div class="col-md-6">
+                                        <center><span data-tooltip="Member Count" data-tooltip-location="top" class="badge badge-stats mt-1 w-75"><i class="fa fa-users"></i> Members: <strong><%= guild.memberCount %></strong></span></center>
+                                        <br />
+                                        <center><span data-tooltip="Emoji Count" data-tooltip-location="top" class="badge badge-stats mt-1 w-75"><i class="fa fa-smile"></i> Emojis: <strong><%= guild.emojis.cache.size %></strong></span></center>
+                                        <br />
+                                        <center><span data-tooltip="Role Count" data-tooltip-location="top" class="badge badge-stats mt-1 w-75"><i class="fas fa-pie-chart"></i> Roles: <strong><%= guild.roles.cache.size %></strong></span></center>
+                                        <br />
+                                        <center><span data-tooltip="Role Count" data-tooltip-location="top" class="badge badge-stats mt-1 w-75"><i class="fa fa-server"></i> Channels: <strong><%= guild.channels.cache.size %></strong></span></center>
+                                        <br />
+                                        <center><span data-tooltip="Role Count" data-tooltip-location="top" class="badge badge-stats mt-1 w-75"><i class="fa fa-meh-o"></i> Muted Role: <strong><%= muterole %></strong></span></center>
+                                        <br />
+                                        <center><span data-tooltip="Role Count" data-tooltip-location="top" class="badge badge-stats mt-1 w-75"><i class="fa fa-user-plus"></i> Auto Role: <strong><%= autorole %></strong></span></center>
+                                        <br />
+                                        <center><span data-tooltip="Role Count" data-tooltip-location="top" class="badge badge-stats mt-1 w-75"><i class="fa fa-robot"></i> Bot Auto Role: <strong><%= botautorole %></strong></span></center>
+                                        <br />
+                                        <center><span data-tooltip="Role Count" data-tooltip-location="top" class="badge badge-stats mt-1 w-75"><i class="fa fa-wrench"></i> Guild Prefix: <strong><%= settings.prefix %></strong></span></center>
+                                        <br />
+                                        <center><span data-tooltip="Role Count" data-tooltip-location="top" class="badge badge-stats mt-1 w-75"><i class="fa fa-warning"> Infractions: <strong><%= infractions.length %></strong></span></center>
+                                          <label><i class="fa fa-comment-o"></i> Guild Settings!</label>
+                                          <h1><i class="fa fa-tasks"></i> Settings!</h1>
+                                          <br>
+                                        <a class="btn btn-info" style="color: white;"  href="/dashboard/others/<%= guild.id %>"><i class="fa fa-wrench"></i> Guild</a>
+                                        <a class="btn btn-info" style="color: white;"  href="/dashboard/roles/<%= guild.id %>"><i class="fa fa-user-plus"></i> Roles</a> 
+                                        <a class="btn btn-info" style="color: white;"  href="/dashboard/automod/<%= guild.id %>"><i class="fa fa-shield"></i> Automod</a>
+                                        <br><br><br>
+                                        <a class="btn btn-info" style="color: white;"  href="/dashboard/actions/<%= guild.id %>"><i class="fa fa-exclamation-triangle"></i> Infractions</a>
+                                        <a class="btn btn-info" style="color: white;"  href="/dashboard/logs/<%= guild.id %>"><i class="fa fa-clone"></i> Logs</a>
+                                        <a class="btn btn-info" style="color: white;"  href="/dashboard/welcome/<%= guild.id %>"><i class="fa fa-signing"></i> Welcome</a>
+                                        <br>
+                                        <br>
+                                        <p style="color: white">If you want kick bot you should click button bellow!<br>Please think once and twice and third before click!</p>
+                                          <form method="POST">
+                                             <button style="color: rgb(133, 23, 23); width: 200px;" name="leaveserver" value="<%= guild.id %>" class="btn btn-danger">Kick Bot</button>  
+                                          </form>
+                                        </div>
+                                    </div>
+                                  </div>
+                              </div>
+                            </div>                              
+                        </body>
  <br><br><br><br><br><br>
 
     <!-- INCLUDE THE WEBSITE FOOTER -->
