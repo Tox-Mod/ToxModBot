@@ -12,13 +12,6 @@ const IBL = new InfinityBotsClient(BotListData.ClientID, BotListData.IBL_AUTH);
 
 module.exports = async (client) => {
 
-    await mongoose.connect(client.config.mongo_url, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true
-    }, (err) => {
-      console.log('[Tox Mod | Bot] Connected to the Database Successfully');
-    });
-
     let activities = [
         {
             name: 'toxmod.xyz',
