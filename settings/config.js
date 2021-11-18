@@ -2,7 +2,7 @@
 /**
 * DISCORD CLIENT STUFF GOES HERE!
 */
-exports.token = 'NjMxNTU4MDIzMTA5ODA0MDMy.XZ4mPg.N0rWjvhpB1l6UBNh8cSEk9A1r7o'
+exports.token = process.env.TOKEN
 
 exports.clientID = '631558023109804032'
 
