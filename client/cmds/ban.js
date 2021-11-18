@@ -87,7 +87,7 @@ module.exports.run = async (client, message, args, params) => {
                     let UserBanned = new MessageEmbed()
                       .setTitle('Success | User Banned')
                       .setColor(Colors.Success)
-                      .setDescription(`${MemberToBan.user.tag} has been banned successfully. You dont have to worry about that shit disturber anymore!`)
+                      .setDescription(`You dont have to worry about that shit disturber anymore!`)
                       .setTimestamp()
                       .setFooter(Embeds.Footer, Images.Animated)
 
