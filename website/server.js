@@ -30,6 +30,13 @@ class App {
     this.express.use(passport.initialize());
     this.express.use(passport.session());
     this.express.use(cookieParser());
+    this.express.use(session({
+      cookie: { maxAge: require("ms")("10 years") },
+      store: new MongoStore({ mongooseConnection: mongoose.connection }),
+      secret: "ToxicDev_Is_Inside_Me",
+      resave: false,
+      saveUninitialized: false,
+    }));
     this.express.locals = locals;
     this
       .loadRoutes()
