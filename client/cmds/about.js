@@ -31,7 +31,7 @@ module.exports.run = async (client, message, args, params) => {
       .addField('Primary Language', 'English', true)
       .addField('Latency and Ping', `${client.ws.ping}ms`, true)
       .addField('Created On', `${moment(client.user.createdAt).format("MM/DD/YYYY HH:mm:ss A")}`, true)
-      .addField('Created By', '', true)
+      .addField('Created By', 'Toxic Dev#5936', true)
       .setTimestamp()
       .setFooter(Embeds.Footer, Images.Animated)
 
