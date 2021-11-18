@@ -20,7 +20,7 @@ module.exports.run = async (client, message, args, params) => {
 
       let user = message.mentions.members.first() || message.guild.members.cache.get(args[0])
 
-      if (user.roles.highest.position >= message.member.roles.highest.position) return message.channel.send(''Bruhh, This user has Higher Perms then you)
+      if (user.roles.highest.position >= message.member.roles.highest.position) return message.channel.send('Bruhh, This user has Higher Perms then you!')
 
       let reason = args.slice(1).join(" ");
 
