@@ -37,6 +37,13 @@
       <br />
 
     <%- include(navbarPath, { bot, user, path }) %>
+    
+    <% iconurl = "";%>
+     <% if(!guild.icon) { %>
+      <% iconurl = "https://maxcdn.icons8.com/Share/icon/Logos/discord_logo1600.png" %>
+     <% }else{ %>
+      <% iconurl =  `https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.png?size=256` %>
+     <% } %>
 
     <div class="container">
       <br /><br />
@@ -44,12 +51,6 @@
         <div class="contact-image">
           <img id="guild-icon" style="border-radius: 35%;" width="180px" height="180px" src="<%= iconurl %>?size=256">
         </div>
-        <% iconurl = "";%>
-         <% if(!guild.icon) { %>
-          <% iconurl = "https://maxcdn.icons8.com/Share/icon/Logos/discord_logo1600.png" %>
-          <% }else{ %>
-          <% iconurl =  `https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.png?size=256` %>
-          <% } %>
          <% let muterole = settings.mutedrole %>
          <% if(muterole == "String"){ %>
           <%  muterole = "No mute role set for this server" %>
