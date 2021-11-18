@@ -20,7 +20,7 @@ module.exports.run = async (client, message, args, params) => {
 
       let user = message.mentions.members.first() || message.guild.members.cache.get(args[0])
 
-      if (user.roles.highest.position >= message.member.roles.highest.position) return message.channel.send()
+      if (user.roles.highest.position >= message.member.roles.highest.position) return message.channel.send(''Bruhh, This user has Higher Perms then you)
 
       let reason = args.slice(1).join(" ");
 
@@ -51,7 +51,7 @@ module.exports.run = async (client, message, args, params) => {
                           .setTimestamp()
                           .setFooter(Embeds.Footer, Images.Animated)
 
-                        channel.send(KickLog).catch(() => {});
+                        return channel.send(KickLog).catch(() => {});
                     }
                 })
 
@@ -63,7 +63,7 @@ module.exports.run = async (client, message, args, params) => {
                  .setTimestamp()
                  .setFooter(Embeds.Footer, Images.Animated)
 
-                message.channel.send(KickEmbed)
+                return message.channel.send(KickEmbed)
 
                 CASES.find({ serverID: message.guild.id }).sort([['descending']]).exec((err, res) => {
                     let cases1 = new CASES({
