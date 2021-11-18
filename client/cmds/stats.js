@@ -35,7 +35,7 @@ module.exports.run = async (client, message, args, params) => {
          .addField('Total Channels', ```${channels}```, true)
          .addField('Total Shards', ```${client.shard.count}```, true)
          .addField('Total Commands', ```${client.commands.size}```, true)
-         .addField('Useful Links', `[Dashboard](https://toxmod.xyz/dashboard) | [Support](https://toxmod.xyz/discord) | [Docs](https://docs.toxmod.xyz)`, true)
+         .addField('Useful Links', `[Dashboard](https://toxmod.xyz/dashboard) | [Support](https://toxmod.xyz/discord) | [Docs](https://docs.toxmod.xyz) | [GitHub](https://github.com/Tox-Mod/ToxModBot)`, true)
          .setTimestamp()
          .setFooter(Embeds.Footer, Images.Animated)
 
