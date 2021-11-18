@@ -46,7 +46,7 @@ module.exports.run = async (client, message, args, params) => {
                         let KickLog = new MessageEmbed()
                           .setTitle('👢 Action: Kick')
                           .setColor(Colors.Error)
-                          .setDescription(`Yeet, ${member.user.tag} has been kicked from the server!`)
+                          .setDescription(`Woah, Someone got Booted!`)
                           .addField('Moderator', `${message.author.tag}`, true)
                           .addField('Reason', `${reason}`, true)
                           .addField('Users Infractions', `${cases.length} Total Cases`, true)
@@ -60,7 +60,7 @@ module.exports.run = async (client, message, args, params) => {
                 let KickEmbed = new MessageEmbed()
                  .setTitle('That shit head is gone!')
                  .setColor(Colors.Primary)
-                 .setDescription(`Okay, ${member.user.tag} has been Kicked for ``${reason}``.`)
+                 .setDescription(`Okay, Kicked for ``${reason}``.`)
                  .setTimestamp()
                  .setFooter(Embeds.Footer, Images.Animated)
 
