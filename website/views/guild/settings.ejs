@@ -53,30 +53,30 @@
         </div>
          <% let muterole = settings.mutedrole %>
          <% if(muterole == "String"){ %>
-          <%  muterole = "No mute role set for this server" %>
+          <%  muterole = "None" %>
         <% }else{ %>
           <% if(!guild.roles.cache.get(settings.mutedrole)){ %>
-            <% muterole = "No mute role set for this server" %>
+            <% muterole = "None" %>
             <% }else{ %>
               <% muterole = guild.roles.cache.get(settings.mutedrole).name %>
               <% } %>
               <% } %>
               <% let autorole = settings.autorole %>
               <% if(autorole == "String"){ %>
-                <%  autorole = "No auto role set for this server" %>
+                <%  autorole = "None" %>
                 <% }else{ %>
                   <% if(!guild.roles.cache.get(settings.autorole)){ %>
-                    <% autorole = "No auto role set for this server" %>
+                    <% autorole = "None" %>
                     <% }else{ %>
                       <% autorole = guild.roles.cache.get(settings.autorole).name %>
                       <% } %>
                       <% } %>
                       <% let botautorole = settings.autorole %>
                       <% if(botautorole == "String"){ %>
-                        <%  botautorole = "Nobot  auto role set for this server" %>
+                        <%  botautorole = "None" %>
                         <% }else{ %>
                           <% if(!guild.roles.cache.get(settings.botautorole)){ %>
-                            <% botautorole = "No bot auto role set for this server" %>
+                            <% botautorole = "None" %>
                             <% }else{ %>
                               <% botautorole = guild.roles.cache.get(settings.botautorole).name %>
                               <% } %>
