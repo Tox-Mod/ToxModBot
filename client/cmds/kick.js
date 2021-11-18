@@ -9,8 +9,6 @@ const Embeds = require('@Embeds/index');
 
 module.exports.run = async (client, message, args, params) => {
 
-    try {
-
         let NoUserMsg = new MessageEmbed()
         .setTitle('Error | No User Provided')
         .setColor(Colors.Error)
@@ -103,19 +101,6 @@ module.exports.run = async (client, message, args, params) => {
         }
       } else {
           message.reply("Bruhh, I can't kick the air and would look stupid if i tried. Gimme someone to kick noob!")
-      }
-
-    } catch (err) {
-
-        let ErrorEmbed = new MessageEmbed()
-         .setTitle('Internal Error | Hmmm')
-         .setColor(Colors.Error)
-         .setDescription('Something went wrong here, Please try again or Contact my Dev Team.')
-         .setTimestamp()
-         .setFooter(Embeds.Footer, Images.Animated)
-
-        return message.channel.send(ErrorEmbed);
-
     }
 }
 
