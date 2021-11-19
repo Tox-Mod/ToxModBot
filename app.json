@@ -48,6 +48,34 @@
     "PARADISE_AUTH": {
       "description": "Authorization Token to post stats to https://paradisebots.net",
       "required": "true"
-    }
+    },
+    "SERVER_INV": {
+      "description": "Discord Invite for your Support Server",
+      "required": "true"
+    },
+    "SERVER_ID": {
+      "description": "Discord Server ID for your Support Server",
+      "required": "true"
+    },
+    "JOIN_LOGS": {
+      "description": "Channel ID to send Logs to when the Bot joins or leaves a server",
+      "required": "true"
+    },
+    "AUTH_LOGS": {
+      "description": "Channel ID to send Logs to when someone logs in to the site",
+      "required": "true"
+    },
+    "BAN_LOGS": {
+      "description": "Channel ID to send Logs to when a Banned user tries to access the site",
+      "required": "true"
+    },
+    "BUG_LOGS": {
+      "description": "Channel ID to send Logs to for Bug Reports",
+      "required": "true"
+    },
+    "ERR_LOGS": {
+      "description": "Channel ID to send Logs to when a Error occurs with the Website",
+      "required": "true"
+    },
   }
 }
