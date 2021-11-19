@@ -1,14 +1,14 @@
 require("module-alias/register");
+require("@Client/shards");
 
 const mongo = require("mongoose");
 const config = require("@Settings/config");
 const colors = require('colors');
-const Bot = require('@Client/index');
-const Shards = require('@Client/shards');
+const Bot = require('@Client/index'); 
 const Website = require('./website/server');
 
 
-(async () => {
+(async (client) => {
 
     await mongo.connect(config.mongo_url, { 
         useCreateIndex: true,
@@ -26,6 +26,4 @@ const Website = require('./website/server');
     await new Website(client).listen(process.env.PORT);
 
     console.log(colors.yellow(`[Tox Mod - Logs] Running on port `) + colors.underline.green(process.env.PORT));
-
-    await Shards.init(client);
 })()
