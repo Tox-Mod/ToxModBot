@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const CASES = require('@Database/cases');
 const SERVERS = require('@Database/servers');
 const CLOCK = require('@Database/clock');
@@ -75,8 +75,8 @@ module.exports.help = {
 }
 
 module.exports.requirements = {
-    userPerms: ["MANAGE_GUILD"],
-    clientPerms: ['EMBED_LINKS','SEND_MESSAGES'],
+    userPerms: ["MANAGE_ROLES"],
+    clientPerms: ['SEND_MESSAGES'],
     ownerOnly: false,
     betaMode: false,
     devLock: false
