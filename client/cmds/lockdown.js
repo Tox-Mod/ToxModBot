@@ -71,7 +71,7 @@ module.exports.help = {
 
 module.exports.requirements = {
     userPerms: ["MANAGE_ROLES"],
-    clientPerms: ["MANAGE_CHANNELS"],
+    clientPerms: ["MANAGE_CHANNELS", "MANAGE_ROLES"],
     ownerOnly: false,
     betaMode: false,
     devLock: false
