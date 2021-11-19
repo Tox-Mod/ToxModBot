@@ -1,0 +1,53 @@
+{
+  "name": "Tox-Mod",
+  "description": "The Discord Bot with a Little Bit of Attitude",
+  "repository": "https://github.com/Tox-Mod/ToxModBot",
+  "logo": "https://toxmod.xyz/images/ToxModLogo.png",
+  "keywords": [
+    "node",
+    "discord",
+    "bot",
+    "dashboard"
+  ],
+  "image": "heroku/nodejs",
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "env": {
+    "TOKEN": {
+      "description": "The Discord Bot Token (https://discord.com/developers/applications)",
+      "required": "true"
+    },
+    "CLIENT_ID": {
+      "description": "The Discord Bot Client ID",
+      "required": "true"
+    },
+    "CLIENT_SECRET": {
+      "description": "The Discord Bot Client Secret for oAuth",
+      "required": "true"
+    },
+    "DOMAIN": {
+      "description": "URL of your webserver (Example: https://domain.xyz). Change this if you want to use the web-dashboard.",
+      "value": "https://toxmod.xyz",
+      "required": "true"
+    },
+    "MONGO_URL": {
+      "description": "Mongo DB Connection String",
+      "required": "true"
+    },
+    "MAINTENANCE": {
+      "description": "Maintenance Mode (true or false)",
+      "required": "true"
+    },
+    "IBL_AUTH": {
+      "description": "Authorization Token to post stats to https://infinitybotlist.com",
+      "required": "true"
+    },
+    "PARADISE_AUTH": {
+      "description": "Authorization Token to post stats to https://paradisebots.net",
+      "required": "true"
+    }
+  }
+}
