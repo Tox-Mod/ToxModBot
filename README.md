@@ -3,7 +3,7 @@
    Tox Mod
  <br>
    <img src="https://img.shields.io/github/license/Tox-Mod/ToxModBot?style=flat-square&logo=github&label=License&color=%2334D058" alt="License Type">
-   <img src="https://img.shields.io/github/package-json/v/igorkowalczyk/majobot?style=flat-square&logo=github&label=Version&color=%2334D058" alt="Tox Version">
+   <img src="https://img.shields.io/github/package-json/v/Tox-Mod/ToxModBot?style=flat-square&logo=github&label=Version&color=%2334D058" alt="Tox Version">
 
 </h1>
 <p align="center">The Discord Bot with a little bit of Attitude.</p>
