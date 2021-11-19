@@ -25,7 +25,7 @@ module.exports.run = async (client, message, args, params) => {
 
        else user = member;
 
-        CASES.find({ userID: if (!user) user.id }, (err, res) => {
+        CASES.find({ userID: user.id }, (err, res) => {
 
             if (res.length === 0) {
 
