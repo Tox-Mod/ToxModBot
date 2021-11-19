@@ -21,9 +21,14 @@ module.exports.run = async (client, message, args, params) => {
 
       let user;
 
-       if (message.mentions.users.first()) user = member.tag;
+       if (message.mentions.users.first()) { 
+          
+           let user = member;
 
-       else user = member;
+       } else { 
+           
+            let user = member;
+      }
 
         CASES.find({ userID: user.id }, (err, res) => {
 
