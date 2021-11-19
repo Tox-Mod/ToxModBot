@@ -19,14 +19,20 @@ module.exports.run = async (client, message, args, params) => {
 
       // if (!user) user = message.author;
 
-        CASES.find({ userID: member.id }, (err, res) => {
+      let user;
+
+       if (message.mentions.users.first()) user = member.tag;
+
+       else user = member;
+
+        CASES.find({ userID: if (!user) user.id }, (err, res) => {
 
             if (res.length === 0) {
 
                 let PositiveTrust = new MessageEmbed()
                  .setTitle('User Trust/Reputation Score!')
                  .setColor(Colors.Primary)
-                 .setDescription(`${member} is ``100%`` safe with ``0`` active cases/infractions!`)
+                 .setDescription(`${user} is ``100%`` safe with ``0`` active cases/infractions!`)
                  .setTimestamp()
                  .setFooter(Embeds.Footer, Images.Animated)
 
@@ -44,7 +50,7 @@ module.exports.run = async (client, message, args, params) => {
                 let NegativeTrust = new MessageEmbed()
                  .setTitle('User Trust/Reputation Score!')
                  .setColor(Colors.Error)
-                 .setDescription(`Woah, ${member} is ``${perc}`` safe with ``${res.length}`` active cases/infractions!`)
+                 .setDescription(`Woah, ${user} is ``${perc}`` safe with ``${res.length}`` active cases/infractions!`)
                  .setTimestamp()
                  .setFooter(Embeds.Footer, Images.Animated)
 
