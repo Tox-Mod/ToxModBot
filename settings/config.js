@@ -1,5 +1,5 @@
 /**
-   * For help Setting Up this file visit: 
+   * For help setting up this file visit: 
 */
 
 
