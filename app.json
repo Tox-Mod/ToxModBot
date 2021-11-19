@@ -94,6 +94,6 @@
     "BETA_WL": {
       "description": "Array of the Beta User(s) Discord IDs separated by Comas and Spaces (Ex: 1234567891011, 1234567891011)",
       "required": "true"
-    },
+    }
   }
 }
