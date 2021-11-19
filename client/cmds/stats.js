@@ -26,7 +26,7 @@ module.exports.run = async (client, message, args, params) => {
          .setDescription('Some kinda useful info')
          .addField('Created On', `${moment(client.user.createdAt).format("MM/DD/YYYY HH:mm:ss A")}`, true)
          .addField('Bot Owner', `[Toxic Dev](https://discordapp.com/users/510065483693817867)`, true)
-         .addField('Bot Version', '``v2.0.0-Beta``', true)
+         .addField('Bot Version', `v${Embeds.Version}`, true)
          .addField('Discord.js', ```v${Discord.version}```, true)
          .addField('Ping/Latency', ```${client.ws.ping}ms```, true)
          .addField('Made Using', 'Node, Javascript, EJS', true)
