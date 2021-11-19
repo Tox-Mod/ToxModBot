@@ -15,7 +15,7 @@ module.exports.run = async (client, message, args, params) => {
 
     try {
 
-        const member = (message.mentions.users.first() || client.users.cache.get(args[0]));
+        let member = (message.mentions.users.first() || client.users.cache.get(args[0]));
 
         if (!member) member = message.author;
 
@@ -44,7 +44,7 @@ module.exports.run = async (client, message, args, params) => {
                 let NegativeTrust = new MessageEmbed()
                  .setTitle('User Trust/Reputation Score!')
                  .setColor(Colors.Error)
-                 .setDescription(`${member} is ``${perc}`` safe with ``${res.length}`` active cases/infractions!`)
+                 .setDescription(`${member.user.tag} is ``${perc}`` safe with ``${res.length}`` active cases/infractions!`)
                  .setTimestamp()
                  .setFooter(Embeds.Footer, Images.Animated)
 
