@@ -3,7 +3,7 @@
     "version": "2.0.1",
     "description": "The Discord Moderation Bot with a little bot of Attitude!.",
     "author": "TheRealToxicDev <toxic.dev09@gmail.com>",
-    "main": "client/shards.js",
+    "main": "client/index.js",
     "scripts": {
         "start": "node index.js",
         "website": "node website/server.js",
