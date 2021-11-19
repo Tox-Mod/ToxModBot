@@ -37,15 +37,6 @@ module.exports.run = async (client, message, args) => {
 
          let Channel = message.mentions.channels.first() || message.guild.channels.cache.get(args[0]);
 
-         let InvalidChan = new MessageEmbed()
-          .setTitle('Woah, Try again chief!')
-          .setColor(Colors.Error)
-          .setDescription('Unknown channel, Please mention the Channel or provide a valid Channel ID')
-          .setTimestamp()
-          .setFooter(Embeds.Footer, Images.Animated)
-
-         if (!Channel) return message.channel.send(InvalidChan);
-
          message.delete()
 
          if (Channel) {
