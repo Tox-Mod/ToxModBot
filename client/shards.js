@@ -21,3 +21,8 @@ const manager = new ShardingManager("./client/index.js", {
 manager.spawn();
 
 manager.on("shardCreate", shard => console.log(`Shard: ${shard.id} is Online and Active!!`));
+
+module.exports = {
+  manager,
+  ShardingManager
+}
