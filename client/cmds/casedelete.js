@@ -75,7 +75,7 @@ module.exports.help = {
 
 module.exports.requirements = {
     userPerms: ['MANAGE_GUILD'],
-    clientPerms: ['EMBED_LINKS', 'SEND_MESSAGES'],
+    clientPerms: ['SEND_MESSAGES'],
     ownerOnly: false,
     betaMode: false,
     devLock: false
