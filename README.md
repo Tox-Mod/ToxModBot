@@ -49,6 +49,10 @@
   Self Hosting
 </h2>
 
+<a href="https://heroku.com/deploy?template=https://github.com/Tox-Mod/ToxModBot">
+  <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
+</a>
+
 <div align="center">
  <p align="center">
    Self Hosting Tox Mod is simple but requires a variety of
