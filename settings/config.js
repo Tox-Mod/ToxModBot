@@ -1,5 +1,6 @@
 /**
-   * For help setting up this file visit: https://help.toxmod.xyz/docs/hosting/config
+   * For help setting up this file 
+   * visit: https://help.toxmod.xyz/docs/hosting/config
 */
 
 
