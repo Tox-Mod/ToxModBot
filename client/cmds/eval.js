@@ -8,9 +8,7 @@ const Embeds = require('@Embeds/index');
 
 module.exports.run = async (client, message, args, params) => {
 
-    try {
-
-        let toEval = args.join(" ")
+     let toEval = args.join(" ")
 
         if (!toEval) {
 
@@ -42,18 +40,6 @@ module.exports.run = async (client, message, args, params) => {
               .setFooter(Embeds.Footer, Images.Animated)
 
             return message.channel.send(SuccessEmbed);
-        }
-    } catch (err) {
-
-        let ErrorEmbed = new MessageEmbed()
-         .setTitle('Internal Error | Hmmm')
-         .setColor(Colors.Error)
-         .setDescription('Something went wrong here, Please try again or Contact my Dev Team.')
-         .setTimestamp()
-         .setFooter(Embeds.Footer, Images.Animated)
-
-        return message.channel.send(ErrorEmbed);
-
     }
 }
 
