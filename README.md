@@ -66,4 +66,12 @@
 <br>
 <a align="center" href="https://twitter.com/ToxMod">- Follow Tox Mod</a>
 
+<hr>
+
+<h2 align='center'><br>NOTICE</h2>
+<p align="center">
+This Code and Website is protected by and complies with
+DMCA and all of their policies and regulations!
+</p>
+
 
