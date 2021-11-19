@@ -21,3 +21,29 @@
 <div align="center">
   <img src="https://media.discordapp.net/attachments/653733403841134600/911285869414072401/ss.png" alt="Dashboard Sample">
 </div>
+
+<hr>
+
+<h2 align="center">
+  Commands List
+</h2>
+
+<div align="center">
+ <p align="center">
+   Tox Mod is constantly growing meaning we are always adding
+   new features and commands. Best way to find an up to date
+   list of commands and features is on our website 😳
+ </p>
+</div>
+
+<hr>
+
+<h2 align="center">
+  Self Hosting
+</h2>
+
+<div align="center">
+ 
+</div>
+
+
