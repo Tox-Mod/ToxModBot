@@ -12,7 +12,7 @@ const TICKETS = require('@Database/tickets');
 /**
  * GET METHOD FOR USER PROFILES
  */
-route.get("/:userID", checkAuth, async (req, res) => {
+route.get("/:userID", async (req, res) => {
 
     let users = await USERS.findOne({ userID: req.params.userID });
     let Cached = await req.app.get('client').users.cache.get(req.params.userID);
