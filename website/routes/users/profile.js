@@ -35,7 +35,6 @@ route.get("/", checkAuth, async (req, res) => {
         cachedUser: cachedUser,
         cases: infractions,
         profile: users,
-        bio: users.bio,
         alert: null,
         error: null
     }
