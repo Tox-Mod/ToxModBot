@@ -1,3 +1,7 @@
+/**
+   * For help Setting Up this file visit: 
+*/
+
 
 /**
 * DISCORD CLIENT AND WEB STUFF GOES HERE!
