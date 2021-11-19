@@ -1,5 +1,11 @@
 <h1 align='center'><img src="https://toxmod.xyz/images/ToxModLogo.gif" height='100px' width='100px' />
  <br>Tox Mod
+  [![Discord](https://img.shields.io/discord/666599184844980224?color=%2334D058&logo=discord&label=Discord&style=flat-square&logoColor=fff)](https://majobot.igorkowalczyk.repl.co/server)
+  [![Discord.js](https://img.shields.io/badge/Discord.js-v13-%2334d058?style=flat-square&logo=npm&logoColor=fff)](https://www.npmjs.com/package/discord.js)
+  [![CodeQL Checks](https://img.shields.io/github/workflow/status/igorkowalczyk/majobot/CodeQL%20Checks/master?style=flat-square&label=CodeQL&logo=github&color=%2334D058)](https://majobot.igorkowalczyk.repl.co/)
+  [![GitHub License](https://img.shields.io/github/license/igorkowalczyk/majobot?style=flat-square&logo=github&label=License&color=%2334D058)](https://majobot.igorkowalczyk.repl.co/)
+  [![Version](https://img.shields.io/github/package-json/v/igorkowalczyk/majobot?style=flat-square&logo=github&label=Version&color=%2334D058)](https://majobot.igorkowalczyk.repl.co/server)
+
 </h1>
 <p align="center">The Discord Bot with a little bit of Attitude.</p>
 
