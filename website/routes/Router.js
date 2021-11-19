@@ -104,7 +104,7 @@ router.use(async function (error, req, res, next) {
 
   await req.app.get('client').guilds.cache.get(config.SupportGuild).channels.cache.get(config.ErrLogs).send(ErrorEmbed);
                 
-  return console.log(`[Tox Mod | Web] Stacktrace: ${error}`)
+  return console.log(`[Tox Mod | Web] Error: ${error} Stack: ${error.stack}`)
 });
 
 module.exports = router;
