@@ -13,15 +13,11 @@ const BotLists = require('@Settings/botlists');
 
 module.exports.run = async (client, message, args, params) => {
 
-    let user = args.slice(0).join(" ")
-
     try {
 
-      if (!user) user = message.author;
+       const member = (message.mentions.users.first() || client.users.cache.get(args[0])); 
 
-      const member = message.mentions.users.first() || 
-            client.users.cache.get(user) || 
-            client.users.cache.find(u => u.username === user);
+      // if (!user) user = message.author;
 
         CASES.find({ userID: member.id }, (err, res) => {
 
