@@ -50,10 +50,10 @@ module.exports.run = async (client, message, args, params) => {
 
          if (Channel) {
              agrsResult = args.slice(1).join(" ");      
-             Channel.send(argsResult);
+             Channel.send(`${argsResult}`);
          } else {
              argsResult = args.slice(1).join(" ");
-             message.channel.send(argsResult);
+             message.channel.send(`${argsResult}`);
          }
     } catch (err) {
 
