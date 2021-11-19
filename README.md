@@ -50,7 +50,13 @@
 </h2>
 
 <div align="center">
- 
+ <p align="center">
+   Self Hosting Tox Mod is simple but requires a variety of
+   steps to properly setup and configure both the bot and
+   the web server. A full guide can be found on our Docs Site!
+   <br><br>
+   - View the: <a href="https://help.toxmod.xyz">Docs</a>
+ </p> 
 </div>
 
 
