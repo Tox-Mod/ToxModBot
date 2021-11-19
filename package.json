@@ -1,9 +1,9 @@
 {
     "name": "toxic-mod",
-    "version": "2.0.1",
+    "version": "2.1.0",
     "description": "The Discord Moderation Bot with a little bot of Attitude!.",
     "author": "TheRealToxicDev <toxic.dev09@gmail.com>",
-    "main": "client/index.js",
+    "main": "index.js",
     "scripts": {
         "start": "node index.js",
         "web": "node website/server.js",
