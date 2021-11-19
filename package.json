@@ -6,8 +6,8 @@
     "main": "client/index.js",
     "scripts": {
         "start": "node index.js",
-        "website": "node website/server.js",
-        "manager": "node client/index.js"
+        "web": "node website/server.js",
+        "bot": "node client/index.js"
     },
     "dependencies": {
         "body-parser": "^1.19.0",
