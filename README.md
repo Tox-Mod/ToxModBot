@@ -1,6 +1,6 @@
-<h2 align='center'><img src="https://toxmod.xyz/images/ToxModLogo.gif" height='100px' width='100px' />
+<h1 align='center'><img src="https://toxmod.xyz/images/ToxModLogo.gif" height='100px' width='100px' />
  <br>Tox Mod
-</h2>
+</h1>
 <p align="center">The Discord Bot with a little bit of Attitude.</p>
 
 <hr>
@@ -13,6 +13,10 @@
 <p align="center">- Stylish Dashboard!</p>
 
 <hr>
+
+<h2 align="center">
+  Dashboard Preview
+</h2>
 
 <div align="center">
   <img src="https://media.discordapp.net/attachments/653733403841134600/911285869414072401/ss.png" alt="Dashboard Sample">
