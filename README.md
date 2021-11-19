@@ -1,6 +1,6 @@
 <h1 align='center'><img src="https://toxmod.xyz/images/ToxModLogo.gif" height='100px' width='100px' />
  <br>
-   Tox Mod
+   Tox Mod!
  <br>
    <img src="https://img.shields.io/github/license/Tox-Mod/ToxModBot?style=flat-square&logo=github&label=License&color=%2334D058" alt="License Type">
    <img src="https://img.shields.io/github/package-json/v/Tox-Mod/ToxModBot?style=flat-square&logo=github&label=Version&color=%2334D058" alt="Tox Version">
