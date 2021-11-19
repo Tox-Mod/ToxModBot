@@ -4,7 +4,7 @@
  <br>
    <img src="https://img.shields.io/github/license/Tox-Mod/ToxModBot?style=flat-square&logo=github&label=License&color=%2334D058" alt="License Info">
    <img src="https://img.shields.io/github/package-json/v/Tox-Mod/ToxModBot?style=flat-square&logo=github&label=Version&color=%2334D058" alt="Tox Version">
-
+   <img src="https://img.shields.io/badge/Discord.js-v12-%2334d058?style=flat-square&logo=npm&logoColor=fff" alt="DJS Version">
 </h1>
 <p align="center">The Discord Bot with a little bit of Attitude.</p>
 
