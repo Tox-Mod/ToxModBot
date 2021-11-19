@@ -10,17 +10,10 @@ const Embeds = require('@Embeds/index');
 
 module.exports.run = async (client, message, args, params) => {
 
-    let guilds = client.guilds.cache.size;
-
-    let users =  client.users.cache.size;
-
-    let channels = client.channels.cache.size;
-
     let embed = new MessageEmbed()
       .setTitle('Tox Mod Invite')
       .setColor(Colors.Primary)
       .setThumbnail(Images.Animated)
-      .setImage(Images.Banner)
       .setDescription('Woah, You think im cool?!')
       .addField('Link', `https://toxmod.xyz/invite`, true)
       .setTimestamp()
