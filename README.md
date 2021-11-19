@@ -33,7 +33,7 @@
    Tox Mod is constantly growing meaning we are always adding
    new features and commands. Best way to find an up to date
    list of commands and features is on our website 😳
-   <br>
+   <br><br>
    - View the: <a href="https://toxmod.xyz/commands">Commands List</a>
  </p>
 </div>
