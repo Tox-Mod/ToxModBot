@@ -1,5 +1,5 @@
 require("module-alias/register");
-require("@Client/shards");
+//require("@Client/shards");
 
 const mongo = require("mongoose");
 const config = require("@Settings/config");
