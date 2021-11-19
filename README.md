@@ -55,7 +55,9 @@
    steps to properly setup and configure both the bot and
    the web server. A full guide can be found on our Docs Site!
    <br><br>
-   - View the: <a href="https://help.toxmod.xyz">Docs</a>
+   - View the: <a href="https://help.toxmod.xyz/docs/hosting/intro/">Docs</a>
+   <br><br>
+      OR
    <br><br>
    <a href="https://heroku.com/deploy?template=https://github.com/Tox-Mod/ToxModBot">
      <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
