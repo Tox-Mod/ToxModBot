@@ -26,7 +26,7 @@ module.exports.run = async (client, message, args, params) => {
                 let PositiveTrust = new MessageEmbed()
                  .setTitle('User Trust/Reputation Score!')
                  .setColor(Colors.Primary)
-                 .setDescription(`${member} is ``100%`` safe with ``0`` active cases/infractions!`)
+                 .setDescription(`${member.user.tag} is ``100%`` safe with ``0`` active cases/infractions!`)
                  .setTimestamp()
                  .setFooter(Embeds.Footer, Images.Animated)
 
