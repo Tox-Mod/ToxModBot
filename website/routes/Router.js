@@ -79,6 +79,8 @@ router.use('/brb', require('@Routes/errors/maintenance'));
 router.use('/403', require('@Routes/errors/403'));
 router.use('/404', require('@Routes/errors/404'));
 router.use('/500', require('@Routes/errors/500'));
+ 
+router.use('/fork/thanks', require('@Routes/host/thanks'));
 
 /**
  * ERROR AND 404 PAGES
