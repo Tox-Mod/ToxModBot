@@ -2,7 +2,7 @@
  <br>
    Tox Mod!
  <br>
-   <img src="https://img.shields.io/github/license/Tox-Mod/ToxModBot?style=flat-square&logo=github&label=License&color=%2334D058" alt="License Type">
+   <img src="https://img.shields.io/github/license/Tox-Mod/ToxModBot?style=flat-square&logo=github&label=License&color=%2334D058" alt="License Info">
    <img src="https://img.shields.io/github/package-json/v/Tox-Mod/ToxModBot?style=flat-square&logo=github&label=Version&color=%2334D058" alt="Tox Version">
 
 </h1>
