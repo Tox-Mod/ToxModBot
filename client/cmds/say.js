@@ -61,8 +61,11 @@ module.exports.run = async (client, message, args) => {
          .setTitle('Internal Error | Hmmm')
          .setColor(Colors.Error)
          .setDescription('Something went wrong here, Please try again or Contact my Dev Team.')
+         .addField('Error', `${err}`)
          .setTimestamp()
          .setFooter(Embeds.Footer, Images.Animated)
+
+         console.log(err)
 
         return message.channel.send(ErrorEmbed);
 
