@@ -1,6 +1,7 @@
 const { MessageEmbed } = require('discord.js');
 const CASES = require('@Database/cases');
 const SERVERS = require('@Database/servers');
+const { inspect } = require("util")
 
 const Images = require('@Images/index');
 const Colors = require('@Colors/index');
