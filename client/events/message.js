@@ -301,7 +301,7 @@ module.exports = async (client, message) => {
         let OwnerOnlyBoii = new MessageEmbed()
           .setTitle('Umm, You wish!!')
           .setColor(Colors.Error)
-          .setDescription('Only the my Owners and Developers can Execute this Command')
+          .setDescription('Only my Owners and Developers can Execute this Command')
           .setTimestamp()
           .setFooter(Embeds.Footer, Images.Animated)
 
