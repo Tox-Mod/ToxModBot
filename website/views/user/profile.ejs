@@ -40,10 +40,10 @@
     <div class="container px-3 px-3 mt-5 pt-5">
       <div class="columns container px-3 is-multiline">
           <div class="column is-2">
-              <img draggable="false" class="pulse-avatar-<%= user.presence.status%>"  onerror=" imgerror(this);"="" src="<%= user.avatarURL({dynamic: true}) %>" style="border-radius: 50%;">
+              <img draggable="false" class="pulse-avatar-<%= cachedUser.presence.status%>"  onerror=" imgerror(this);"="" src="<%= cachedUser.avatarURL({dynamic: true}) %>" style="border-radius: 50%;">
           </div>
           <div class="column is-6">
-            <p translate="no" class="has-text-white is-size-3" style="margin-bottom: 10px;"><%= user.username %><span class="is-size-4" style="opacity: 0.7;">#<%= user.discriminator %></span>&nbsp;<i class="status-circle fa fa-circle status-<%=user.presence.status%>"></i></p>
+            <p translate="no" class="has-text-white is-size-3" style="margin-bottom: 10px;"><%= cachedUser.username %><span class="is-size-4" style="opacity: 0.7;">#<%= cachedUser.discriminator %></span>&nbsp;<i class="status-circle fa fa-circle status-<%= cachedUser.presence.status%>"></i></p>
              <div class="user-badges">
 
               </div>             
