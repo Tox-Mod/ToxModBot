@@ -13,8 +13,6 @@ const BotLists = require('@Settings/botlists');
 
 module.exports.run = async (client, message, args, params) => {
 
-    try {
-
         let guilds = client.guilds.cache.size;
         let users =  client.users.cache.size;
         let channels = client.channels.cache.size;
@@ -41,17 +39,6 @@ module.exports.run = async (client, message, args, params) => {
 
          return message.channel.send(embed);
 
-
-    } catch (err) {
-
-        let ErrorEmbed = new Discord.MessageEmbed()
-         .setTitle('Internal Error | Hmmm')
-         .setColor(Colors.Error)
-         .setDescription('Something went wrong here, Please try again or Contact my Dev Team.')
-         .setTimestamp()
-         .setFooter(Embeds.Footer, Images.Animated)
-
-        return message.channel.send(ErrorEmbed);
     }
 }
 
