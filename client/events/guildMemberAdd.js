@@ -88,7 +88,7 @@ module.exports = async (client, member) => {
                         `**Welcome ${member} do you want some ice cream?** 🍦`,
                     ]
 
-                    let displayMessage = messages[Math.ceil(Math.random() * messages.length)] || `**Welcome ${member} you are member number ${member.guild.memberCount}** 🎉`;
+                    let displayMessage = defaultMessages[Math.ceil(Math.random() * defaultMessages.length)] || `**Welcome ${member} you are member number ${member.guild.memberCount}** 🎉`;
 
                     let WelcomeEmbed = new MessageEmbed()
                       .setTitle('A new User has Arrived! 🎉')
