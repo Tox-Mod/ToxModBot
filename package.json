@@ -1,6 +1,6 @@
 {
     "name": "toxic-mod",
-    "version": "2.1.0",
+    "version": "2.1.1",
     "description": "The Discord Moderation Bot with a little bot of Attitude!.",
     "author": "TheRealToxicDev <toxic.dev09@gmail.com>",
     "main": "index.js",
