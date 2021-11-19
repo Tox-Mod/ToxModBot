@@ -19,7 +19,7 @@ const Website = require('./website/server');
     console.log(colors.yellow(`[Tox Mod - Logs] Connected to the database on `) + colors.underline.green(config.mongodb_url));
     
     // let client = await Bot.init(config.token);
-    let client require('@Client/shards.js');
+    let client = require('@Client/shards.js');
 
     console.log(colors.yellow(`[Tox Mod - Logs] Logged in as `) + colors.underline.green(client.user.tag));
 
