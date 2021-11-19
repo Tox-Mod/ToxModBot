@@ -1,3 +1,3 @@
-web: node website/server.js
-bot: node client/index.js
-tox: node index.js
+web: npm run web
+bot: npm run bot
+tox: npm start
