@@ -1,18 +1,14 @@
 
 /**
-* DISCORD CLIENT STUFF GOES HERE!
+* DISCORD CLIENT AND WEB STUFF GOES HERE!
 */
 exports.token = process.env.TOKEN
-
 exports.clientID = process.env.CLIENT_ID
-
 exports.clientSecret = process.env.CLIENT_SECRET
-
 exports.domain = process.env.DOMAIN
-
 exports.mongo_url = process.env.MONGO_URL
-
 exports.port = process.env.PORT
+exports.maintenance = process.env.MAINTENANCE
 
 /**
 * SUPPORT SERVER SETTINGS
@@ -24,8 +20,6 @@ exports.AuthLogs = '896857529735327754'
 exports.BanLogs = '896857622731440179'
 exports.BugLogs = '896857759595773992'
 exports.ErrLogs = '896857811504480266'
-
-exports.maintenance = false
 
 /**
 * DEFINE THE USERS AND THEIR ACCESS 
