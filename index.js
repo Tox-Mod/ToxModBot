@@ -3,7 +3,7 @@ require("module-alias/register");
 const mongo = require("mongoose");
 const config = require("@Settings/config");
 const colors = require('colors');
-const Bot = require('@Client/index');
+// const Bot = require('@Client/index');
 const Website = require('./website/server');
 
 
@@ -18,7 +18,8 @@ const Website = require('./website/server');
 
     console.log(colors.yellow(`[Tox Mod - Logs] Connected to the database on `) + colors.underline.green(config.mongodb_url));
     
-    let client = await Bot.init(config.token);
+    // let client = await Bot.init(config.token);
+    require('@Client/shards.js');
 
     console.log(colors.yellow(`[Tox Mod - Logs] Logged in as `) + colors.underline.green(client.user.tag));
 
