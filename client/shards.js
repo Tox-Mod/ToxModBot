@@ -19,21 +19,6 @@ const manager = new ShardingManager("./client/index.js", {
  * SPAWN THE SHARDING MANAGER
  */
 
-module.exports.init = async (token) => {
-
-    //client.userBaseDirectory = __dirname;
-
-     //await client.login(config.token);
-
-     manager.spawn();
-
-    return manager;
-
-}
+manager.spawn();
 
 manager.on("shardCreate", shard => console.log(`Shard: ${shard.id} is Online and Active!!`));
-
-module.exports = {
-  manager,
-  ShardingManager
-}
