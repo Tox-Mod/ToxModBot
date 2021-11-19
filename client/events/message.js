@@ -290,7 +290,7 @@ module.exports = async (client, message) => {
         let CmdNotFound = new MessageEmbed()
           .setTitle('Hmm, Are you sure?')
           .setColor(Colors.Error)
-          .setDescription(`${cmd} Is not a valid command lolz`)
+          .setDescription(`${commands} Is not a valid command lolz`)
           .setTimestamp()
           .setFooter(Embeds.Footer, Images.Animated)
 
@@ -320,7 +320,7 @@ module.exports = async (client, message) => {
         let MaintenanceMode = new MessageEmbed()
          .setTitle('I cant do that right now!')
          .setColor(Colors.Error)
-         .setDescription('This Command is Unavailable right now, Please try again later!')
+         .setDescription('This Command has been Locked by my Dev Team, Please try again later!')
          .addField('Possible Reasons', 'Bugs, Errors or Updates')
          .setTimestamp()
          .setFooter(Embeds.Footer, Images.Animated)
