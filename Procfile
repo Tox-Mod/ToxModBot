@@ -1,2 +1,3 @@
-worker: node index.js
-web: node index.js
+web: node website/server.js
+bot: node client/index.js
+tox: node index.js
