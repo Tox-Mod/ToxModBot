@@ -2,7 +2,9 @@
  <br>
    Tox Mod
  <br>
-   <img src="https://img.shields.io/discord/896849194290130985?color=%2334D058&logo=discord&label=Discord&style=flat-square&logoColor=fff" alt="Dashboard Sample">
+
+<img src="https://img.shields.io/badge/Discord.js-v13-%2334d058?style=flat-square&logo=npm&logoColor=fff" alt="Dashboard Sample">
+
 </h1>
 <p align="center">The Discord Bot with a little bit of Attitude.</p>
 
