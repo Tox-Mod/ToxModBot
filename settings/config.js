@@ -24,14 +24,8 @@ exports.ErrLogs = process.env.ERR_LOGS
 /**
 * DEFINE THE USERS AND THEIR ACCESS 
 */
-exports.owners = [
-    "510065483693817867",
-    "486659270876856362",
-    "324646179134636043",
-    "713632188863610911",
-    "391376464064282627",
-    "673937399801184306"
-]
+
+exports.owners = process.env.OWNERS
 
 exports.admins = [
     "391376464064282627",
