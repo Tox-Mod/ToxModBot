@@ -25,7 +25,7 @@ module.exports.run = async (client, message, args, params) => {
       .addField('Channel Count', `${channels}`, true)
       .addField('User Count', `${users}`, true)
       .addField('Command Count', `${client.commands.size}`, true)
-      .addField('Version', 'v2.0.0-Beta', true)
+      .addField('Version', 'v2.1.0', true)
       .addField('Framework', 'discord.js (v12.5.3)', true)
       .addField('Language', 'Javascript', true)
       .addField('Primary Language', 'English', true)
