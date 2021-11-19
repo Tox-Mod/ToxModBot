@@ -1,0 +1,40 @@
+<html>
+<head>
+    <%- include(headerPath, {
+        bot, user, path,
+        description: 'Woah, you did a cool thing!',
+        description2: 'Woah, you did a cool thing!',
+        title: 'Tox Mod | Deploy Successful',
+        main_title: 'Tox Mod | Deploy Successful',
+        image: 'none',
+        }) 
+      %>
+</head>
+<body>
+  <%- include('../parts/navbar', { bot, user }) %>
+  <div class="bigthingy row">
+  <div class="seeme col-md-8 offset-md-2 row">
+    <div class="seeme col-sm-2 sinfo">
+      <p id="bigytxt" class="bigyimg" style="font-size:88px;"><i class="fas fa-exclamation-circle"></i></p>
+    </div>
+    <div class="seeme col-sm-10 sinfo">
+        <p id="bigytxt"><span style="font-size:25px; font-weight:bold;">Whoops, You fucked up chief!!</span></p>
+    </div>
+  </div>
+  </div>
+  <br /><br /><br /><br /><br /><br />
+
+  <center>
+     <h2 style="color: white;">Hey there!</h2>
+     <br />
+     <p style="color: white;">
+        You did a cool thing and deployed your own instance of my code
+        thanks for the support. My dev team appreciates it.
+        <br><br>
+        Please head to your hosting providers dashboard to view
+        your new project 😳🤪
+     </p>
+  </center>
+
+</body>
+</html>
