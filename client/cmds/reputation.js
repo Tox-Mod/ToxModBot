@@ -13,6 +13,8 @@ const BotLists = require('@Settings/botlists');
 
 module.exports.run = async (client, message, args, params) => {
 
+    try {
+
         const member = (message.mentions.users.first() || client.users.cache.get(args[0]));
 
         if (!member) member = message.author;
@@ -24,7 +26,7 @@ module.exports.run = async (client, message, args, params) => {
                 let PositiveTrust = new MessageEmbed()
                  .setTitle('User Trust/Reputation Score!')
                  .setColor(Colors.Primary)
-                 .setDescription(`${member} is ``100%`` safe with ``0`` active cases/infractions!`)
+                 .setDescription(`${member.user.tag} is ``100%`` safe with ``0`` active cases/infractions!`)
                  .setTimestamp()
                  .setFooter(Embeds.Footer, Images.Animated)
 
@@ -49,6 +51,19 @@ module.exports.run = async (client, message, args, params) => {
                 return message.channel.send(NegativeTrust)
             }
         })   
+    } catch (err) {
+
+        let ErrorEmbed = new MessageEmbed()
+         .setTitle('Internal Error | Hmmm')
+         .setColor(Colors.Error)
+         .setDescription('Something went wrong here, Please try again or Contact my Dev Team.')
+         .setTimestamp()
+         .setFooter(Embeds.Footer, Images.Animated)
+
+        console.log(err);
+
+        return message.channel.send(ErrorEmbed);
+
     }
 }
 
