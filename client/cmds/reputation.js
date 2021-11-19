@@ -17,7 +17,7 @@ module.exports.run = async (client, message, args, params) => {
 
         let user = args.slice(0).join(" ");
 
-        let member = message.mentions.users.first() || client.users.cache.get(user) || client.users.cache.find(u => u.username === user);
+        let member = (message.mentions.users.first() || client.users.cache.get(user) || client.users.cache.find(u => u.username === user));
 
         if (!member) member = message.author;
 
