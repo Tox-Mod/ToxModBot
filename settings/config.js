@@ -26,21 +26,6 @@ exports.ErrLogs = process.env.ERR_LOGS
 */
 
 exports.owners = process.env.OWNERS
-
-exports.admins = [
-    "391376464064282627",
-    "673937399801184306"
-]
-
-exports.beta = [
-    "391376464064282627",
-    "673937399801184306",
-    "713632188863610911",
-    "324646179134636043"
-]
-
-exports.devs = [
-    "486659270876856362",
-    "713632188863610911",
-    "324646179134636043"
-]
+exports.admins = process.env.ADMINS
+exports.beta = process.env.BETA_WL
+exports.devs = process.env.DEVS
