@@ -23,7 +23,7 @@ are listed below!
 
 ## Reporting a Vulnerability
 
-Please report (suspected) security vulnerabilities**[here](http://localhost:5579/bugs)**. 
+Please report (suspected) security vulnerabilities**[here](https://toxmod.xyz/bugs)**. 
 You will receive a response from us within 48 hours if we have any questions. If the issue 
 is confirmed, we will release a patch as soon as possible depending on complexity but 
 historically within a few days.
