@@ -63,6 +63,7 @@
 
 <h2 align='center'><br>Useful Links</h2>
 <a align="center" href="https://toxmod.xyz/discord">- Support Server</a>
+<br>
 <a align="center" href="https://twitter.com/ToxMod">- Follow Tox Mod</a>
 
 
