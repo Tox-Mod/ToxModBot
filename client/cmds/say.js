@@ -11,7 +11,7 @@ const Embeds = require('@Embeds/index');
 
 const BotLists = require('@Settings/botlists');
 
-module.exports.run = async (client, message, args, params) => {
+module.exports.run = async (client, message, args) => {
 
     try {
 
@@ -49,10 +49,10 @@ module.exports.run = async (client, message, args, params) => {
          message.delete()
 
          if (Channel) {
-             agrsResult = args.slice(1).join(" ");      
+             agrsResult = args.slice(2).join(" ");      
              Channel.send(`${argsResult}`);
          } else {
-             argsResult = args.slice(1).join(" ");
+             argsResult = args.slice(2).join(" ");
              message.channel.send(`${argsResult}`);
          }
     } catch (err) {
