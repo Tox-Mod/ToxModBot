@@ -22,21 +22,15 @@ module.exports.run = async (client, message, args) => {
          .setTimestamp()
          .setFooter(Embeds.Footer, Images.Animated)
 
-         if (!args[1]) return message.channel.send(NoMsg);
+         if (!args[0]) return message.channel.send(NoMsg);
 
-         let argsResult;
-
-         let Channel = message.mentions.channels.first() || message.guild.channels.cache.get(args[0]);
+         let argsResult = args.slice(0).join(' ');
 
          message.delete()
 
-         if (Channel) {
-             agrsResult = args.slice(1).join(" ");      
-             Channel.send(`${argsResult}`);
-         } else {
-             argsResult = args.slice(1).join(" ");
-             message.channel.send(`${argsResult}`);
-         }
+         return message.channel.send(argsResult)
+
+ 
     } catch (err) {
 
         let ErrorEmbed = new MessageEmbed()
