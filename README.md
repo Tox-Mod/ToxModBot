@@ -76,8 +76,12 @@
 
 <h2 align='center'><br>NOTICE</h2>
 <p align="center">
-This Code and Website is protected by and complies with
+- This Code and Website is protected by and complies with
 DMCA and all of their policies and regulations!
+</p>
+<p align="center">
+- Proper Credits to the Original Author should be given or
+Remain in place when Self-Hosting your own instance of this code!
 </p>
 
 
