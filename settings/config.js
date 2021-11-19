@@ -4,14 +4,13 @@
 */
 exports.token = process.env.TOKEN
 
-exports.clientID = '631558023109804032'
+exports.clientID = process.env.CLIENT_ID
 
-exports.clientSecret = 'aBu09DDITVkQ8tHw_Avgf_4VC4G--a4J'
+exports.clientSecret = process.env.CLIENT_SECRET
 
-exports.localCallback = 'http://localhost:8080/callback'
-exports.domain = 'https://toxmod.xyz/callback'
+exports.domain = process.env.DOMAIN
 
-exports.mongo_url = 'mongodb://admin:eMrFan00MqjT4OFN@SG-ToxMod-40838.servers.mongodirector.com:27017/admin'
+exports.mongo_url = process.env.MONGO_URL
 
 exports.port = process.env.PORT
 
