@@ -1,3 +1,3 @@
-web: npm run web
-bot: npm run bot
-tox: npm start
+web: npm start
+bot: npm run web
+tox: npm run bot
