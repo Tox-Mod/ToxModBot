@@ -1,6 +1,8 @@
 <h1 align='center'><img src="https://toxmod.xyz/images/ToxModLogo.gif" height='100px' width='100px' />
- <br>Tox Mod
- <img src="https://img.shields.io/discord/666599184844980224?color=%2334D058&logo=discord&label=Discord&style=flat-square&logoColor=fff" alt="Dashboard Sample">
+ <br>
+   Tox Mod
+ <br>
+   <img src="https://img.shields.io/discord/666599184844980224?color=%2334D058&logo=discord&label=Discord&style=flat-square&logoColor=fff" alt="Dashboard Sample">
 </h1>
 <p align="center">The Discord Bot with a little bit of Attitude.</p>
 
