@@ -15,9 +15,9 @@ module.exports.run = async (client, message, args, params) => {
 
     try {
 
-        let member = (message.mentions.users.first() || client.users.cache.get(args[0]));
+        let member = message.mentions.users.first();
 
-        if (!member) member = message.author;
+        if (!member) return message.channel.send('Please ping someone to check the Rep For');
 
         CASES.find({ userID: member.id }, (err, res) => {
 
