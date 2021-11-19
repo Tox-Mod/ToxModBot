@@ -2,6 +2,7 @@ const { MessageEmbed } = require('discord.js');
 const SERVERS = require('@Database/servers');
 const moment = require('moment');
 const fetch = require('node-fetch');
+const version = require('../../package. json')
 
 const Images = require('@Images/index');
 const Colors = require('@Colors/index');
@@ -25,7 +26,7 @@ module.exports.run = async (client, message, args, params) => {
       .addField('Channel Count', `${channels}`, true)
       .addField('User Count', `${users}`, true)
       .addField('Command Count', `${client.commands.size}`, true)
-      .addField('Version', 'v2.1.0', true)
+      .addField('Version', `v${version}`, true)
       .addField('Framework', 'discord.js (v12.5.3)', true)
       .addField('Language', 'Javascript', true)
       .addField('Primary Language', 'English', true)
