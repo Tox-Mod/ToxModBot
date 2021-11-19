@@ -3,6 +3,8 @@
   "description": "The Discord Bot with a Little Bit of Attitude",
   "repository": "https://github.com/Tox-Mod/ToxModBot",
   "logo": "https://toxmod.xyz/images/ToxModLogo.png",
+  "website": "https://toxmod.xyz/",
+  "success_url": "https://toxmod.xyz/fork/thanks",
   "keywords": [
     "node",
     "discord",
