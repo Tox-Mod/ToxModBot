@@ -15,13 +15,13 @@ module.exports.run = async (client, message, args, params) => {
 
     let user = args.slice(0).join(" ")
     
-    let member = message.mentions.users.first() || 
+    const member = message.mentions.users.first() || 
                  client.users.cache.get(user) || 
                  client.users.cache.find(u => u.username === user);
 
     try {
 
-        if (!member) member = message.author;
+      if (!user) user = message.author;
 
         CASES.find({ userID: member.id }, (err, res) => {
 
