@@ -15,15 +15,6 @@ module.exports.run = async (client, message, args) => {
 
     try {
 
-        let NoChan = new MessageEmbed()
-         .setTitle('Woah, Think about it!')
-         .setColor(Colors.Error)
-         .setDescription('Please define a Channel to send the Message to.')
-         .setTimestamp()
-         .setFooter(Embeds.Footer, Images.Animated)
-
-         if (!args[0]) return message.channel.send(NoChan);
-
          let NoMsg = new MessageEmbed()
          .setTitle('What would you like me to say?')
          .setColor(Colors.Error)
@@ -40,10 +31,10 @@ module.exports.run = async (client, message, args) => {
          message.delete()
 
          if (Channel) {
-             agrsResult = args.slice(2).join(" ");      
+             agrsResult = args.slice(1).join(" ");      
              Channel.send(`${argsResult}`);
          } else {
-             argsResult = args.slice(2).join(" ");
+             argsResult = args.slice(1).join(" ");
              message.channel.send(`${argsResult}`);
          }
     } catch (err) {
