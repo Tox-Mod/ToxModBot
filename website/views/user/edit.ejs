@@ -39,8 +39,8 @@
 
     <div class="container">
         <center>
-        <img src="<%= user.displayAvatarURL({ dynamic: true }) %>">
-        <h3 style="color: #fff;">Editing User: <strong><%= user.username %></strong></h3>
+        <img src="<%= cachedUser.displayAvatarURL({ dynamic: true }) %>">
+        <h3 style="color: #fff;">Editing User: <strong><%= cachedUser.username %></strong></h3>
         </center>
         <br><br>
         <form method="POST" class="form-discorddark">
