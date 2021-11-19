@@ -8,7 +8,7 @@ const Bot = require('@Client/index');
 const Website = require('./website/server');
 
 
-(async (client) => {
+(async () => {
 
     await mongo.connect(config.mongo_url, { 
         useCreateIndex: true,
@@ -19,7 +19,7 @@ const Website = require('./website/server');
 
     console.log(colors.yellow(`[Tox Mod - Logs] Connected to the database on `) + colors.underline.green(config.mongodb_url));
     
-    //let client = await Bot.init(config.token);
+    let client = await Bot.init(config.token);
 
     console.log(colors.yellow(`[Tox Mod - Logs] Logged in as `) + colors.underline.green(client.user.tag));
 
