@@ -6,8 +6,8 @@
     </head>
     <%- include(headerPath, {
       bot, user, path,
-      description: `${bio}`,
-      description2: `${bio}`,
+      description: `${profile.bio}`,
+      description2: `${profile.bio}`,
       title: `Tox Mod | ${cachedUser.username}`,
       main_title: `Tox Mod | ${cachedUser.username}`,
       image: cachedUser.avatarURL({ dynamic: true }),
