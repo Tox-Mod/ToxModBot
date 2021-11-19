@@ -38,8 +38,6 @@ module.exports.run = async (client, message, args, params) => {
          .setFooter(Embeds.Footer, Images.Animated)
 
          return message.channel.send(embed);
-
-    }
 }
 
 module.exports.help = {
