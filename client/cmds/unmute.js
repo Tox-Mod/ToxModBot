@@ -132,7 +132,7 @@ module.exports.help = {
 }
 
 module.exports.requirements = {
-    userPerms: ["MUTE_MEMBERS"],
+    userPerms: ["MUTE_MEMBERS", "MANAGE_ROLES"],
     clientPerms: ["MANAGE_ROLES"],
     ownerOnly: false,
     betaMode: false,
