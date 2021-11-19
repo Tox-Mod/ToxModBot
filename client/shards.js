@@ -11,7 +11,7 @@ const token = require('@Settings/config.js').token;
  */
 const manager = new ShardingManager("./client/index.js", { 
    token, 
-   totalShards: 'auto'
+   totalShards: 'auto',
    autoSpawn: true
 });
 
