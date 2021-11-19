@@ -2,7 +2,7 @@ const { MessageEmbed } = require('discord.js');
 const SERVERS = require('@Database/servers');
 const moment = require('moment');
 const fetch = require('node-fetch');
-const version = require('../../package. json')
+const version = require('../../package.json')
 
 const Images = require('@Images/index');
 const Colors = require('@Colors/index');
