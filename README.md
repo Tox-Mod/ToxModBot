@@ -34,7 +34,7 @@
    new features and commands. Best way to find an up to date
    list of commands and features is on our website 😳
    <br>
-   <a href="https://toxmod.xyz/commands">View Commands</a>
+   - View the: <a href="https://toxmod.xyz/commands">Commands List</a>
  </p>
 </div>
 
