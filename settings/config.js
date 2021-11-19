@@ -13,13 +13,13 @@ exports.maintenance = process.env.MAINTENANCE
 /**
 * SUPPORT SERVER SETTINGS
 */
-exports.ServerInvite = 'https://discord.gg/gCtBJVQw4Q'
-exports.SupportGuild = '896849194290130985' // Toxic FX Server
-exports.JoinLogs = '896857901711376414'
-exports.AuthLogs = '896857529735327754'
-exports.BanLogs = '896857622731440179'
-exports.BugLogs = '896857759595773992'
-exports.ErrLogs = '896857811504480266'
+exports.ServerInvite = process.env.SERVER_INV
+exports.SupportGuild = process.env.SERVER_ID
+exports.JoinLogs = process.env.JOIN_LOGS
+exports.AuthLogs = process.env.AUTH_LOGS
+exports.BanLogs = process.env.BAN_LOGS
+exports.BugLogs = process.env.BUG_LOGS
+exports.ErrLogs = process.env.ERR_LOGS
 
 /**
 * DEFINE THE USERS AND THEIR ACCESS 
@@ -46,7 +46,7 @@ exports.beta = [
 ]
 
 exports.devs = [
-    "486659270876856362", // Toxic
-    "713632188863610911", // Maxim
-    "324646179134636043" // Connor
+    "486659270876856362",
+    "713632188863610911",
+    "324646179134636043"
 ]
