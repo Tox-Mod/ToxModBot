@@ -52,7 +52,7 @@ module.exports.run = async (client, message, args, params) => {
              agrsResult = args.slice(1).join(" ");      
              Channel.send(argsResult);
          } else {
-             argsResult = args.join(" ");
+             argsResult = args.slice(1).join(" ");
              message.channel.send(argsResult);
          }
     } catch (err) {
@@ -78,8 +78,8 @@ module.exports.help = {
 }
 
 module.exports.requirements = {
-    userPerms: ["SEND_MESSAGES", "MANAGE_MESSAGES"],
-    clientPerms: ["MANAGE_CHANNELS"],
+    userPerms: ["SEND_MESSAGES"],
+    clientPerms: [],
     ownerOnly: false,
     betaMode: false,
     devLock: false
