@@ -77,5 +77,21 @@
       "description": "Channel ID to send Logs to when a Error occurs with the Website",
       "required": "true"
     },
+    "OWNERS": {
+      "description": "Array of the Bot Owner(s) Discord IDs separated by Comas and Spaces (Ex: 1234567891011, 1234567891011)",
+      "required": "true"
+    },
+    "DEVS": {
+      "description": "Array of the Bot Dev(s) Discord IDs separated by Comas and Spaces (Ex: 1234567891011, 1234567891011)",
+      "required": "true"
+    },
+    "ADMINS": {
+      "description": "Array of the Bot Admin(s) Discord IDs separated by Comas and Spaces (Ex: 1234567891011, 1234567891011)",
+      "required": "true"
+    },
+    "BETA_WL": {
+      "description": "Array of the Beta User(s) Discord IDs separated by Comas and Spaces (Ex: 1234567891011, 1234567891011)",
+      "required": "true"
+    },
   }
 }
