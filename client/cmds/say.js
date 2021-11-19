@@ -76,7 +76,7 @@ module.exports.requirements = {
     clientPerms: [],
     ownerOnly: false,
     betaMode: false,
-    devLock: true
+    devLock: false
 }
 
 module.exports.limits = {
