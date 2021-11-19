@@ -325,7 +325,7 @@ module.exports = async (client, message) => {
          .setTimestamp()
          .setFooter(Embeds.Footer, Images.Animated)
 
-        if (cmd.requirements.devLock && !client.config.devs.includes(message.author.id)) return message.channel.send(MaintenanceMode);
+        if (cmd.requirements.devLock && !client.config.devs.includes(message.author.id) || !client.config.owners.includes(message.author.id)) return message.channel.send(MaintenanceMode);
 
         let embed = new MessageEmbed()
          .setAuthor("User Lacking Permissions ❌", message.author.displayAvatarURL({dynamic: true}))
