@@ -34,7 +34,8 @@
         "passport": "^0.4.1",
         "passport-discord": "^0.1.4",
         "path": "^0.12.7",
-        "unirest": "^0.6.0"
+        "unirest": "^0.6.0",
+        "voidbots": "^2.6.3"
     },
     "engines": {
         "node": "12.x"
