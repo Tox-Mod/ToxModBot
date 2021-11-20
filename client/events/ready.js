@@ -22,7 +22,7 @@ module.exports = async (client) => {
     //const VoidBotsClient = require("voidbots");
     //const voidbots = new VoidBotsClient(process.env.VOID_AUTH, { autoPost: true, webhookEnabled: false }, client.user.id)
 
-    const ready_channel = client.channels.cache.find(c => c.id === process.env.JOIN_LOGS);
+    const ready_channel = client.channels.cache.find(c => c.id === process.env.BOT_LOGS);
 
 
     let activities = [
