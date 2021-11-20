@@ -8,6 +8,7 @@ const package = require('../../package.json')
 const fetch = require('node-fetch');
 const { MessageEmbed } = require('discord.js');
 
+const config = require('@Settings/config');
 const BotListData = require('@Settings/botlists');
 
 const Images = require('@Images/index');
@@ -22,7 +23,7 @@ module.exports = async (client) => {
     //const VoidBotsClient = require("voidbots");
     //const voidbots = new VoidBotsClient(process.env.VOID_AUTH, { autoPost: true, webhookEnabled: false }, client.user.id)
 
-    const ready_channel = client.channels.cache.find(c => c.id === process.env.BOT_LOGS);
+    const ready_channel = client.channels.cache.find(c => c.id === config.BotLogs);
 
 
     let activities = [
