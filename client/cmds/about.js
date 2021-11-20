@@ -16,6 +16,15 @@ module.exports.run = async (client, message, args, params) => {
 
     let channels = client.channels.cache.size;
 
+    let version;
+
+    await fetch('https://api.toxmod.xyz/v1/versions/check')
+      .then(res => res.json())
+      .then(json => {
+          
+        let version = json.version
+    });
+
     let embed = new MessageEmbed()
       .setTitle('Info and Statistics')
       .setColor(Colors.Primary)
@@ -26,7 +35,7 @@ module.exports.run = async (client, message, args, params) => {
       .addField('Channel Count', `${channels}`, true)
       .addField('User Count', `${users}`, true)
       .addField('Command Count', `${client.commands.size}`, true)
-      .addField('Version', `v${Embeds.Version}`, true)
+      .addField('Version', `v${version}`, true)
       .addField('Framework', 'discord.js (v12.5.3)', true)
       .addField('Language', 'Javascript', true)
       .addField('Primary Language', 'English', true)
