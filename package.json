@@ -21,6 +21,7 @@
         "express-session": "^1.17.1",
         "fs": "0.0.1-security",
         "infinityapi.js": "^1.0.5",
+        "ibl-api": "^2.0.2",        
         "install": "^0.13.0",
         "marked": "^2.1.2",
         "memorystore": "^1.6.2",
