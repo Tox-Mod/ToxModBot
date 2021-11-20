@@ -20,7 +20,7 @@ const Embeds = require('@Embeds/index');
 const { IBL } = require('ibl-api');
 module.exports = async (client) => {
     
-   const ibl = new IBL(client, config.BotListData.IBL_AUTH);
+   const ibl = new IBL(client, BotListData.IBL_AUTH);
 
     //const VoidBotsClient = require("voidbots");
     //const voidbots = new VoidBotsClient(process.env.VOID_AUTH, { autoPost: true, webhookEnabled: false }, client.user.id)
