@@ -11,7 +11,7 @@ const Embeds = require('@Embeds/index');
 
 const BotLists = require('@Settings/botlists');
 
-module.exports.run = async (client, message, args, params) => {
+module.exports.run = async (client, message, args) => {
 
     try {
 
