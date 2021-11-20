@@ -5,6 +5,7 @@ const eventFiles2 = readdirSync(filePath2);
 const timers = require("timers");
 const mongoose = require('mongoose');
 const package = require('../../package.json')
+const fetch = require('node-fetch');
 
 const BotListData = require('@Settings/botlists');
 
