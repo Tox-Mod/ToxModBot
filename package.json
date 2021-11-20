@@ -5,11 +5,14 @@
     "author": "TheRealToxicDev <toxic.dev09@gmail.com>",
     "license": "MIT",
     "main": "index.js",
+    "engineStrict" : true,
+
     "scripts": {
         "start": "node index.js",
         "web": "node website/server.js",
         "bot": "node client/index.js"
     },
+
     "dependencies": {
         "body-parser": "^1.19.0",
         "colors": "^1.4.0",
@@ -38,9 +41,11 @@
         "unirest": "^0.6.0",
         "voidbots": "^2.6.3"
     },
-    "engines": {
-        "node": "12.x"
-    },
+
+    "engines" : { 
+      "node" : "16.x" 
+   },
+
     "_moduleAliases": {
         "@root": ".",
         "@Client": "./client",
