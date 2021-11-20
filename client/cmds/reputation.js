@@ -28,7 +28,7 @@ module.exports.run = async (client, message, args, params) => {
                 let PositiveTrust = new MessageEmbed()
                  .setTitle('User Trust/Reputation Score!')
                  .setColor(Colors.Primary)
-                 .setDescription(`${member} is ``100%`` safe with ``0`` active cases/infractions!`)
+                 .setDescription(`${member} is 100% safe with 0 active cases/infractions!`)
                  .setTimestamp()
                  .setFooter(Embeds.Footer, Images.Animated)
 
@@ -46,7 +46,7 @@ module.exports.run = async (client, message, args, params) => {
                 let NegativeTrust = new MessageEmbed()
                  .setTitle('User Trust/Reputation Score!')
                  .setColor(Colors.Error)
-                 .setDescription(`${member} is ``${perc}`` safe with ``${res.length}`` active cases/infractions!`)
+                 .setDescription(`${member} is ${perc} safe with  ${res.length} active cases/infractions!`)
                  .setTimestamp()
                  .setFooter(Embeds.Footer, Images.Animated)
 
@@ -61,6 +61,8 @@ module.exports.run = async (client, message, args, params) => {
          .setDescription('Something went wrong here, Please try again or Contact my Dev Team.')
          .setTimestamp()
          .setFooter(Embeds.Footer, Images.Animated)
+
+          console.log(err);
 
         return message.channel.send(ErrorEmbed);
 
