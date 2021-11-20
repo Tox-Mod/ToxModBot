@@ -33,6 +33,15 @@ module.exports.run = async (client, message, args, params) => {
             body: JSON.stringify({ servers: client.guilds.cache.size, shards: '1' }),
         }).then(response => response.text());
 
+        fetch(`https://api.voidbots.net/bot/stats/${client.user.id}`, {
+            method: "POST",
+            headers: {
+                authorization: process.env.VOID_AUTH,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ "server_count": client.guilds.cache.size, "shard_count": 1 }),
+        }).then(response => response.text());
+
         let StatsPost = new MessageEmbed()
          .setTitle('Okay chief!')
          .setColor(Colors.Primary)
