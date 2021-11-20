@@ -11,36 +11,24 @@ const Embeds = require('@Embeds/index');
 
 const BotLists = require('@Settings/botlists');
 
-module.exports.run = async (client, message, args) => {
+module.exports.run = async (client, message, args, params) => {
 
     try {
 
-       const member = (message.mentions.users.first() || client.users.cache.get(args[0])); 
+        let user = args.slice(0).join(" ");
 
-      // if (!user) user = message.author;
+        let member = message.mentions.users.first() || client.users.cache.get(user) || client.users.cache.find(u => u.username === user);
 
-      let user;
-      let user2;
+        if (!member) member = message.author;
 
-       if (message.mentions.users.first()) { 
-          
-           let user = member.tag;
-           let user2 = member.id
-
-       } else { 
-           
-            let user = member;
-            let user2 = member;
-      }
-
-        CASES.find({ userID: user2 }, (err, res) => {
+        CASES.find({ userID: member.id }, (err, res) => {
 
             if (res.length === 0) {
 
                 let PositiveTrust = new MessageEmbed()
                  .setTitle('User Trust/Reputation Score!')
                  .setColor(Colors.Primary)
-                 .setDescription(`That user is ``100%`` safe with ``0`` active cases/infractions!`)
+                 .setDescription(`${member} is ``100%`` safe with ``0`` active cases/infractions!`)
                  .setTimestamp()
                  .setFooter(Embeds.Footer, Images.Animated)
 
@@ -58,7 +46,7 @@ module.exports.run = async (client, message, args) => {
                 let NegativeTrust = new MessageEmbed()
                  .setTitle('User Trust/Reputation Score!')
                  .setColor(Colors.Error)
-                 .setDescription(`Woah, That user is ``${perc}`` safe with ``${res.length}`` active cases/infractions!`)
+                 .setDescription(`${member} is ``${perc}`` safe with ``${res.length}`` active cases/infractions!`)
                  .setTimestamp()
                  .setFooter(Embeds.Footer, Images.Animated)
 
@@ -73,8 +61,6 @@ module.exports.run = async (client, message, args) => {
          .setDescription('Something went wrong here, Please try again or Contact my Dev Team.')
          .setTimestamp()
          .setFooter(Embeds.Footer, Images.Animated)
-
-        console.log(err);
 
         return message.channel.send(ErrorEmbed);
 
