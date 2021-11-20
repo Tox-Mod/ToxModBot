@@ -79,6 +79,10 @@
       "description": "Channel ID to send Logs to when a Error occurs with the Website",
       "required": "true"
     },
+    "BOT_LOGS": {
+      "description": "Channel ID to send version checks to",
+      "required": "true"
+    },
     "OWNERS": {
       "description": "Array of the Bot Owner(s) Discord IDs separated by Comas and Spaces (Ex: 1234567891011, 1234567891011)",
       "required": "true"
