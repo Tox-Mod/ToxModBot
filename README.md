@@ -5,7 +5,7 @@
    <img src="https://img.shields.io/github/package-json/v/Tox-Mod/ToxModBot?style=flat-square&logo=github&label=Version&color=%2334D058" alt="Tox Version" />
    <img src="https://img.shields.io/badge/Discord.js-v12-%2334d058?style=flat-square&logo=npm&logoColor=fff" alt="DJS Version" />
  <br>
-   <img src="https://infinitybotlist.com/bots/631558023109804032/widget?size=small" alt="IBL Widget"/>
+   <img src="https://infinitybotlist.com/bots/631558023109804032/widget" alt="IBL Widget"/>
 </h1>
 <p align="center">The <a href="https://toxmod.xyz/discord">Discord</a> Bot with a little bit of Attitude.</p>
 
