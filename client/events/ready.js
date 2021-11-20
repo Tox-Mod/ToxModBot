@@ -17,10 +17,10 @@ const Embeds = require('@Embeds/index');
 
 // const InfinityBotsClient = require('infinityapi.js');
 // const IBL = new InfinityBotsClient(BotListData.ClientID, BotListData.IBL_AUTH);
-const { IBL } = require('ibl-api');
+const { InfinityBots } = require('ibl-api');
 module.exports = async (client) => {
     
-   const ibl = new IBL(client, BotListData.IBL_AUTH);
+   const ibl = new InfinityBots(client, BotListData.IBL_AUTH);
 
     //const VoidBotsClient = require("voidbots");
     //const voidbots = new VoidBotsClient(process.env.VOID_AUTH, { autoPost: true, webhookEnabled: false }, client.user.id)
