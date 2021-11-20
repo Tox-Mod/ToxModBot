@@ -859,6 +859,12 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #a22;}
   left: 0; bottom: 0;
 }
 
+.footer-cc-text {
+    content: 'Copyright © 2021 Toxic Dev | All rights reserved.';
+    color: grey;
+ }
+
+
 .CodeMirror-gutters {
   position: absolute; left: 0; top: 0;
   min-height: 100%;
