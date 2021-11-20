@@ -19,9 +19,8 @@ module.exports.run = async (client, message, args, params) => {
          .setAuthor('Vote for Tox Mod', Images.Animated)
          .setColor(Colors.Primary)
          .setDescription('Like the bot? vote for it here!')
-         .addField('Paradise Bots', '[Vote Here](https://paradisebots.net/bots/631558023109804032/vote) | [Bot Page](https://paradisebots.net/bots/631558023109804032)', true)
-         .addField('Botrix List', '[Vote Here](https://botrix.cc/vote/631558023109804032) | [Bot Page](https://botrix.cc/bots/631558023109804032/)', true)
-         .addField('Next Gen Bots', '[Vote Here](https://nextgenbots.xyz/bots/631558023109804032/vote) | [Bot Page](https://nextgenbots.xyz/bots/631558023109804032)', true)
+         .addField('Void Bots', '[Vote Here](https://voidbots.net/bot/631558023109804032/vote) | [Bot Page](https://voidbots.net/bot/631558023109804032)', true)
+         .addField('Infinity Bots', '[Vote Here](https://infinitybotlist.com/bots/631558023109804032/vote) | [Bot Page](https://infinitybotlist.com/bots/631558023109804032)', true)
          .setTimestamp()
          .setFooter(Embeds.Footer, Images.Animated)
 
