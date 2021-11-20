@@ -12,8 +12,8 @@ const IBL = new InfinityBotsClient(BotListData.ClientID, BotListData.IBL_AUTH);
 
 module.exports = async (client) => {
 
-    const VoidBotsClient = require("voidbots");
-    const voidbots = new VoidBotsClient(process.env.VOID_AUTH, { autoPost: true, webhookEnabled: false }, client.user.id);
+    //const VoidBotsClient = require("voidbots");
+    //const voidbots = new VoidBotsClient(process.env.VOID_AUTH, { autoPost: true, webhookEnabled: false }, client.user.id);
 
 
     let activities = [
@@ -64,13 +64,5 @@ module.exports = async (client) => {
     console.log(`[Tox Mod | Bot] Signed in as ${client.user.username} | Loaded: ${eventFiles2.length} Events | Loaded: ${client.commands.size} Commands`);
     
     IBL.post(client.guilds.cache.size, '0')
-
-    voidbots.on('posted', () => {
-      console.log('[Tox Mod | Bot] Posted Stats to Void Bots');
-    })
-
-    voidbots.on('error', e => {
-      console.log(`[Tox Mod | Bot] Oops Error with Void Bots! ${e}`);
-    })
 
 }
