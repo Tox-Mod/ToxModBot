@@ -82,7 +82,7 @@ module.exports.requirements = {
     clientPerms: ['EMBED_LINKS', 'SEND_MESSAGES'],
     ownerOnly: false,
     betaMode: false,
-    devLock: false
+    devLock: true
 }
 
 module.exports.limits = {
