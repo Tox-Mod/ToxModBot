@@ -13,7 +13,7 @@ const IBL = new InfinityBotsClient(BotListData.ClientID, BotListData.IBL_AUTH);
 module.exports = async (client) => {
 
     const VoidBotsClient = require("voidbots");
-    const voidbots = new VoidBotsClient(process.env.VOID_AUTH, { autoPost: true, webhookEnabled: false }, client);
+    const voidbots = new VoidBotsClient(process.env.VOID_AUTH, { autoPost: true, webhookEnabled: false }, client.user.id);
 
 
     let activities = [
