@@ -51,7 +51,7 @@ module.exports.help = {
 
 module.exports.requirements = {
     userPerms: [],
-    clientPerms: ["MANAGE_CHANNELS"],
+    clientPerms: ["SEND_MESSAGES"],
     ownerOnly: false,
     betaMode: false,
     devLock: false
