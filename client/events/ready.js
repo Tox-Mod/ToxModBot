@@ -4,8 +4,13 @@ const filePath2 = join(__dirname, "..", "events");
 const eventFiles2 = readdirSync(filePath2);
 const timers = require("timers");
 const mongoose = require('mongoose');
+const package = require('../../package.json')
 
 const BotListData = require('@Settings/botlists');
+
+const Images = require('@Images/index');
+const Colors = require('@Colors/index');
+const Embeds = require('@Embeds/index');
 
 const InfinityBotsClient = require('infinityapi.js');
 const IBL = new InfinityBotsClient(BotListData.ClientID, BotListData.IBL_AUTH);
@@ -13,7 +18,9 @@ const IBL = new InfinityBotsClient(BotListData.ClientID, BotListData.IBL_AUTH);
 module.exports = async (client) => {
 
     //const VoidBotsClient = require("voidbots");
-    //const voidbots = new VoidBotsClient(process.env.VOID_AUTH, { autoPost: true, webhookEnabled: false }, client.user.id);
+    //const voidbots = new VoidBotsClient(process.env.VOID_AUTH, { autoPost: true, webhookEnabled: false }, client.user.id)
+
+    const ready_channel = client.channels.cache.find(c => c.id === process.env.JOIN_LOGS);
 
 
     let activities = [
@@ -65,4 +72,38 @@ module.exports = async (client) => {
     
     IBL.post(client.guilds.cache.size, '0')
 
+    await fetch('https://api.toxmod.xyz/v1/versions/check')
+      .then(res => res.json())
+      .then(json => {
+
+            if (json.current === package.version) {
+              
+            let up_to_date = new MessageEmbed()
+            .setAuthor('Version Check: Deploy Successful', Images.Animated)
+            .setColor(Colors.Success)
+            .setDescription('Tox Mod is Up-To Date and Ready!!')
+            .addField('Current Version', `v${package.version}`, true)
+            .addField('Newest Version', `v${json.current}`, true)
+            .addField('Previous Version', `v${json.previous}`, true)
+            .addField('Stable Version', `v${json.stable}`, true)
+            .setTimestamp()
+            .setFooter(Embeds.Footer, Images.Animated)
+              
+            return ready_channel.send(up_to_date);
+              
+            } else if (json.current !== package.version) { {
+                let outdated = new MessageEmbed()
+                .setAuthor('Version Check: Deploy Failed', Images.Animated)
+                .setColor(Colors.Error)
+                .setDescription('Your version of Tox Mod is Outdated, Please make sure its still deploying.')
+                .addField('Current Version', `v${package.version}`, true)
+                .addField('Newest Version', `v${json.current}`, true)
+                .addField('Update Link', 'https://github.com/Tox-Mod/ToxModBot/releases', true)
+                .setTimestamp()
+                .setFooter(Embeds.Footer, Images.Animated)
+
+            return ready_channel.send(outdated)
+          }
+       }
+   })
 }
