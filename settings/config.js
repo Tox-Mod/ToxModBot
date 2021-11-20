@@ -25,6 +25,7 @@ exports.AuthLogs = process.env.AUTH_LOGS
 exports.BanLogs = process.env.BAN_LOGS
 exports.BugLogs = process.env.BUG_LOGS
 exports.ErrLogs = process.env.ERR_LOGS
+exports.BotLogs = process.env.BOT_LOGS
 
 /**
 * DEFINE THE USERS AND THEIR ACCESS 
