@@ -45,7 +45,7 @@ module.exports.run = async (client, message, args, params) => {
 
           if (!user) {
 
-            const blacklist = new Blacklist({ 
+            const blacklist = new BLACKLIST({ 
                   userID: member.id, 
                   length: null, 
                   type: 'user', 
@@ -91,7 +91,7 @@ module.exports.run = async (client, message, args, params) => {
 
       if (args[0] === 'guild') {
 
-        await Blacklist.findOne({
+        await BLACKLIST.findOne({
           guildID: guild,
         }, (err, server) => {
 
