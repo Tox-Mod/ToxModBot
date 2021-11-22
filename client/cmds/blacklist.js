@@ -133,7 +133,7 @@ module.exports.run = async (client, message, args, params) => {
           .setTitle(`Action: Guild Blacklist`)
           .addField('Status', 'Added to the blacklist.', true)
           .addField('Server', `${guild.name} (${guild.id})`, true)
-          .addField('Responsible', `${message.author} (${message.author.id})`, true)
+          .addField('Mod', `${message.author} (${message.author.id})`, true)
           .addField('Reason', `${reason}`, true)
           .setTimestamp()
           .setFooter(Embeds.Footer, Images.Animated)
