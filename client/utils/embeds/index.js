@@ -1,2 +1,4 @@
-exports.Version = '2.1.3'
-exports.Footer = `© 2021 - 2022 Tox Mod | v2.1.2`
+const package = require('../../../package.json')
+
+exports.Version = `${package.version}`
+exports.Footer = `© 2021 - 2022 Tox Mod | ${package.version}`
