@@ -2,6 +2,7 @@ const mongoose = require("mongoose")
 const SERVERS = require("@Database/servers")
 const ms = require('parse-ms');
 const CLOCK = require("@Database/clock")
+const Blacklist = require('@Database/blacklist');
 const { MessageEmbed } = require("discord.js");
 const { mongo_url } = require("@Settings/config")
 const ratetime = new Set()
