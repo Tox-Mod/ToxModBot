@@ -26,7 +26,7 @@ module.exports.run = async (client, message, args, params) => {
         return message.channel.send(`Please provide me with a User ID to Blacklist`)
       }
    
-      let guild = this.client.guilds.cache.get(args[1]);
+      let guild = client.guilds.cache.get(args[1]);
       let reason = args.slice(2).join(' ') || 'No reason Specified!';
 
       if (args.length < 1) return message.channel.send(`Please provide me with a User or Guild ID to Blacklist!`)
