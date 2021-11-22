@@ -19,8 +19,8 @@ module.exports = async (client, message) => {
         if (!message.guild.me.hasPermission('SEND_MESSAGES')) return;
     }
 
-  const userBlacklistSettings = await Blacklist.findOne({ discordId: message.author.id,});
-  const guildBlacklistSettings = await Blacklist.findOne({ guildId: message.guild.id });
+  const userBlacklistSettings = await Blacklist.findOne({ userID: message.author.id,});
+  const guildBlacklistSettings = await Blacklist.findOne({ guildID: message.guild.id });
 
     await SERVERS.findOne({ guildID: message.guild.id }, async (err, res) => {
 
