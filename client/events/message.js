@@ -19,6 +19,9 @@ module.exports = async (client, message) => {
         if (!message.guild.me.hasPermission('SEND_MESSAGES')) return;
     }
 
+  const userBlacklistSettings = await Blacklist.findOne({ discordId: message.author.id,});
+  const guildBlacklistSettings = await Blacklist.findOne({ guildId: message.guild.id });
+
     await SERVERS.findOne({ guildID: message.guild.id }, async (err, res) => {
 
             let prefix = 'tox.'
@@ -298,6 +301,36 @@ module.exports = async (client, message) => {
         if (!cmd) return message.channel.send(CmdNotFound);
 
         if (!message.channel.permissionsFor(message.guild.me).toArray().includes("SEND_MESSAGES")) return;
+
+        if (userBlacklistSettings && userBlacklistSettings.isBlacklisted) {
+
+        let userBlacklisted = new MessageEmbed()
+          .setTitle('Uh-Oh, What did you do 🥺')
+          .setColor(Colors.Error)
+          .setDescription('${message.author.tag} You have been Blacklisted from using the bot!')
+          .addField('Possible Reasons', '• Abusing the Bot or its Services\n• Breach of our Terms', true)
+          .addField('Get Support', 'https://toxmod.xyz/discord', true) 
+          .setTimestamp()
+          .setFooter(Embeds.Footer, Images.Animated)
+
+          console.log(`${message.author.tag} tried to use the "${cmd}" command but the user is blacklisted`)
+          return message.channel.send(userBlacklisted);
+        }
+
+        if (guildBlacklistSettings && guildBlacklistSettings.isBlacklisted) {
+
+        let guildBlacklisted = new MessageEmbed()
+          .setTitle('Uh-Oh, What did you do 🥺')
+          .setColor(Colors.Error)
+          .setDescription('${message.author.tag} You have been Blacklisted from using the bot!')
+          .addField('Possible Reasons', '• Abusing the Bot or its Services\n• Breach of our Terms', true)
+          .addField('Get Support', 'https://toxmod.xyz/discord', true) 
+          .setTimestamp()
+          .setFooter(Embeds.Footer, Images.Animated)
+
+          console.log(`${message.author.tag} tried to use the "${cmd}" command but the guild is blacklisted`)
+          return message.channel.send(guildBlacklisted);
+        }
 
         let OwnerOnlyBoii = new MessageEmbed()
           .setTitle('Umm, You wish!!')
