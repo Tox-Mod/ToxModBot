@@ -322,7 +322,7 @@ module.exports = async (client, message) => {
         let guildBlacklisted = new MessageEmbed()
           .setTitle('Uh-Oh, What did you do 🥺')
           .setColor(Colors.Error)
-          .setDescription('${message.author.tag} You have been Blacklisted from using the bot!')
+          .setDescription('${message.author.tag} this Guild has been Blacklisted!')
           .addField('Possible Reasons', '• Abusing the Bot or its Services\n• Breach of our Terms', true)
           .addField('Get Support', 'https://toxmod.xyz/discord', true) 
           .setTimestamp()
