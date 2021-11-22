@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
 const blacklistSchema = mongoose.Schema({
-  discordId: {
+  userID: {
     type: String,
   },
-  guildId: {
+  guildID: {
     type: String,
   },
   type: {
