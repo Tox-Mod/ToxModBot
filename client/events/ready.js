@@ -17,7 +17,7 @@ const Embeds = require('@Embeds/index');
 
 //const InfinityBotsClient = require('infinityapi.js');
 //const IBL = new InfinityBotsClient(BotListData.ClientID, BotListData.IBL_AUTH);
-const { InfinityBots } = require('ibl-api');
+const { InfinityBots } = require('infinity-bots');
 module.exports = async (client) => {
     
   const ibl = new InfinityBots(client, BotListData.IBL_AUTH);
