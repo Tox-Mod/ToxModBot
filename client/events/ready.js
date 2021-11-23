@@ -80,7 +80,7 @@ module.exports = async (client) => {
     //ibl.postStats();
 
     poster.on('posted', (stats) => { // ran when succesfully posted
-      console.log(`Posted stats to Infinity Bots | ${stats.servers} servers`
+      console.log(`Posted stats to Infinity Bots | ${stats.servers} servers`)
     })
     
     await fetch('https://api.toxmod.xyz/v1/versions/check')
