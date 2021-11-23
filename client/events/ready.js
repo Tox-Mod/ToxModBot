@@ -15,13 +15,13 @@ const Images = require('@Images/index');
 const Colors = require('@Colors/index');
 const Embeds = require('@Embeds/index');
 
-//const InfinityBotsClient = require('infinityapi.js');
-//const IBL = new InfinityBotsClient(BotListData.ClientID, BotListData.IBL_AUTH);
-const { InfinityAutoPoster } = require('ibl-autopost')
+const InfinityBotsClient = require('infinityapi.js');
+const IBL = new InfinityBotsClient(BotListData.ClientID, BotListData.IBL_AUTH);
+//const { InfinityAutoPoster } = require('ibl-autopost')
 
 module.exports = async (client) => {
     
-  const poster = InfinityAutoPoster(BotListData.IBL_AUTH, client)
+  //const poster = InfinityAutoPoster(BotListData.IBL_AUTH, client)
 
     const ready_channel = client.channels.cache.find(c => c.id === config.BotLogs);
 
@@ -73,12 +73,11 @@ module.exports = async (client) => {
 
     console.log(`[Tox Mod | Bot] Signed in as ${client.user.username} | Loaded: ${eventFiles2.length} Events | Loaded: ${client.commands.size} Commands`);
     
-    //IBL.post(client.guilds.cache.size, '0')
-    //ibl.postStats();
+    IBL.post(client.guilds.cache.size, '0')
 
-    poster.on('posted', (stats) => { // ran when succesfully posted
-      console.log(`Posted stats to Infinity Bots | ${stats.servers} servers`)
-    })
+    //poster.on('posted', (stats) => { // ran when succesfully posted
+    //  console.log(`Posted stats to Infinity Bots | ${stats.servers} servers`)
+    //})
     
     await fetch('https://api.toxmod.xyz/v1/versions/check')
       .then(res => res.json())
