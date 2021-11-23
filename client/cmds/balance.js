@@ -42,8 +42,8 @@ module.exports.run = async (client, message, args, params) => {
 
       return message.channel.send(
         successEmbed.setTitle(`${user.user.username}s Balance`)
-        successEmbed.addField('💵 Balance' `$` + `${amountOfMoney}`, true)
-        successEmbed.addField('💰 Bank', `$` + `0.00`, true)
+        .addField('💵 Balance' `$` + `${amountOfMoney}`, true)
+        .addField('💰 Bank', `$` + `0.00`, true)
      )
   })
 }
