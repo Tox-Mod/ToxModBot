@@ -75,7 +75,7 @@ module.exports = async (client) => {
       console.log(`Posted stats to Infinity Bots | Posted: ${stats.servers} Servers and ${stats.shards} Shards`)
     });
     
-    await fetch('https://api.toxmod.xyz/v1/versions/check')
+    /**await fetch('https://api.toxmod.xyz/v1/versions/check')
       .then(res => res.json())
       .then(json => {
 
@@ -108,5 +108,5 @@ module.exports = async (client) => {
             return ready_channel.send(outdated)
           }
        }
-   })
+   }) **/
 }
