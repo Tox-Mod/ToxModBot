@@ -40,7 +40,7 @@ module.exports.run = async (client, message, args, params) => {
        .setColor(Colors.Success)
        .setTitle(`${user.user.username}s Balance`)
        .addField('💵 Balance', `$` + `${amountOfMoney}`, true)
-       .addField('💰 Bank', `$` + `0.00`, true)
+       .addField('💰 Bank', `$` + `0`, true)
        .setTimestamp()
        .setFooter(Embeds.Footer, Images.Animated)
 
