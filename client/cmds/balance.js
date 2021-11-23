@@ -40,12 +40,12 @@ module.exports.run = async (client, message, args, params) => {
         amountOfMoney = db.balance
       }
 
-      message.channel.send(
-        successEmbed.setTitle(`${user.user.username}'s Balance`)
+      return message.channel.send(
+        successEmbed.setTitle(`${user.user.username}s Balance`)
         successEmbed.addField('💵 Balance' `$` + `${amountOfMoney}`, true)
         successEmbed.addField('💰 Bank', `$` + `0.00`, true)
-)
-    })
+     )
+  })
 }
 
 module.exports.help = {
