@@ -17,14 +17,11 @@ const Embeds = require('@Embeds/index');
 
 //const InfinityBotsClient = require('infinityapi.js');
 //const IBL = new InfinityBotsClient(BotListData.ClientID, BotListData.IBL_AUTH);
-
 const { InfinityAutoPoster } = require('ibl-autopost')
 
 module.exports = async (client) => {
     
-  const poster = AutoPoster(BotListData.IBL_AUTH, client)
-    
-  //const ibl = new InfinityAutoPoster(client, BotListData.IBL_AUTH);
+  const poster = InfinityAutoPoster(BotListData.IBL_AUTH, client)
 
     const ready_channel = client.channels.cache.find(c => c.id === config.BotLogs);
 
