@@ -15,11 +15,6 @@ module.exports.run = async (client, message, args, params) => {
        .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({ format: 'png'}))
        .setColor(Colors.Error)
        .setTimestamp()
-    
-    const successEmbed = new MessageEmbed()
-       .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({ format: 'png'}))
-       .setColor(Colors.Success)
-       .setTimestamp()
 
     
     let user = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.member
@@ -40,11 +35,16 @@ module.exports.run = async (client, message, args, params) => {
         amountOfMoney = db.balance
       }
 
-      return message.channel.send(
-        successEmbed.setTitle(`${user.user.username}s Balance`)
-        .addField('💵 Balance' `$` + `${amountOfMoney}`, true)
-        .addField('💰 Bank', `$` + `0.00`, true)
-     )
+      const successEmbed = new MessageEmbed()
+       .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({ format: 'png'}))
+       .setColor(Colors.Success)
+       .setTitle(`${user.user.username}s Balance`)
+       .addField('💵 Balance', `$` + `${amountOfMoney}`, true)
+       .addField('💰 Bank', `$` + `0.00`, true)
+       .setTimestamp()
+       .setFooter(Embeds.Footer, Images.Animated)
+
+      return message.channel.send(successEmbed)
   })
 }
 
