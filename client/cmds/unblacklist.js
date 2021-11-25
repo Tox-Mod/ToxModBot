@@ -58,10 +58,11 @@ module.exports.run = async (client, message, args, params) => {
           } else {
 
             user.updateOne({ 
-              type: 'user', 
+              type: 'user'}, {$set: {
               isBlacklisted: false, 
               reason: reason,
               length: null, 
+             }
             })
           }
         });
@@ -110,7 +111,7 @@ module.exports.run = async (client, message, args, params) => {
           } else {
 
             server.updateOne({ 
-              type: 'guild', }, {$set: {
+              type: 'guild'}, {$set: {
               isBlacklisted: false, 
               reason: reason, 
               length: null 
