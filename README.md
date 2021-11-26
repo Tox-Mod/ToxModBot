@@ -66,6 +66,8 @@
    <a href="https://railway.app/new/template?template=https%3A%2F%2Fgithub.com%2FTox-Mod%2FToxModBot&plugins=mongodb&envs=AUTH_LOGS%2CADMINS%2CBETA_WL%2CBOT_LOGS%2CBUG_LOGS%2CCLIENT_ID%2CCLIENT_SECRET%2CDEVS%2CDOMAIN%2CERR_LOGS%2CIBL_AUTH%2CJOIN_LOGS%2CMAINTENANCE%2CMONGO_URL%2COWNERS%2CPARADISE_AUTH%2CSERVER_ID%2CSERVER_INV%2CTOKEN%2CVOID_AUTH&optionalEnvs=ADMINS%2CBETA_WL%2CDEVS%2CIBL_AUTH%2COWNERS%2CPARADISE_AUTH%2CVOID_AUTH&AUTH_LOGSDesc=Discord+Channel+ID+to+log+oAuth+Events&ADMINSDesc=Array+of+Discord+User+IDs+for+the+Bot+Admins+%28Use+the+Config%29&BETA_WLDesc=Array+of+Discord+User+IDs+for+Beta+Access+%28Use+the+Config%29&BOT_LOGSDesc=Discord+Channel+ID+for+logging+the+Bots+Events&BUG_LOGSDesc=Discord+Channel+ID+for+logging+Bug+Reports&CLIENT_IDDesc=Discord+Client+%28Bot%29+ID&CLIENT_SECRETDesc=Discord+Client+%28Bot%29+Secret&DEVSDesc=Array+of+Discord+User+IDs+who+are+a+Bot+Dev&DOMAINDesc=Website+Domain+with+Callback&ERR_LOGSDesc=Discord+Channel+ID+for+logging+Website+and+Bot+Errors&IBL_AUTHDesc=Infinity+Bot+List+API+Auth+Token&JOIN_LOGSDesc=Discord+Channel+ID+for+logging+when+the+bot+Joins+and+Leaves+a+Server&MAINTENANCEDesc=Enable+or+Disable+Maintenance+Mode&MONGO_URLDesc=Mongo+Database+Connection+String&OWNERSDesc=Array+of+Discord+IDs+who+are+Bot+Owners&PARADISE_AUTHDesc=Paradise+Bot+List+API+Auth+Token&SERVER_IDDesc=Support+Server+ID&SERVER_INVDesc=Support+Server+Invite&TOKENDesc=Discord+Client+%28Bot%29+Token&VOID_AUTHDesc=Void+Bot+List+API+Auth+Token&DOMAINDefault=https%3A%2F%2Ftoxmod.xyz%2Fcallback&MAINTENANCEDefault=false">
      <img src="https://railway.app/button.svg" alt="Deploy">
    </a>
+   <br><br>
+     NOTE: Railway offers you a Mongo DB where Heroku does not
  </p> 
 </div>
 
