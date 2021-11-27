@@ -46,11 +46,11 @@ route.get("/", checkAuth, checkMaintenance, async (req, res) => {
     if (req.body.commandreload) {
 
         try {
-            delete require.cache[require.resolve(require(`@Cmds/${req.body.commandreload}.js`))]
+            delete require.cache[require.resolve(require(`../../../client/cmds/${req.body.commandreload}.js`))]
 
             client.commands.delete(req.body.commandreload)
 
-            const pull = require(`@Cmds/${req.body.commandreload}.js`)
+            const pull = require(`../../../client/cmds/${req.body.commandreload}.js`)
 
             client.commands.set(req.body.commandreload, pull)
 
