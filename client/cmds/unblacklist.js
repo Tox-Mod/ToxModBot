@@ -41,29 +41,15 @@ module.exports.run = async (client, message, args, params) => {
     
         await BLACKLIST.findOne({
           userID: member.id,
-        }, (err, user) => {
+        }, async (err, user) => {
 
           if (!user) {
 
-            const blacklist = new BLACKLIST({ 
-                  userID: member.id, 
-                  length: null, 
-                  type: 'user', 
-                  isBlacklisted: false, 
-                  reason: reason 
-              })
-
-            blacklist.save()
+           return message.channel.send(`User is not Blacklisted`)
 
           } else {
 
-            user.updateOne({ 
-              type: 'user'}, {$set: {
-              isBlacklisted: false, 
-              reason: reason,
-              length: null, 
-             }
-            })
+            await user.deleteOne()
           }
         });
 
@@ -94,29 +80,15 @@ module.exports.run = async (client, message, args, params) => {
 
         await BLACKLIST.findOne({
           guildID: guild,
-        }, (err, server) => {
+        }, async (err, server) => {
 
           if (!server) {
 
-            const blacklist = new BLACKLIST({ 
-                  guildID: guild.id, 
-                  length: null, 
-                  type: 'guild', 
-                  isBlacklisted: false, 
-                  reason: reason 
-             })
-            
-            blacklist.save()
+            return message.channel.send(`That server is not Blacklisted`)
 
           } else {
 
-            server.updateOne({ 
-              type: 'guild'}, {$set: {
-              isBlacklisted: false, 
-              reason: reason, 
-              length: null 
-             }
-            })
+            await server.deleteOne()
           }
        });
 
