@@ -49,7 +49,7 @@ module.exports.run = async (client, message, args, params) => {
 
           } else {
 
-            await user.deleteOne()
+            await user.deleteMany()
           }
         });
 
@@ -88,7 +88,7 @@ module.exports.run = async (client, message, args, params) => {
 
           } else {
 
-            await server.deleteOne()
+            await server.deleteMany()
           }
        });
 
