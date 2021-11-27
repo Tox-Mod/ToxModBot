@@ -59,6 +59,8 @@ route.get("/", checkAuth, checkMaintenance, async (req, res) => {
         } catch (err) {
 
             errormsg = `Failed to reload the ${req.body.commandreload} Command!`
+
+            console.log(err)
         }
     } else if (req.body.acceptbug) {
 
