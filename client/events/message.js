@@ -302,7 +302,7 @@ module.exports = async (client, message) => {
 
         if (!message.channel.permissionsFor(message.guild.me).toArray().includes("SEND_MESSAGES")) return;
 
-        if (userBlacklistSettings && userBlacklistSettings.isBlacklisted) {
+        if (userBlacklistSettings.isBlacklisted === true) {
 
         let userBlacklisted = new MessageEmbed()
           .setTitle('Uh-Oh, What did you do 🥺')
@@ -317,7 +317,7 @@ module.exports = async (client, message) => {
           return message.channel.send(userBlacklisted);
         }
 
-        if (guildBlacklistSettings && guildBlacklistSettings.isBlacklisted) {
+        if (guildBlacklistSettings.isBlacklisted === true) {
 
         let guildBlacklisted = new MessageEmbed()
           .setTitle('Uh-Oh, What did you do 🥺')
