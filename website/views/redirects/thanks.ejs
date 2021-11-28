@@ -1,0 +1,34 @@
+<html>
+<head>
+    <%- include(headerPath, {
+        bot, user, path,
+        description: 'Woah, Someone thinks i'm cool!',
+        description2: 'Woah, Someone thinks i'm cool!',
+        title: 'Tox Mod | Invite Success',
+        main_title: 'Tox Mod | Invite Success',
+        image: 'none',
+        }) 
+      %>
+</head>
+<body>
+  <%- include('../parts/navbar', { bot, user }) %>
+  <div class="bigthingy row">
+  <div class="seeme col-md-8 offset-md-2 row">
+    <div class="seeme col-sm-2 sinfo">
+      <p id="bigytxt" class="bigyimg" style="font-size:88px;"><i class="fas fa-exclamation-circle"></i></p>
+    </div>
+    <div class="seeme col-sm-10 sinfo">
+        <p id="bigytxt"><span style="font-size:25px; font-weight:bold;">Hey, Thank You ❤️!!</span></p>
+    </div>
+  </div>
+  </div>
+  <br /><br /><br /><br /><br /><br />
+
+  <center>
+     <h2 style="color: white;">Invite Successful!</h2>
+     <br />
+     <p style="color: white;">Thanks for the Invite. We greatly appreciate your support!</p>
+  </center>
+
+</body>
+</html>
