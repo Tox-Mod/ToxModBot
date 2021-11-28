@@ -53,6 +53,7 @@ router.use('/discord', require('@Routes/redirects/discord'));
 router.use('/join', require('@Routes/redirects/discord'));
 router.use('/github', require('@Routes/redirects/github'));
 router.use('/invite', require('@Routes/redirects/invite'));
+router.use('/thanks', require('@Routes/redirects/thanks'));
 
 router.use('/status', require('@Routes/Status'));
 router.use('/staff', require('@Routes/Staff'));
