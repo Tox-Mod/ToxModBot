@@ -20,7 +20,7 @@ const { InfinityBots } = require('infinity-bots');
 
 module.exports = async (client) => {
     
-  //const poster = InfinityAutoPoster(BotListData.IBL_AUTH, client)
+  //const poster = InfinityAutoPoster(client, BotListData.IBL_AUTH)
 
    const poster = new InfinityBots(BotListData.IBL_AUTH, client.user.id);
 
