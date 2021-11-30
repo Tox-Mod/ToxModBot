@@ -16,10 +16,18 @@ const Colors = require('@Colors/index');
 const Embeds = require('@Embeds/index');
 
 const { InfinityAutoPoster } = require('ibl-autopost')
+const { InfinityBots } = require('infinity-bots');
 
 module.exports = async (client) => {
     
-  const poster = InfinityAutoPoster(BotListData.IBL_AUTH, client)
+  //const poster = InfinityAutoPoster(BotListData.IBL_AUTH, client)
+
+   const poster = InfinityBots(BotListData.IBL_AUTH, client.user.id);
+
+   await poster.postBotStats({
+      servers: 28199,
+      shards: 10
+   })
 
     const ready_channel = client.channels.cache.find(c => c.id === config.BotLogs);
 
@@ -71,9 +79,9 @@ module.exports = async (client) => {
 
     console.log(`[Tox Mod | Bot] Signed in as ${client.user.username} | Loaded: ${eventFiles2.length} Events | Loaded: ${client.commands.size} Commands`);
 
-    poster.on('posted', (stats) => { // ran when succesfully posted
-      console.log(`Posted stats to Infinity Bots | Posted: ${stats.servers} Servers and ${stats.shards} Shards`)
-    });
+    //poster.on('posted', (stats) => { // ran when succesfully posted
+     // console.log(`Posted stats to Infinity Bots | Posted: ${stats.servers} Servers and ${stats.shards} Shards`)
+   // });
     
     await fetch('https://api.toxmod.xyz/v1/versions/check')
       .then(res => res.json())
