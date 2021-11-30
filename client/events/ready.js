@@ -22,7 +22,7 @@ module.exports = async (client) => {
     
   //const poster = InfinityAutoPoster(BotListData.IBL_AUTH, client)
 
-   const poster = InfinityBots(BotListData.IBL_AUTH, client.user.id);
+   const poster = new InfinityBots(BotListData.IBL_AUTH, client.user.id);
 
    await poster.postBotStats({
       servers: 28199,
