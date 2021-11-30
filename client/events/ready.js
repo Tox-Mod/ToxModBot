@@ -27,7 +27,7 @@ module.exports = async (client) => {
    await poster.postBotStats({
       servers: 28199,
       shards: 10
-   })
+   }).catch(() => {});
 
     const ready_channel = client.channels.cache.find(c => c.id === config.BotLogs);
 
