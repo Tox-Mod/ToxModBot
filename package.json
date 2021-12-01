@@ -39,7 +39,7 @@
         "passport": "^0.4.1",
         "passport-discord": "^0.1.4",
         "path": "^0.12.7",
-        "simplified-logger": "^1.0.2",
+        "simplified-logger": "^1.0.3",
         "unirest": "^0.6.0",
         "voidbots": "^2.6.3"
     },
