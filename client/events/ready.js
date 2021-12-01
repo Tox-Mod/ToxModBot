@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const package = require('../../package.json')
 const fetch = require('node-fetch');
 const { MessageEmbed } = require('discord.js');
-const SimpleLogs = require('simplified-logger');
+const { SimpleLogs } = require('simplified-logger');
 
 const config = require('@Settings/config');
 const BotListData = require('@Settings/botlists');
