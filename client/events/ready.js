@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 const package = require('../../package.json')
 const fetch = require('node-fetch');
 const { MessageEmbed } = require('discord.js');
+const SimpleLogs = require('simplified-logger');
 
 const config = require('@Settings/config');
 const BotListData = require('@Settings/botlists');
@@ -77,7 +78,8 @@ module.exports = async (client) => {
         i++
     }, 30000);
 
-    console.log(`[Tox Mod | Bot] Signed in as ${client.user.username} | Loaded: ${eventFiles2.length} Events | Loaded: ${client.commands.size} Commands`);
+    //console.log(`[Tox Mod | Bot] Signed in as ${client.user.username} | Loaded: ${eventFiles2.length} Events | Loaded: ${client.commands.size} Commands`);
+    SimpleLogs.log(`Signed in as ${client.user.username}`, 'ready')
 
     //poster.on('posted', (stats) => { // ran when succesfully posted
      // console.log(`Posted stats to Infinity Bots | Posted: ${stats.servers} Servers and ${stats.shards} Shards`)
