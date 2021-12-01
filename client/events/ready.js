@@ -21,16 +21,9 @@ const { InfinityBots } = require('infinity-bots');
 
 module.exports = async (client) => {
     
-  //const poster = InfinityAutoPoster(client, BotListData.IBL_AUTH)
+  const poster = InfinityAutoPoster(BotListData.IBL_AUTH, client)
 
-   const poster = new InfinityBots(BotListData.IBL_AUTH, client.user.id);
-
-   await poster.postBotStats({
-      servers: '28199',
-      shards: '10'
-   }).catch(() => {});
-
-    const ready_channel = client.channels.cache.find(c => c.id === config.BotLogs);
+  const ready_channel = client.channels.cache.find(c => c.id === config.BotLogs);
 
 
     let activities = [
