@@ -24,7 +24,7 @@
         "express-session": "^1.17.1",
         "fs": "0.0.1-security",
         "infinityapi.js": "^1.0.6",
-        "infinity-bots": "^1.1.9",
+        "infinity-bots": "^1.2.0",
         "ibl-autopost": "^1.0.4",   
         "install": "^0.13.0",
         "marked": "^2.1.2",
