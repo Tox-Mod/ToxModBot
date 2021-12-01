@@ -74,9 +74,9 @@ module.exports = async (client) => {
     //console.log(`[Tox Mod | Bot] Signed in as ${client.user.username} | Loaded: ${eventFiles2.length} Events | Loaded: ${client.commands.size} Commands`);
     SimpleLogs.log(`Signed in as ${client.user.username}`, 'ready')
 
-    //poster.on('posted', (stats) => { // ran when succesfully posted
-     // console.log(`Posted stats to Infinity Bots | Posted: ${stats.servers} Servers and ${stats.shards} Shards`)
-   // });
+    poster.on('posted', (stats) => {
+      SimpleLogs.log(`Posted stats to Infinity Bots - Posted: ${stats.servers} Servers and ${stats.shards} Shards`, 'event');
+    });
     
     await fetch('https://api.toxmod.xyz/v1/versions/check')
       .then(res => res.json())
