@@ -10,7 +10,7 @@ const BotListData = require('@Settings/botlists');
 const Images = require('@Images/index');
 const Colors = require('@Colors/index');
 const Embeds = require('@Embeds/index');
-const IBLVoes = require('infinitybots-votes.js');
+const IBLVotes = require('infinitybots-votes.js');
 const voteData = new IBLVotes()
 
 module.exports.run = async (client, message, args, params) => {
