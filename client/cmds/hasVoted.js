@@ -10,7 +10,8 @@ const BotListData = require('@Settings/botlists');
 const Images = require('@Images/index');
 const Colors = require('@Colors/index');
 const Embeds = require('@Embeds/index');
-const { InfinityBots } = require('infinity-bots');
+const IBLVoes = require('infinitybots-votes.js');
+const voteData = new IBLVotes()
 
 module.exports.run = async (client, message, args, params) => {
 
@@ -18,7 +19,8 @@ module.exports.run = async (client, message, args, params) => {
   
     if (!user) return message.channel.send("Please provide a user to check if the have voted");
   
-    let data = InfinityBots.checkUserVoted(`${user}`)
+    //let data = InfinityBots.checkUserVoted(`${user}`)
+    await voteData.checkUserVoted(client.user.id, user.id, function(data){
 
     let embed = new MessageEmbed()
       .setTitle('Info and Statistics')
@@ -30,6 +32,7 @@ module.exports.run = async (client, message, args, params) => {
       .setFooter(Embeds.Footer, Images.Animated)
 
       return message.channel.send(embed)
+    })
 }
 
 module.exports.help = {
