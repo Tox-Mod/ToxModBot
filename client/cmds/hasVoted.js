@@ -13,14 +13,12 @@ const Embeds = require('@Embeds/index');
 const { InfinityBots } = require('infinity-bots');
 
 module.exports.run = async (client, message, args, params) => {
-    
-    const ibl = new InfinityBots(BotListData.IBL_AUTH, client.user.id)
 
     let user = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
   
     if (!user) return message.channel.send("Please provide a user to check if the have voted");
   
-    let data = await ibl.checkUserVoted(`${user.id}`)
+    let data = InfinityBots.checkUserVoted(`${user}`)
 
     let embed = new MessageEmbed()
       .setTitle('Info and Statistics')
