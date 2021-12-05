@@ -16,7 +16,7 @@ module.exports.run = async (client, message, args, params) => {
   
     if (!user) return message.channel.send("Please provide a user to check if the have voted");
   
-    await ibl.checkUserVoted(`${user.id}`, function(data) {
+    let data = await InfinityBots.checkUserVoted(`${user.id}`)
 
     let embed = new MessageEmbed()
       .setTitle('Info and Statistics')
@@ -28,7 +28,6 @@ module.exports.run = async (client, message, args, params) => {
       .setFooter(Embeds.Footer, Images.Animated)
 
       return message.channel.send(embed)
-  })
 }
 
 module.exports.help = {
