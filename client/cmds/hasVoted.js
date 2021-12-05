@@ -15,23 +15,37 @@ const voteData = new IBLVotes()
 
 module.exports.run = async (client, message, args, params) => {
 
-    let user = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
+    let user = message.mentions.members.first() || client.users.cache.get(args[0]);
   
     if (!user) return message.channel.send("Please provide a user to check if the have voted");
   
     //let data = InfinityBots.checkUserVoted(`${user}`)
-    await voteData.checkUserVoted(client.user.id, user.id, function(data){
+    await voteData.checkUserVoted(client.user.id, user.id, function(data) {
+        
+        if (data.hasVoted) {
 
-    let embed = new MessageEmbed()
-      .setTitle('Info and Statistics')
-      .setColor(Colors.Primary)
-      .setThumbnail(Images.Animated)
-      .setImage(Images.Banner)
-      .setDescription(`${data.hasVoted}`)
-      .setTimestamp()
-      .setFooter(Embeds.Footer, Images.Animated)
+          let embed = new MessageEmbed()
+            .setTitle('Vote Check')
+            .setColor(Colors.Primary)
+            .setThumbnail(Images.Animated)
+            .setDescription(`${user.tag} has voted within the last 6 Hours!`)
+            .setTimestamp()
+            .setFooter(Embeds.Footer, Images.Animated)
 
-      return message.channel.send(embed)
+           return message.channel.send(embed)
+            
+        } else {
+            
+          let embed = new MessageEmbed()
+            .setTitle('Vote Check')
+            .setColor(Colors.Primary)
+            .setThumbnail(Images.Animated)
+            .setDescription(`${user.tag} has not voted within the last 6 Hours!`)
+            .setTimestamp()
+            .setFooter(Embeds.Footer, Images.Animated)
+
+           return message.channel.send(embed)
+        }
     })
 }
 
