@@ -8,7 +8,7 @@ const Images = require('@Images/index');
 const Colors = require('@Colors/index');
 const Embeds = require('@Embeds/index');
 const { InfinityBots } = require('infinity-bots');
-const ibl = new InfinityBots('631558023109804032');
+const ibl = new InfinityBots(BotListData.IBL_AUTH, client.user.id)
 
 module.exports.run = async (client, message, args, params) => {
 
@@ -16,7 +16,7 @@ module.exports.run = async (client, message, args, params) => {
   
     if (!user) return message.channel.send("Please provide a user to check if the have voted");
   
-    let data = await InfinityBots.checkUserVoted(`${user.id}`)
+    let data = await ibl.checkUserVoted(`${user.id}`)
 
     let embed = new MessageEmbed()
       .setTitle('Info and Statistics')
