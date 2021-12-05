@@ -4,13 +4,17 @@ const moment = require('moment');
 const fetch = require('node-fetch');
 const package = require('../../package.json')
 
+const config = require('@Settings/config');
+const BotListData = require('@Settings/botlists');
+
 const Images = require('@Images/index');
 const Colors = require('@Colors/index');
 const Embeds = require('@Embeds/index');
 const { InfinityBots } = require('infinity-bots');
-const ibl = new InfinityBots(BotListData.IBL_AUTH, client.user.id)
 
 module.exports.run = async (client, message, args, params) => {
+    
+    const ibl = new InfinityBots(BotListData.IBL_AUTH, client.user.id)
 
     let user = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
   
