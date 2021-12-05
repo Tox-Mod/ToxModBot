@@ -15,7 +15,7 @@ module.exports.run = async (client, message, args, params) => {
   
     if (!user) return message.channel.send("Please provide a user to check if the have voted");
   
-    await InfinityBots.checkUserVoted(`${user.id}`, '631558023109804032', function(data) => {
+    await InfinityBots.checkUserVoted(`${user.id}`, '631558023109804032', function(data) {
 
     let embed = new MessageEmbed()
       .setTitle('Info and Statistics')
