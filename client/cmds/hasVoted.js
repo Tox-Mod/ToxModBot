@@ -28,7 +28,7 @@ module.exports.run = async (client, message, args, params) => {
             .setTitle('Vote Check')
             .setColor(Colors.Primary)
             .setThumbnail(Images.Animated)
-            .setDescription(`${user.tag} has voted within the last 6 Hours!`)
+            .setDescription(`<@!${user.id}> has voted within the last 6 Hours!`)
             .setTimestamp()
             .setFooter(Embeds.Footer, Images.Animated)
 
@@ -40,7 +40,7 @@ module.exports.run = async (client, message, args, params) => {
             .setTitle('Vote Check')
             .setColor(Colors.Primary)
             .setThumbnail(Images.Animated)
-            .setDescription(`${user.tag} has not voted within the last 6 Hours!`)
+            .setDescription(`<@!${user.id}> has not voted within the last 6 Hours!`)
             .setTimestamp()
             .setFooter(Embeds.Footer, Images.Animated)
 
