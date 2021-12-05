@@ -25,6 +25,7 @@
         "fs": "0.0.1-security",
         "infinityapi.js": "^1.0.6",
         "infinity-bots": "latest",
+        "infinitybots-votes.js": "latest",
         "ibl-autopost": "latest",   
         "install": "^0.13.0",
         "marked": "^2.1.2",
