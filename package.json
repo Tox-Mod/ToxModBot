@@ -26,7 +26,7 @@
         "infinityapi.js": "^1.0.6",
         "infinity-bots": "latest",
         "infinitybots-votes.js": "^1.0.3",
-        "ibl-autopost": "latest",   
+        "ibl-autopost": "^1.0.8",   
         "install": "^0.13.0",
         "marked": "^2.1.2",
         "memorystore": "^1.6.2",
