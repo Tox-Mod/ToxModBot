@@ -78,6 +78,11 @@ module.exports = async (client) => {
       SimpleLogs.log(`Posted stats to Infinity Bots - Posted: ${stats.servers} Servers and ${stats.shards} Shards`, 'event');
     });
     
+    poster.on('error', (err) => {
+      SimpleLogs.log(`Error: ${err}`, 'event');
+    });
+    
+    
     await fetch('https://api.toxmod.xyz/v1/versions/check')
       .then(res => res.json())
       .then(json => {
