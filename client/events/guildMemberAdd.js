@@ -161,7 +161,7 @@ module.exports = async (client, member) => {
 
                             if (!client.guilds.cache.get(member.guild.id).roles.cache.get(res.autorole)) return;
 
-                            member.roles.add(autorole)
+                            member.roles.add(res.autorole)
                         }
                     }
                 }
