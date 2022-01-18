@@ -47,7 +47,7 @@ class App {
 
     passport.use(new Strategy({
       clientID: settings.clientID,
-      clientSecret: settings.clientSecret,
+      //clientSecret: settings.clientSecret,
       callbackURL: settings.domain,
       scope: ["identify", "guilds",],
     },
