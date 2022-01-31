@@ -97,7 +97,7 @@ module.exports.run = async (client, message, args, params) => {
             .setTimestamp()
             .setFooter(Embeds.Footer, Images.Animated)
 
-            .catch(() => message.channel.send(Hmmm)) 
+            return message.channel.send(Hmmm).catch(() => {}); 
         }
       } else {
           message.reply("Bruhh, I can't kick the air and would look stupid if i tried. Gimme someone to kick noob!")
