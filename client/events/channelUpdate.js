@@ -24,7 +24,7 @@ module.exports = (client, oldChannel, newChannel) => {
 
                 } else {
 
-                    if (!client.guilds.cache.get(newChannel.guildID).channels.cache.get(res.audit)) return;
+                    if (!client.guilds.cache.get(newChannel.guild.id).channels.cache.get(res.audit)) return;
 
                     if (newChannel.name !== oldChannel.name) {
 
