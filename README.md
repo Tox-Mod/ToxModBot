@@ -9,6 +9,8 @@
 </h1>
 <p align="center">The <a href="https://toxmod.xyz/discord">Discord</a> Bot with a little bit of Attitude.</p>
 
+![](https://infinitybotlist.com/bots/631558023109804032/widget)
+
 <hr>
 
 <h2 align='center'><br>Features</h2>
