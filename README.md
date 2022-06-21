@@ -7,6 +7,8 @@
 </h1>
 <p align="center">The <a href="https://toxmod.xyz/discord">Discord</a> Bot with a little bit of Attitude.</p>
 
+> NOTE: We are actively working on the next major version of Tox Mod ❤️
+
 ![](https://infinitybots.gg/bots/631558023109804032/widget?size=large)
 
 <hr>
