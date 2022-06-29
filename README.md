@@ -1,4 +1,4 @@
-<h1 align='center'><img src="https://toxmod.xyz/images/ToxModLogo.gif" height='100px' width='100px' />
+<h1 align='center'><img src="https://toxmod.xyz/images/ToxModLogo.gif" height='125px' width='125px' />
  <br>
    Tox Mod!
  <br>
